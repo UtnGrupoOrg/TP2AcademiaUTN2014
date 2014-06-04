@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Entities
 {
-    public class BusinessEntity
+    public class BusinessEntity //prueba
     {
 
         public BusinessEntity()
