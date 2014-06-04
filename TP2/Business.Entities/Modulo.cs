@@ -7,18 +7,12 @@ namespace Business.Entities
 {
     public class Modulo : BusinessEntity
     {
-        private string _Descripcion;
+        private int _Descripcion;
 
-        public string Descripcion
+        public int Descripcion
         {
-            get
-            {
-                return _Descripcion;
-            }
-            set
-            {
-                _Descripcion = value;
-            }
+            get { return _Descripcion; }
+            set { _Descripcion = value; }
         }
     }
 }

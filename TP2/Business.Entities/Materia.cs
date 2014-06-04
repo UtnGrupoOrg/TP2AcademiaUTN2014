@@ -8,32 +8,32 @@ namespace Business.Entities
     public class Materia : BusinessEntity
     {
         private string _Descripcion;
-        private int _HSSemanales;
-        private int _HSTotales;
-        private int _IDPlan;
 
         public string Descripcion
         {
             get { return _Descripcion; }
             set { _Descripcion = value; }
-        }        
+        }
+        private int _HSSemanales;
 
         public int HSSemanales
         {
             get { return _HSSemanales; }
             set { _HSSemanales = value; }
-        }        
+        }
+        private int _HSTotales;
 
         public int HSTotales
         {
             get { return _HSTotales; }
             set { _HSTotales = value; }
-        }        
+        }
+        private int _IdPlan;
 
-        public int IDPlan
+        public int IdPlan
         {
-            get { return _IDPlan; }
-            set { _IDPlan = value; }
+            get { return _IdPlan; }
+            set { _IdPlan = value; }
         }
     }
 }
