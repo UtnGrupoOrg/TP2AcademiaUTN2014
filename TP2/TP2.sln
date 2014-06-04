@@ -1,0 +1,127 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Desktop", "UI.Desktop\UI.Desktop\UI.Desktop.csproj", "{FD1023E5-FDBE-4352-9455-A88FF3128302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Entities", "Business.Entities\Business.Entities.csproj", "{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", "{37C9D69E-AD9C-4C66-B441-106B61AEE66B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic", "Business.Logic\Business.Logic.csproj", "{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UI.Web", "http://localhost:45800", "{9D838F34-B507-4B8F-B1B9-8466C1C31002}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_45800"
+		Debug.AspNetCompiler.PhysicalPath = "UI.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_45800\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_45800"
+		Release.AspNetCompiler.PhysicalPath = "UI.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_45800\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "UI.Web\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs37
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = UI.Desktop\\UI.Desktop\\UI.Desktop.csproj
+		SccProjectName1 = UI.Desktop/UI.Desktop
+		SccLocalPath1 = UI.Desktop\\UI.Desktop
+		SccProjectUniqueName2 = Util\\Util.csproj
+		SccProjectName2 = Util
+		SccLocalPath2 = Util
+		SccProjectUniqueName3 = Business.Logic\\Business.Logic.csproj
+		SccProjectName3 = Business.Logic
+		SccLocalPath3 = Business.Logic
+		SccProjectUniqueName4 = Business.Entities\\Business.Entities.csproj
+		SccProjectName4 = Business.Entities
+		SccLocalPath4 = Business.Entities
+		SccWebProject5 = true
+		SccProjectUniqueName5 = http://localhost:45800
+		SccProjectName5 = UI.Web
+		SccLocalPath5 = UI.Web
+		SccProjectEnlistmentChoice5 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Debug|x86.ActiveCfg = Debug|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Debug|x86.Build.0 = Debug|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Release|Any CPU.ActiveCfg = Release|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Release|Mixed Platforms.Build.0 = Release|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Release|x86.ActiveCfg = Release|x86
+		{FD1023E5-FDBE-4352-9455-A88FF3128302}.Release|x86.Build.0 = Release|x86
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5B58EF4F-AB50-4BF0-BE91-6DC0A8AB6F18}.Release|x86.ActiveCfg = Release|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{37C9D69E-AD9C-4C66-B441-106B61AEE66B}.Release|x86.ActiveCfg = Release|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C69E2F53-9459-4407-80AC-3DFE0AC8DA8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9D838F34-B507-4B8F-B1B9-8466C1C31002}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
