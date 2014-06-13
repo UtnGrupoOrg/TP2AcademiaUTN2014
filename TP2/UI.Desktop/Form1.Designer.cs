@@ -31,7 +31,7 @@
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.lblUsu = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
-            this.txtUsu = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lnkOlvidaPass = new System.Windows.Forms.LinkLabel();
@@ -65,17 +65,18 @@
             this.lblPass.TabIndex = 2;
             this.lblPass.Text = "Contraseña:";
             // 
-            // txtUsu
+            // txtUsuario
             // 
-            this.txtUsu.Location = new System.Drawing.Point(149, 55);
-            this.txtUsu.Name = "txtUsu";
-            this.txtUsu.Size = new System.Drawing.Size(194, 20);
-            this.txtUsu.TabIndex = 3;
+            this.txtUsuario.Location = new System.Drawing.Point(149, 55);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(194, 20);
+            this.txtUsuario.TabIndex = 3;
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(149, 81);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(194, 20);
             this.txtPass.TabIndex = 4;
             // 
@@ -87,6 +88,7 @@
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // lnkOlvidaPass
             // 
@@ -97,6 +99,7 @@
             this.lnkOlvidaPass.TabIndex = 6;
             this.lnkOlvidaPass.TabStop = true;
             this.lnkOlvidaPass.Text = "Olvidé mi contraseña";
+            this.lnkOlvidaPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOlvidaPass_LinkClicked);
             // 
             // formLogin
             // 
@@ -106,7 +109,7 @@
             this.Controls.Add(this.lnkOlvidaPass);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtUsu);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUsu);
             this.Controls.Add(this.lblBienvenida);
@@ -125,7 +128,7 @@
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Label lblUsu;
         private System.Windows.Forms.Label lblPass;
-        private System.Windows.Forms.TextBox txtUsu;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.LinkLabel lnkOlvidaPass;

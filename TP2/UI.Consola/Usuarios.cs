@@ -68,7 +68,7 @@ namespace UI.Consola
             Console.WriteLine("\t\tNombre: {0}", usr.Nombre);
             Console.WriteLine("\t\tApellido: {0}", usr.Apellido);
             Console.WriteLine("\t\tNombre de Usuario: {0}", usr.NombreUsuario);
-            Console.WriteLine("\t\tClave: {0}", usr.Clave);
+            Console.WriteLine("\t\tClave: {0}", usr.Clave); // TODO eliminar en el futuro, ya que no va a estar almacenada en texto plano
             Console.WriteLine("\t\tEmail: {0}", usr.Email);
             Console.WriteLine("\t\tHabilitado: {0}", usr.Habilitado);
             Console.WriteLine();
