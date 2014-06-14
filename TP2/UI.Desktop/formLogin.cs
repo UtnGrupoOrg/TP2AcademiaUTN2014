@@ -28,23 +28,7 @@ namespace UI.Desktop
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             validarLogin();
-        }
-
-        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                validarLogin();
-            }
-        }
-
-        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                validarLogin();
-            }
-        }
+        }      
         
         /// <summary>
         /// Muestra si el usuario/contraseña es correcto o nó.
@@ -57,6 +41,7 @@ namespace UI.Desktop
                 {
                     MessageBox.Show("Usted ha ingresado al sistema correctamente."
                     , "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
