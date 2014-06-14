@@ -41,5 +41,19 @@ namespace Business.Logic
         {
             UsuarioData.Delete(ID);
         }
+        public bool identificarUsuario(string usu, string pass)
+        {
+            List<Usuario> listUsuarios = this.GetAll();
+            Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);
+            bool estado = false;
+            if (usuario != null)
+            {
+                if(usuario.isPassword(pass))
+                {
+                    return estado = true;
+                }
+            }            
+            return estado;
+        }
     }
 }

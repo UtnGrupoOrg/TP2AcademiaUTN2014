@@ -19,7 +19,7 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (this.txtUsuario.Text == "admin" && this.txtPass.Text == "admin") // TODO modificar la forma de validacion de password
+            if (usu.identificarUsuario(txtUsuario.Text, txtUsuario.Text))
             {
                 MessageBox.Show("Usted ha ingresado al sistema correctamente."
                 , "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
