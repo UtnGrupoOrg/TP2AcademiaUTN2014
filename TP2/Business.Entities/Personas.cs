@@ -7,7 +7,7 @@ namespace Business.Entities
 {
     public class Personas : BusinessEntity
     {
-        public enum TiposPersonas { }
+        public enum TiposPersonas {Alumno,Docente }
 
         private string _Apellido;
 
