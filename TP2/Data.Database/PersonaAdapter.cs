@@ -6,18 +6,20 @@ using System.Text;
 namespace Data.Database
 {   
     public class PersonaAdapter
-    {
-        
+    {      
         
 
         public void Delete(int ID)
         {
             throw new NotImplementedException();
-        }
-
-     
+        }     
 
         public void Save(Business.Entities.Personas persona)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Business.Entities.Personas> GetAll()
         {
             throw new NotImplementedException();
         }
@@ -27,7 +29,7 @@ namespace Data.Database
             throw new NotImplementedException();
         }
 
-        public Business.Entities.Usuario GetOne(int ID, Business.Entities.Personas.TiposPersonas tipoPersona)
+        public Business.Entities.Usuario GetOne(int ID)
         {
             throw new NotImplementedException();
         }

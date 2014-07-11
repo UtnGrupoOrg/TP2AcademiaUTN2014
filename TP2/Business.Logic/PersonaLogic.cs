@@ -21,15 +21,18 @@ namespace Business.Logic
         {
             PersonaData = new PersonaAdapter();
         }
-
+        public List<Personas> GetAll()
+        {
+            return PersonaData.GetAll();
+        }
         public List<Personas> GetAll(Personas.TiposPersonas tipoPersona)
         {
             return PersonaData.GetAll(tipoPersona);
         }
 
-        public Usuario GetOne(int ID, Personas.TiposPersonas tipoPersona)
+        public Usuario GetOne(int ID)
         {
-            return PersonaData.GetOne(ID,tipoPersona);
+            return PersonaData.GetOne(ID);
         }
 
         public void Save(Personas persona)
@@ -37,7 +40,7 @@ namespace Business.Logic
             PersonaData.Save(persona);
         }
 
-        public void Delete(int ID,Personas.TiposPersonas)
+        public void Delete(int ID)
         {
             PersonaData.Delete(ID);
         }
