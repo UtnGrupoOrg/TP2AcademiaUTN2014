@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data.Database
 {   
-    public class PersonaAdapter
+    public class PersonaAdapter : Adapter
     {      
         
 
