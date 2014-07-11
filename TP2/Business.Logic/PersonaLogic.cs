@@ -37,10 +37,12 @@ namespace Business.Logic
             PersonaData.Save(persona);
         }
 
-        public void Delete(int ID,Personas.TiposPersonas)
+        public void Delete(int ID)
         {
-            PersonaData.Delete(ID);
+            this.PersonaData.Delete(ID);
+            
         }
+        
 
 
     }

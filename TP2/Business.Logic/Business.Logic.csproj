@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlumnoAdapter.cs" />
+    <Compile Include="CursoLogic.cs" />
+    <Compile Include="EspecialidadLogic.cs" />
+    <Compile Include="MateriaLogic.cs" />
     <Compile Include="PersonaLogic.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,9 +58,6 @@
       <Project>{b23d7790-bc2f-4ff1-b633-36dc874f30db}</Project>
       <Name>Data.Database</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
