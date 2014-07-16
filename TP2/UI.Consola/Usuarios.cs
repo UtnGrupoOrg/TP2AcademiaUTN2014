@@ -207,10 +207,17 @@ namespace UI.Consola
         public void ListadoGeneral()
         {
             Console.Clear();
-            
-            foreach (Usuario usr in UsuarioNegocio.GetAll())
+
+            try
             {
-                this.MostrarDatos(usr);
+                foreach (Usuario usr in UsuarioNegocio.GetAll())
+                {
+                    this.MostrarDatos(usr);
+                }
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
             }
         }
 
