@@ -80,7 +80,7 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese ID del usuario a eliminar");
+                Console.WriteLine("Ingrese ID del usuario a eliminar: ");
                 int ID = int.Parse(Console.ReadLine());
                 UsuarioNegocio.Delete(ID);
             }
@@ -106,7 +106,7 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.Write("Ingrese ID del usuario a modidicar");
+                Console.Write("Ingrese ID del usuario a modidicar: ");
                 int ID = int.Parse(Console.ReadLine());
                 Usuario usuario = UsuarioNegocio.GetOne(ID);
                 usuario= this.ModificarDatosDeUsuario(usuario);
@@ -148,11 +148,11 @@ namespace UI.Consola
             usuario.Nombre = Console.ReadLine();
             Console.Write("Ingrese Apeliido: ");
             usuario.Apellido = Console.ReadLine();
-            Console.Write("Ingrese Nombre de Usuario");
+            Console.Write("Ingrese Nombre de Usuario: ");
             usuario.NombreUsuario = Console.ReadLine();
-            Console.Write("Ingrese Clave");
+            Console.Write("Ingrese Clave: ");
             usuario.Clave = Console.ReadLine();
-            Console.Write("Ingrese Email");
+            Console.Write("Ingrese Email: ");
             usuario.Email = Console.ReadLine();
             Console.Write("Ingrese Habilitacion de usuario (1-Si/Otro-No) : ");
             usuario.Habilitado = (Console.ReadLine() == "1");
@@ -178,7 +178,7 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese el ID del usuario a consultar");
+                Console.WriteLine("Ingrese el ID del usuario a consultar: ");
                 int ID = int.Parse(Console.ReadLine());
                 this.MostrarDatos(UsuarioNegocio.GetOne(ID));
             }
