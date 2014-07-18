@@ -13,7 +13,15 @@ namespace Business.Logic
 
         public UsuarioLogic()
         {
-            UsuarioData= new  UsuarioAdapter();
+            try
+            {
+                UsuarioData = new UsuarioAdapter();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExceptionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+                throw ExceptionManejada;
+            }
         }
 
         public UsuarioAdapter UsuarioData
