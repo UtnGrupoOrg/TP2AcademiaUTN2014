@@ -52,9 +52,6 @@ namespace Business.Logic
         /// <summary>
         /// Valida si el usuario y la contraseña son correctos.
         /// </summary>
-        /// <param name="usu"></param>
-        /// <param name="pass"></param>
-        /// <returns></returns>
         public bool identificarUsuario(string usu, string pass) // TODO validar por valores nulos
         {
             List<Usuario> listUsuarios = this.GetAll();

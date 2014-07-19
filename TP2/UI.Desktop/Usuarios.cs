@@ -21,12 +21,10 @@ namespace UI.Desktop
             UsuarioNegocio = new UsuarioLogic();
         }
         /// <summary>
-        /// <para>Llama al identificarUsuario de <see cref="Business.Logic.UsuarioLogic"/></para>
+        /// Llama al identificarUsuario de <see cref="Business.Logic.UsuarioLogic"/>.
         /// <seealso cref="Business.Logic.UsuarioLogic.identificarUsuario"/>
         /// </summary>
-        /// <param name="usu"></param>
-        /// <param name="pass"></param>
-        /// <returns></returns>
+
         public bool identificarUsuario(string usu, string pass)
         {
             return UsuarioNegocio.identificarUsuario(usu, pass);

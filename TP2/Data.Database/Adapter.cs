@@ -31,10 +31,5 @@ namespace Data.Database
             SqlConn.Close();
             SqlConn=null;
         }
-
-        protected SqlDataReader ExecuteReader(String commandText)
-        {
-            throw new Exception("Metodo no implementado");
-        }
     }
 }

@@ -8,87 +8,28 @@ using System.Data;
 namespace Data.Database
 {
     public class UsuarioAdapter:Adapter
-    {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Usuario> _Usuarios;
-
-        private static List<Usuario> Usuarios
-        {
-            get
-            {
-                if (_Usuarios == null)
-                {
-                    _Usuarios = new List<Business.Entities.Usuario>();
-                    Business.Entities.Usuario usr;
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 1;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Casimiro";
-                    usr.Apellido = "Cegado";
-                    usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
-                    usr.Email = "casimirocegado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 2;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Armando Esteban";
-                    usr.Apellido = "Quito";
-                    usr.NombreUsuario = "aequito";
-                    usr.Clave = "carpintero";
-                    usr.Email = "armandoquito@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 3;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Alan";
-                    usr.Apellido = "Brado";
-                    usr.NombreUsuario = "alanbrado";
-                    usr.Clave = "abrete sesamo";
-                    usr.Email = "alanbrado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                }
-                return _Usuarios;
-            }
-        }
-        #endregion
-
-        public List<Usuario> GetAll() //TODO sintetizar metodos y remover redundancia
+    {  
+        
+        public List<Usuario> GetAll() 
         {
             List<Usuario> usuarios = new List<Usuario>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios", SqlConn);
-                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT * FROM usuarios", SqlConn);
+                SqlDataReader drUsuarios = cmdGetAll.ExecuteReader();
 
                 while (drUsuarios.Read())
                 {
                     Usuario usr = new Usuario();
-
-                    usr.ID = (int)drUsuarios["id_usuario"];
-                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                    usr.Clave = (string)drUsuarios["clave"];
-                    usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.Email = (string)drUsuarios["email"];
+                    this.assignData(usr, drUsuarios);
                     usuarios.Add(usr);
                 }
                 drUsuarios.Close();
             }
             catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuarios", Ex);
-                throw ExcepcionManejada;
+            {                
+                throw new Exception("Error al recuperar datos de usuarios", Ex);
             }
             finally
             {
@@ -103,25 +44,18 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE id_usuario=@id", SqlConn);
-                cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                SqlCommand cmdGetOne = new SqlCommand("SELECT * FROM usuarios WHERE id_usuario=@id", SqlConn);
+                cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drUsuarios = cmdGetOne.ExecuteReader();
                 if(drUsuarios.Read())
                 {
-                    usr.ID = (int)drUsuarios["id_usuario"];
-                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                    usr.Clave = (string)drUsuarios["clave"];
-                    usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    usr.Nombre = (string)drUsuarios["nombre"];
-                    usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.Email = (string)drUsuarios["email"];
+                    this.assignData(usr, drUsuarios);
                 }
                 drUsuarios.Close();
             }
             catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario", Ex);
-                throw ExcepcionManejada;
+            {               
+                throw new Exception("Error al recuperar datos del usuario", Ex);
             }
             finally
             {
@@ -141,9 +75,8 @@ namespace Data.Database
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al eliminar el usuario", Ex);
-                throw ExcepcionManejada;
+            {                
+                throw new Exception("Error al eliminar el usuario", Ex);
             }
             finally
             {
@@ -174,21 +107,14 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario,"+
                                         "clave=@clave, habilitado = @habilitado, nombre=@nombre,apellido=@apellido,"+
-                                        "email=@email WHERE id_usuario=@id", SqlConn);
-
+                                        "email=@email WHERE id_usuario=@id", SqlConn);                
+                insertParameters(cmdUpdate, usuario);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = usuario.ID;
-                cmdUpdate.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
-                cmdUpdate.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
-                cmdUpdate.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdUpdate.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", Ex);
-                throw ExcepcionManejada;
+            {  
+                throw new Exception("Error al modificar datos del usuario", Ex);
             }
             finally
             {
@@ -200,26 +126,49 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado," +
+                SqlCommand cmdInsert = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado," +
                                         "nombre,apellido,email) values(@nombre_usuario,@clave,@habilitado," +
                                         "@nombre,@apellido,@email) SELECT SCOPE_IDENTITY()", SqlConn);
-                cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
-                cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
-                cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
-                usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                insertParameters(cmdInsert, usuario);
+                usuario.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
-                throw ExcepcionManejada;
+            {                
+                throw new Exception("Error al crear usuario", Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
+        }
+        /// <summary>
+        /// Asigna los datos de la base de datos al objeto usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="dataReader"></param>
+        private void assignData(Usuario usuario, SqlDataReader dataReader)
+        {
+            usuario.ID = (int)dataReader["id_usuario"];
+            usuario.NombreUsuario = (string)dataReader["nombre_usuario"];
+            usuario.Clave = (string)dataReader["clave"];
+            usuario.Habilitado = (bool)dataReader["habilitado"];
+            usuario.Nombre = (string)dataReader["nombre"];
+            usuario.Apellido = (string)dataReader["apellido"];
+            usuario.Email = (string)dataReader["email"];
+        }
+        /// <summary>
+        /// Agrega los datos del usuario al comando, excepto el ID.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="usuario"></param>
+        private void insertParameters(SqlCommand command, Usuario usuario)
+        {
+            command.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
+            command.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
+            command.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
+            command.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
+            command.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
+            command.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
         }
     }
 }

@@ -21,21 +21,21 @@ namespace Business.Logic
         {
             PersonaData = new PersonaAdapter();
         }
-        public List<Personas> GetAll()
+        public List<Persona> GetAll()
         {
             return PersonaData.GetAll();
         }
-        public List<Personas> GetAll(Personas.TiposPersonas tipoPersona)
+        public List<Persona> GetAll(Persona.TiposPersonas tipoPersona)
         {
             return PersonaData.GetAll(tipoPersona);
         }
 
-        public Usuario GetOne(int ID)
+        public Persona GetOne(int ID)
         {
             return PersonaData.GetOne(ID);
         }
 
-        public void Save(Personas persona)
+        public void Save(Persona persona)
         {
             PersonaData.Save(persona);
         }
