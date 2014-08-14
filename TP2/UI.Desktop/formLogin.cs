@@ -12,11 +12,11 @@ namespace UI.Desktop
 {
     public partial class formLogin : Form
     {
-        Usuarios usu = null;
+        Business.Logic.UsuarioLogic usu;
         public formLogin()
         {
             InitializeComponent();
-            usu = new Usuarios();
+            usu = new Business.Logic.UsuarioLogic();
         }
 
         private void lnkOlvidaPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
