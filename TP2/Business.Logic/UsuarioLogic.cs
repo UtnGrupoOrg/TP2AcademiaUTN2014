@@ -52,14 +52,14 @@ namespace Business.Logic
         /// <summary>
         /// Valida si el usuario y la contraseña son correctos.
         /// </summary>
-        public bool identificarUsuario(string usu, string pass) // TODO validar por valores nulos  
+        public bool identificarUsuario(string usu, string pass) // TODO validar por valores nulos
         {
             List<Usuario> listUsuarios = this.GetAll();
             Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);
             bool estado = false;
             if (usuario != null)
             {
-                if(usuario.Clave == pass)
+                if(usuario.isPassword(pass))
                 {
                     return estado = true;
                 }
