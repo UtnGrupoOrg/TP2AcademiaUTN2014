@@ -50,12 +50,15 @@ namespace Business.Entities
             get { return _Habilitado; }
             set { _Habilitado = value; }
         }
+
         public bool isPassword(string pass)
         {
-            if (this.Clave == pass)
+            if (this.Clave.Equals(pass))
             {
                 return true;
-            }else {
+            }
+            else
+            {
                 return false;
             }
         }
