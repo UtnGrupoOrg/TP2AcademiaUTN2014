@@ -16,12 +16,27 @@ namespace UI.Desktop
         public formUsuarios()
         {
             InitializeComponent();
-
         }
 
         public void Listar()
         {
+            UsuarioLogic ul = new UsuarioLogic();
+            this.dgvUsuarios.DataSource=ul.GetAll();
+        }
 
+        private void formUsuarios_Load(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
