@@ -108,7 +108,7 @@ namespace UI.Desktop
                 Notificar("La contrasenia debe ser de 8 caracteres o mas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (String.Equals(this.txtClave.Text, this.txtConfirmarClave.Text))
+            else if (!String.Equals(this.txtClave.Text, this.txtConfirmarClave.Text))
             {
                 Notificar("Los campos de contrasenias nos son iguales", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -138,7 +138,7 @@ namespace UI.Desktop
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
     }
 }

@@ -21,10 +21,10 @@ namespace UI.Desktop
             this.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formUsuarios formUsu = new formUsuarios();
-            formUsu.ShowDialog();
-        }        
+            formUsu.Show();
+        }      
     }
 }
