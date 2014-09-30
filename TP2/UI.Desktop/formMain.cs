@@ -19,12 +19,18 @@ namespace UI.Desktop
         private void mnuSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
+        }        
 
-        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formUsuarios formUsu = new formUsuarios();
             formUsu.Show();
+        }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formMaterias formmat = new formMaterias();
+            formmat.Show();
         }      
     }
 }

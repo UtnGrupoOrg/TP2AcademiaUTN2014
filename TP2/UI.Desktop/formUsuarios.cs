@@ -22,7 +22,15 @@ namespace UI.Desktop
         public void Listar()
         {
             UsuarioLogic ul = new UsuarioLogic();
-            this.dgvUsuarios.DataSource=ul.GetAll();
+            try
+            {
+                this.dgvUsuarios.DataSource = ul.GetAll();
+            }
+            catch (Exception)
+            {
+                // TODO agregar excepcion
+                throw;
+            }
         }
 
         private void formUsuarios_Load(object sender, EventArgs e)

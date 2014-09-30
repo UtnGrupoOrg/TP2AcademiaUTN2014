@@ -7,7 +7,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    class MateriaLogic :BusinessLogic
+    public class MateriaLogic :BusinessLogic
     {
         private MateriaAdapter _MateriaData;
 

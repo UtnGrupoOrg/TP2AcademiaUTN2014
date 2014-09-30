@@ -54,15 +54,25 @@ namespace Business.Logic
         /// </summary>
         public bool identificarUsuario(string usu, string pass) // TODO validar por valores nulos
         {
-            List<Usuario> listUsuarios = this.GetAll();
-            Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);
+            List<Usuario> listUsuarios;
             bool estado = false;
-            if (usuario != null)
+            try
             {
-                if(usuario.isPassword(pass))
+                listUsuarios = this.GetAll();
+                Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);
+                
+                if (usuario != null)
                 {
-                    return estado = true;
-                }
+                    if (usuario.isPassword(pass))
+                    {
+                        return estado = true;
+                    }
+                }  
+            }
+            catch (Exception)
+            {
+                // TODO agregar excepcion
+                throw;
             }            
             return estado;
         }

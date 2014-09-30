@@ -6,7 +6,7 @@ using Data.Database;
 
 namespace Business.Logic
 {
-    class CursoLogic
+    public class CursoLogic
     {
         private CursoAdapter _CursoData;
 
