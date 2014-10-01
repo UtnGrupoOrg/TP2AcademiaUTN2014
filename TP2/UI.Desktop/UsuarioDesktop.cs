@@ -49,6 +49,13 @@ namespace UI.Desktop
             else if (Modo == ApplicationForm.ModoForm.Baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+                this.chkHabilitado.AutoCheck = false;
+                this.txtNombre.ReadOnly = true;
+                this.txtApellido.ReadOnly = true;
+                this.txtEmail.ReadOnly = true;
+                this.txtClave.ReadOnly = true;
+                this.txtConfirmarClave.ReadOnly = true;
+                this.txtUsuario.ReadOnly = true;
             }
             else if (Modo == ApplicationForm.ModoForm.Consulta)
             {
@@ -132,7 +139,17 @@ namespace UI.Desktop
         {
             if (this.Validar())
             {
-                this.GuardarCambios();
+                if (this.Modo == ModoForm.Baja)
+                {
+                    DialogResult result = MessageBox.Show("Realmente desea eliminar el usuario: " + this.txtUsuario.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.GuardarCambios();
+                    }
+                }
+                else { 
+                    this.GuardarCambios(); 
+                }                
                 this.Close();
             }
         }

@@ -172,28 +172,28 @@
             // 
             // Descripcion
             // 
-            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.DataPropertyName = "desc_materia";
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
             // Horas_Semanales
             // 
-            this.Horas_Semanales.DataPropertyName = "hssemanales";
+            this.Horas_Semanales.DataPropertyName = "hs_semanales";
             this.Horas_Semanales.HeaderText = "Horas Semanales";
             this.Horas_Semanales.Name = "Horas_Semanales";
             this.Horas_Semanales.ReadOnly = true;
             // 
             // Horas_Totales
             // 
-            this.Horas_Totales.DataPropertyName = "hstotales";
+            this.Horas_Totales.DataPropertyName = "hs_totales";
             this.Horas_Totales.HeaderText = "Horas Totales";
             this.Horas_Totales.Name = "Horas_Totales";
             this.Horas_Totales.ReadOnly = true;
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "plan";
+            this.Plan.DataPropertyName = "desc_plan";
             this.Plan.HeaderText = "Plan";
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;

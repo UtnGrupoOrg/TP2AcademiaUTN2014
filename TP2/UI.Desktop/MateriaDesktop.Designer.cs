@@ -173,6 +173,7 @@
             // 
             this.cbxPlan.DisplayMember = "Descripcion";
             this.cbxPlan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPlan.FormattingEnabled = true;
             this.cbxPlan.Location = new System.Drawing.Point(286, 29);
             this.cbxPlan.Name = "cbxPlan";

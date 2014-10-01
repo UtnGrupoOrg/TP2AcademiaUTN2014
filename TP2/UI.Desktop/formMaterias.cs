@@ -20,32 +20,7 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            List<Materia> materias = new MateriaLogic().GetAll();
-
-            DataTable datasource = new DataTable("Materias");
-
-            datasource.Columns.Add(new DataColumn("id_materia", System.Type.GetType("System.String")));
-            datasource.Columns.Add(new DataColumn("descripcion", System.Type.GetType("System.String")));
-            datasource.Columns.Add(new DataColumn("hssemanales", System.Type.GetType("System.Int32")));
-            datasource.Columns.Add(new DataColumn("hstotales", System.Type.GetType("System.Int32")));
-            datasource.Columns.Add(new DataColumn("id_plan", System.Type.GetType("System.Int32")));
-            datasource.Columns.Add(new DataColumn("plan", System.Type.GetType("System.String")));
-            
-            List<Plan> planes = new PlanLogic().GetAll();
-            DataRow row;
-            foreach (Materia mat in materias)
-            {
-                row = datasource.NewRow();
-                row["id_materia"] = mat.ID;
-                row["descripcion"] = mat.Descripcion;
-                row["hssemanales"] = mat.HSSemanales;
-                row["hstotales"] = mat.HSTotales;
-                row["id_plan"] = mat.IdPlan;
-                row["plan"] = planes.Find(x => x.ID == mat.IdPlan).Descripcion;
-                datasource.Rows.Add(row);
-            }
-            this.dgvMaterias.DataSource = datasource;
-       
+            this.dgvMaterias.DataSource = new MateriaLogic().GetAllWithPlanDescription();       
         }
 
         private void formMaterias_Load(object sender, EventArgs e)

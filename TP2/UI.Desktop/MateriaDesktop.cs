@@ -61,6 +61,10 @@ namespace UI.Desktop
             else if (Modo == ApplicationForm.ModoForm.Baja)
             {
                 this.btnAceptar.Text = "Eliminar";
+                this.txtDescripcion.ReadOnly = true;
+                this.txtHorasSemanales.ReadOnly = true;
+                this.txtHorasTotales.ReadOnly = true;
+                this.cbxPlan.Enabled = false;
             }
             else if (Modo == ApplicationForm.ModoForm.Consulta)
             {
@@ -125,7 +129,18 @@ namespace UI.Desktop
         {
             if (this.Validar())
             {
-                this.GuardarCambios();
+                if (this.Modo == ModoForm.Baja)
+                {
+                    DialogResult result = MessageBox.Show("Realmente desea eliminar la materia: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.GuardarCambios();
+                    }
+                }
+                else
+                {
+                    this.GuardarCambios();
+                }
                 this.Close();
             }
         }

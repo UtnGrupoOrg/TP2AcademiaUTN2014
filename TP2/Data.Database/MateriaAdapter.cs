@@ -38,6 +38,29 @@ namespace Data.Database
             return materias;
 
         }
+        public DataTable GetAllWithPlanDescription()
+        {
+            DataTable materias = new DataTable("Materias");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT id_materia, desc_materia, hs_semanales,hs_totales,materias.id_plan,desc_plan " +
+                                                     "FROM materias JOIN planes on planes.id_plan = materias.id_plan", SqlConn);
+                SqlDataReader drMaterias = cmdGetAll.ExecuteReader();
+                materias.Load(drMaterias);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las materias", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return materias;
+
+        }
+
         public Materia GetOne(int ID)
         {
             Materia mat = new Materia();

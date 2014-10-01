@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data.Database;
+using System.Data;
 using Business.Entities;
 
 namespace Business.Logic
@@ -26,7 +27,10 @@ namespace Business.Logic
         {
             return this.MateriaData.GetAll();
         }
-
+        public DataTable GetAllWithPlanDescription()
+        {
+            return this.MateriaData.GetAllWithPlanDescription();
+        }
         public Materia GetOne(int ID)
         {
             return this.MateriaData.GetOne(ID);
