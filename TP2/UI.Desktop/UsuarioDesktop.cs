@@ -97,7 +97,7 @@ namespace UI.Desktop
         }
         public override bool Validar()
         {
-            if (String.IsNullOrEmpty(this.txtID.Text) || String.IsNullOrEmpty(this.txtNombre.Text) || String.IsNullOrEmpty(this.txtApellido.Text)
+            if ( String.IsNullOrEmpty(this.txtNombre.Text) || String.IsNullOrEmpty(this.txtApellido.Text)
                 || String.IsNullOrEmpty(this.txtUsuario.Text) || String.IsNullOrEmpty(this.txtEmail.Text) || String.IsNullOrEmpty(this.txtConfirmarClave.Text)
                 || String.IsNullOrEmpty(this.txtClave.Text))
             {

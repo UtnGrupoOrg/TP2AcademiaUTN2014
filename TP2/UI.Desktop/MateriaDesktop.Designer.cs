@@ -47,10 +47,10 @@
             // tlMateriaDesktop
             // 
             this.tlMateriaDesktop.ColumnCount = 4;
-            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlMateriaDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlMateriaDesktop.Controls.Add(this.lblID, 0, 0);
             this.tlMateriaDesktop.Controls.Add(this.lblDescripcion, 0, 1);
             this.tlMateriaDesktop.Controls.Add(this.lblHorasSemanales, 0, 2);
@@ -67,12 +67,11 @@
             this.tlMateriaDesktop.Location = new System.Drawing.Point(0, 0);
             this.tlMateriaDesktop.Name = "tlMateriaDesktop";
             this.tlMateriaDesktop.RowCount = 4;
-            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlMateriaDesktop.Size = new System.Drawing.Size(804, 476);
+            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlMateriaDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlMateriaDesktop.Size = new System.Drawing.Size(414, 110);
             this.tlMateriaDesktop.TabIndex = 0;
             // 
             // lblID
@@ -87,7 +86,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 119);
+            this.lblDescripcion.Location = new System.Drawing.Point(3, 26);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 1;
@@ -96,7 +95,7 @@
             // lblHorasSemanales
             // 
             this.lblHorasSemanales.AutoSize = true;
-            this.lblHorasSemanales.Location = new System.Drawing.Point(3, 238);
+            this.lblHorasSemanales.Location = new System.Drawing.Point(3, 53);
             this.lblHorasSemanales.Name = "lblHorasSemanales";
             this.lblHorasSemanales.Size = new System.Drawing.Size(90, 13);
             this.lblHorasSemanales.TabIndex = 2;
@@ -105,7 +104,7 @@
             // lblPlan
             // 
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(405, 119);
+            this.lblPlan.Location = new System.Drawing.Point(205, 26);
             this.lblPlan.Name = "lblPlan";
             this.lblPlan.Size = new System.Drawing.Size(28, 13);
             this.lblPlan.TabIndex = 3;
@@ -114,7 +113,7 @@
             // lblHorasTotales
             // 
             this.lblHorasTotales.AutoSize = true;
-            this.lblHorasTotales.Location = new System.Drawing.Point(405, 238);
+            this.lblHorasTotales.Location = new System.Drawing.Point(205, 53);
             this.lblHorasTotales.Name = "lblHorasTotales";
             this.lblHorasTotales.Size = new System.Drawing.Size(73, 13);
             this.lblHorasTotales.TabIndex = 4;
@@ -122,39 +121,41 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(405, 360);
+            this.btnAceptar.Location = new System.Drawing.Point(205, 82);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(606, 360);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 82);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(204, 122);
+            this.txtDescripcion.Location = new System.Drawing.Point(99, 29);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
             this.txtDescripcion.TabIndex = 7;
             // 
             // txtHorasSemanales
             // 
-            this.txtHorasSemanales.Location = new System.Drawing.Point(204, 241);
+            this.txtHorasSemanales.Location = new System.Drawing.Point(99, 56);
             this.txtHorasSemanales.Name = "txtHorasSemanales";
             this.txtHorasSemanales.Size = new System.Drawing.Size(100, 20);
             this.txtHorasSemanales.TabIndex = 8;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(204, 3);
+            this.txtID.Location = new System.Drawing.Point(99, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
@@ -162,26 +163,28 @@
             // 
             // txtHorasTotales
             // 
-            this.txtHorasTotales.Location = new System.Drawing.Point(606, 241);
+            this.txtHorasTotales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHorasTotales.Location = new System.Drawing.Point(286, 56);
             this.txtHorasTotales.Name = "txtHorasTotales";
-            this.txtHorasTotales.Size = new System.Drawing.Size(100, 20);
+            this.txtHorasTotales.Size = new System.Drawing.Size(125, 20);
             this.txtHorasTotales.TabIndex = 10;
             // 
             // cbxPlan
             // 
-            this.cbxPlan.FormattingEnabled = true;
-            this.cbxPlan.Location = new System.Drawing.Point(606, 122);
-            this.cbxPlan.Name = "cbxPlan";
-            this.cbxPlan.Size = new System.Drawing.Size(121, 21);
-            this.cbxPlan.TabIndex = 11;
             this.cbxPlan.DisplayMember = "Descripcion";
+            this.cbxPlan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxPlan.FormattingEnabled = true;
+            this.cbxPlan.Location = new System.Drawing.Point(286, 29);
+            this.cbxPlan.Name = "cbxPlan";
+            this.cbxPlan.Size = new System.Drawing.Size(125, 21);
+            this.cbxPlan.TabIndex = 11;
             this.cbxPlan.ValueMember = "ID";
             // 
             // MateriaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 476);
+            this.ClientSize = new System.Drawing.Size(414, 110);
             this.Controls.Add(this.tlMateriaDesktop);
             this.Name = "MateriaDesktop";
             this.Text = "MateriaDesktop";

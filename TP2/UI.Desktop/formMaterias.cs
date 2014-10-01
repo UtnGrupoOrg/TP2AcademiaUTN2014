@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -19,8 +20,31 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            MateriaLogic ul = new MateriaLogic();            
-            this.dgvMaterias.DataSource = ul.GetAll();     
+            List<Materia> materias = new MateriaLogic().GetAll();
+
+            DataTable datasource = new DataTable("Materias");
+
+            datasource.Columns.Add(new DataColumn("id_materia", System.Type.GetType("System.String")));
+            datasource.Columns.Add(new DataColumn("descripcion", System.Type.GetType("System.String")));
+            datasource.Columns.Add(new DataColumn("hssemanales", System.Type.GetType("System.Int32")));
+            datasource.Columns.Add(new DataColumn("hstotales", System.Type.GetType("System.Int32")));
+            datasource.Columns.Add(new DataColumn("id_plan", System.Type.GetType("System.Int32")));
+            datasource.Columns.Add(new DataColumn("plan", System.Type.GetType("System.String")));
+            
+            List<Plan> planes = new PlanLogic().GetAll();
+            DataRow row;
+            foreach (Materia mat in materias)
+            {
+                row = datasource.NewRow();
+                row["id_materia"] = mat.ID;
+                row["descripcion"] = mat.Descripcion;
+                row["hssemanales"] = mat.HSSemanales;
+                row["hstotales"] = mat.HSTotales;
+                row["id_plan"] = mat.IdPlan;
+                row["plan"] = planes.Find(x => x.ID == mat.IdPlan).Descripcion;
+                datasource.Rows.Add(row);
+            }
+            this.dgvMaterias.DataSource = datasource;
        
         }
 
@@ -42,9 +66,38 @@ namespace UI.Desktop
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             MateriaDesktop formMateria = new MateriaDesktop(ApplicationForm.ModoForm.Alta);
-            formMateria.Planes = new PlanLogic().GetAll();
             formMateria.ShowDialog();
             this.Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvMaterias.SelectedRows.Count > 0)
+            {
+                int ID = Int32.Parse(((DataRowView)this.dgvMaterias.SelectedRows[0].DataBoundItem)["id_materia"].ToString());
+                MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                formMateria.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una materia", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvMaterias.SelectedRows.Count > 0)
+            {
+                int ID = Int32.Parse(((DataRowView)this.dgvMaterias.SelectedRows[0].DataBoundItem)["id_materia"].ToString());
+                MateriaDesktop formMateria = new MateriaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                formMateria.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una materia", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

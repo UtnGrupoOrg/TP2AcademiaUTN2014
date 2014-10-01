@@ -103,9 +103,9 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE materias SET desc_materia=@desc_materia, hs_semanales=@hs_semanales, " +
-                                        "hs_totales=@hs_totales, id_plan=@plan WHERE id_materia=@id", SqlConn);
+                                        "hs_totales=@hs_totales, id_plan=@id_plan WHERE id_materia=@id", SqlConn);
                 insertParameters(cmdUpdate, materia);
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = materia.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -122,10 +122,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdInsert = new SqlCommand("INSET INTO materias(desc_materia=@desc_materia,hs_semanales=@hs_semanales, " +
-                                        "hs_totales=@hs_totales, id_plan=@plan) SELECT SCOPE_IDENTITY()", SqlConn);
+                SqlCommand cmdInsert = new SqlCommand("INSERT INTO materias(desc_materia,hs_semanales,hs_totales," +
+                                        "id_plan) values(@desc_materia,@hs_semanales,@hs_totales, @id_plan) SELECT SCOPE_IDENTITY()", SqlConn);
                 insertParameters(cmdInsert, materia);
                 materia.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+
             }
             catch (Exception Ex)
             {
@@ -159,7 +160,7 @@ namespace Data.Database
             command.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.Descripcion;
             command.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HSSemanales;
             command.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HSTotales;
-            command.Parameters.Add("@plan", SqlDbType.Int).Value = materia.IdPlan;
+            command.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IdPlan;
         }
     }
 }

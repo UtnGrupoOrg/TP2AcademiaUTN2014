@@ -147,6 +147,7 @@
             // 
             this.txtClave.Location = new System.Drawing.Point(53, 81);
             this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(130, 20);
             this.txtClave.TabIndex = 7;
             // 
@@ -205,6 +206,7 @@
             // 
             this.txtConfirmarClave.Location = new System.Drawing.Point(276, 81);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(135, 20);
             this.txtConfirmarClave.TabIndex = 14;
             // 

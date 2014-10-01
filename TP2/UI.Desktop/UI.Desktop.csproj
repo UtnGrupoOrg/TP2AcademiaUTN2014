@@ -138,6 +138,10 @@
       <Project>{8dc32fce-6791-4607-9de8-7ebf2cb9332f}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{b0c69613-31d3-4f52-9429-80c7893fbf10}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

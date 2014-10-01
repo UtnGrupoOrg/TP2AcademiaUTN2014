@@ -14,12 +14,12 @@ namespace UI.Desktop
     public partial class MateriaDesktop : ApplicationForm
     {
         private Materia _MateriaActual;
-        private List<Plan> _Planes;
+        private List<Plan> _planes;
 
         public List<Plan> Planes
         {
-            get { return _Planes; }
-            set { _Planes = value; }
+            get { return _planes; }
+            set { _planes = value; }
         }
 
         public Materia MateriaActual
@@ -27,7 +27,7 @@ namespace UI.Desktop
             get { return _MateriaActual; }
             set { _MateriaActual = value; }
         }
-
+         
         public MateriaDesktop()
         {
             InitializeComponent();
@@ -36,6 +36,8 @@ namespace UI.Desktop
             :this()
         {
             this.Modo = modo;
+            Planes = new PlanLogic().GetAll();
+            this.cbxPlan.DataSource = Planes;
         }
         public MateriaDesktop(int ID,ModoForm modo)
             : this(modo)
@@ -48,10 +50,10 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.MateriaActual.ID.ToString();
             this.txtDescripcion.Text = this.MateriaActual.Descripcion;
-            this.txtHorasSemanales.Text = this.txtHorasSemanales.ToString();
-            this.txtHorasTotales.Text = this.txtHorasTotales.ToString();
+            this.txtHorasSemanales.Text = this.MateriaActual.HSSemanales.ToString();
+            this.txtHorasTotales.Text = this.MateriaActual.HSTotales.ToString();
+            this.cbxPlan.SelectedItem = Planes.Find(x => x.ID == MateriaActual.IdPlan);
 
-            this.cbxPlan.DataSource = Planes;
             if (Modo == ApplicationForm.ModoForm.Alta || Modo == ApplicationForm.ModoForm.Modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
@@ -106,12 +108,12 @@ namespace UI.Desktop
         public override bool Validar()
         {
             int temp;
-            if (String.IsNullOrEmpty(this.txtID.Text) || String.IsNullOrEmpty(this.txtDescripcion.Text) || String.IsNullOrEmpty(this.txtHorasSemanales.Text)
+            if ( String.IsNullOrEmpty(this.txtDescripcion.Text) || String.IsNullOrEmpty(this.txtHorasSemanales.Text)
                 || String.IsNullOrEmpty(this.txtHorasTotales.Text))
             {
                 Notificar("Hay campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }else if( Int32.TryParse(this.txtHorasSemanales.Text,out temp) || Int32.TryParse(this.txtHorasTotales.Text,out temp))
+            }else if( !(Int32.TryParse(this.txtHorasSemanales.Text,out temp)) || !(Int32.TryParse(this.txtHorasTotales.Text,out temp)))
             {
                 Notificar("Existe un error en el formato de los numeros", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -131,5 +133,6 @@ namespace UI.Desktop
         {
             this.Close();
         }
+        
     }
 }
