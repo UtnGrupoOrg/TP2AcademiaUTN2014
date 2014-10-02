@@ -188,6 +188,7 @@
             this.ClientSize = new System.Drawing.Size(414, 110);
             this.Controls.Add(this.tlMateriaDesktop);
             this.Name = "MateriaDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MateriaDesktop";
             this.tlMateriaDesktop.ResumeLayout(false);
             this.tlMateriaDesktop.PerformLayout();
