@@ -38,6 +38,7 @@
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.id_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Horas_Semanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Horas_Totales = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +92,7 @@
             this.dgvMaterias.AllowUserToDeleteRows = false;
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_materia,
             this.Descripcion,
             this.Horas_Semanales,
             this.Horas_Totales,
@@ -170,6 +172,13 @@
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // id_materia
+            // 
+            this.id_materia.DataPropertyName = "id_materia";
+            this.id_materia.HeaderText = "ID";
+            this.id_materia.Name = "id_materia";
+            this.id_materia.ReadOnly = true;
+            // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "desc_materia";
@@ -231,6 +240,7 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horas_Semanales;
         private System.Windows.Forms.DataGridViewTextBoxColumn Horas_Totales;

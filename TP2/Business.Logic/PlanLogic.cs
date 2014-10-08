@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Data.Database;
 using Business.Entities;
+using System.Data;
 
 namespace Business.Logic
 {
@@ -42,6 +43,9 @@ namespace Business.Logic
             this.PlanData.Delete(ID);
         }
 
-
+        public DataTable GetAllWithEspecialidadDescription()
+        {
+            return this.PlanData.GetAllWithEspecialidadDescription();
+        }
     }
 }

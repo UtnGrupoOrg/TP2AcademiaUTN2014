@@ -57,6 +57,12 @@
     <Compile Include="formMaterias.Designer.cs">
       <DependentUpon>formMaterias.cs</DependentUpon>
     </Compile>
+    <Compile Include="formPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPlanes.Designer.cs">
+      <DependentUpon>formPlanes.cs</DependentUpon>
+    </Compile>
     <Compile Include="formUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     <Compile Include="MateriaDesktop.Designer.cs">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioDesktop.cs">
@@ -91,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="formMaterias.resx">
       <DependentUpon>formMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formPlanes.resx">
+      <DependentUpon>formPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUsuarios.resx">
       <DependentUpon>formUsuarios.cs</DependentUpon>
@@ -103,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

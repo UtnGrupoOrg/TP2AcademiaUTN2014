@@ -39,6 +39,28 @@ namespace Data.Database
             return planes;
 
         }
+        public DataTable GetAllWithEspecialidadDescription()
+        {
+            DataTable planes = new DataTable("Planes");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT id_plan, desc_plan, planes.id_especialidad ,desc_especialidad " +
+                                                     "FROM planes JOIN especialidades on planes.id_especialidad = especialidades.id_especialidad", SqlConn);
+                SqlDataReader drPlanes = cmdGetAll.ExecuteReader();
+                planes.Load(drPlanes);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de los planes", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return planes;
+
+        }
         public Plan GetOne(int ID)
         {
             Plan plan = new Plan();
@@ -103,7 +125,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("UPDATE planes SET desc_plan=@desc_plan, id_especialidad=@id_especialidad, " +
+                SqlCommand cmdUpdate = new SqlCommand("UPDATE planes SET desc_plan=@desc_plan, id_especialidad=@id_especialidad " +
                                         "WHERE id_plan=@id", SqlConn);
                 insertParameters(cmdUpdate, plan);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
@@ -123,7 +145,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdInsert = new SqlCommand("INSET INTO planes(desc_plan=@desc_plan,id_especialidad=@id_especialidad) " +
+                SqlCommand cmdInsert = new SqlCommand("INSERT INTO planes(desc_plan,id_especialidad) VALUES(@desc_plan,@id_especialidad) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);
                 insertParameters(cmdInsert, plan);
                 plan.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
@@ -158,5 +180,6 @@ namespace Data.Database
             command.Parameters.Add("@desc_plan", SqlDbType.VarChar, 50).Value = plan.Descripcion;
             command.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = plan.IDEspecialidad;
         }
+
     }
 }

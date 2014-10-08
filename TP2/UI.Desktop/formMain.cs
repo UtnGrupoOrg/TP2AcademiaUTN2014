@@ -29,8 +29,14 @@ namespace UI.Desktop
 
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formMaterias formmat = new formMaterias();
-            formmat.Show();
+            formMaterias formMat = new formMaterias();
+            formMat.Show();
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPlanes formPla = new formPlanes();
+            formPla.Show();
         }      
     }
 }
