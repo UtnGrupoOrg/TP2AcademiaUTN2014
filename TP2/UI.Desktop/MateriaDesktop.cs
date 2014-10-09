@@ -148,6 +148,11 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void MateriaDesktop_Activated(object sender, EventArgs e)
+        {
+            txtDescripcion.Focus();
+        }
         
     }
 }

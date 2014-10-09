@@ -239,6 +239,7 @@
             this.Name = "UsuarioDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UsuarioDesktop";
+            this.Activated += new System.EventHandler(this.UsuarioDesktop_Activated);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

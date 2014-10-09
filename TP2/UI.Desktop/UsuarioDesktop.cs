@@ -157,5 +157,10 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void UsuarioDesktop_Activated(object sender, EventArgs e)
+        {
+            txtNombre.Focus();
+        }
     }
 }

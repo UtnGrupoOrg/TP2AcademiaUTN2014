@@ -190,6 +190,7 @@
             this.Name = "MateriaDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MateriaDesktop";
+            this.Activated += new System.EventHandler(this.MateriaDesktop_Activated);
             this.tlMateriaDesktop.ResumeLayout(false);
             this.tlMateriaDesktop.PerformLayout();
             this.ResumeLayout(false);

@@ -137,6 +137,11 @@ namespace UI.Desktop
             this.Close();
         }
 
+        private void PlanDesktop_Activated(object sender, EventArgs e)
+        {
+            txtDescripcion.Focus();
+        }
+
 
     }
 }
