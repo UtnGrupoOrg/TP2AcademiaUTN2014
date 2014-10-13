@@ -60,6 +60,35 @@ namespace Data.Database
             return materias;
 
         }
+        public List<Materia> GetAllByPlan(Plan plan)
+        {
+            List<Materia> materias = new List<Materia>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT * FROM materias WHERE id_plan=@id_plan", SqlConn);
+                cmdGetAll.Parameters.Add("@id_plan", SqlDbType.Int).Value = plan.ID;
+                SqlDataReader drMaterias = cmdGetAll.ExecuteReader();
+
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+                    this.assignData(mat, drMaterias);
+                    materias.Add(mat);
+                }
+                drMaterias.Close();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las materias", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return materias;
+
+        }
 
         public Materia GetOne(int ID)
         {

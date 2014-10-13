@@ -39,8 +39,23 @@ namespace UI.Desktop
             Planes = new PlanLogic().GetAll();
             this.cbxPlan.DataSource = Planes;
         }
+        public MateriaDesktop(ModoForm modo,Plan plan)
+            : this()
+        {
+            this.Modo = modo;
+            Planes = new List<Plan>();
+            Planes.Add(plan);
+            this.cbxPlan.DataSource = Planes;
+            this.cbxPlan.Enabled = false;
+        }
         public MateriaDesktop(int ID,ModoForm modo)
             : this(modo)
+        {
+            MateriaActual = new MateriaLogic().GetOne(ID);
+            this.MapearDeDatos();
+        }
+        public MateriaDesktop(int ID, ModoForm modo,Plan plan)
+            : this(modo,plan)
         {
             MateriaActual = new MateriaLogic().GetOne(ID);
             this.MapearDeDatos();

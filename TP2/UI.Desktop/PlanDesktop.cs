@@ -16,9 +16,17 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
+
         }
         private Plan _planActual;
         private List<Especialidad> _especialidades;
+        private List<Materia> _materias;
+
+        public List<Materia> Materias
+        {
+            get { return _materias; }
+            set { _materias = value; }
+        }
 
         public List<Especialidad> Especialidades
         {
@@ -37,13 +45,15 @@ namespace UI.Desktop
         {
             this.Modo = modo;
             Especialidades = new EspecialidadLogic().GetAll();
-            this.cbbEspecialidades.DataSource = Especialidades;
+            this.cbbEspecialidades.DataSource = Especialidades;            
         }        
         public PlanDesktop(int ID, ModoForm modo)
             : this(modo)
         {
             PlanActual = new PlanLogic().GetOne(ID);
             this.MapearDeDatos();
+            Materias = new MateriaLogic().GetAllByPlan(this.PlanActual);
+            this.UpdateLbMaterias();
         }
 
         public override void MapearDeDatos()
@@ -142,6 +152,28 @@ namespace UI.Desktop
             txtDescripcion.Focus();
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop materiaDesktop = new MateriaDesktop(ApplicationForm.ModoForm.Alta,PlanActual);
+            materiaDesktop.ShowDialog();
+            Materias.Add(materiaDesktop.MateriaActual);
+            this.UpdateLbMaterias();
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            Materia matSeleccionada = (Materia)lbMaterias.SelectedItem;
+            MateriaDesktop materiaDesktop = new MateriaDesktop(matSeleccionada.ID,ApplicationForm.ModoForm.Baja, PlanActual);
+            materiaDesktop.ShowDialog();
+            Materias.Remove(Materias.Find(x => x.ID == materiaDesktop.MateriaActual.ID));
+            UpdateLbMaterias();
+        }
+        private void UpdateLbMaterias()
+        {
+            lbMaterias.DataSource = null;
+            this.lbMaterias.DataSource = Materias;
+            this.lbMaterias.DisplayMember = "descripcion";
+        }
 
     }
 }

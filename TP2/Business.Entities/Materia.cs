@@ -35,5 +35,20 @@ namespace Business.Entities
             get { return _IdPlan; }
             set { _IdPlan = value; }
         }
+        public bool Equals(Materia materia)
+        {
+            if ((object)materia == null)
+            {
+                return false;
+            }
+            if (this.ID == materia.ID)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
