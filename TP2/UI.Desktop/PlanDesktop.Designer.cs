@@ -37,11 +37,11 @@
             this.cbbEspecialidades = new System.Windows.Forms.ComboBox();
             this.lblMaterias = new System.Windows.Forms.Label();
             this.lbMaterias = new System.Windows.Forms.ListBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.lblSeparador = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tlpPlan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,20 +52,20 @@
             this.tlpPlan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPlan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPlan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPlan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 208F));
+            this.tlpPlan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPlan.Controls.Add(this.lblID, 0, 0);
             this.tlpPlan.Controls.Add(this.lblDescripcion, 0, 1);
             this.tlpPlan.Controls.Add(this.txtID, 1, 0);
             this.tlpPlan.Controls.Add(this.txtDescripcion, 1, 1);
             this.tlpPlan.Controls.Add(this.lblEspecialidad, 0, 2);
             this.tlpPlan.Controls.Add(this.cbbEspecialidades, 1, 2);
+            this.tlpPlan.Controls.Add(this.lblMaterias, 2, 0);
             this.tlpPlan.Controls.Add(this.lbMaterias, 2, 1);
-            this.tlpPlan.Controls.Add(this.btnCancelar, 3, 6);
-            this.tlpPlan.Controls.Add(this.btnAceptar, 2, 6);
             this.tlpPlan.Controls.Add(this.lblSeparador, 0, 5);
             this.tlpPlan.Controls.Add(this.btnAgregar, 2, 4);
             this.tlpPlan.Controls.Add(this.btnQuitar, 3, 4);
-            this.tlpPlan.Controls.Add(this.lblMaterias, 2, 0);
+            this.tlpPlan.Controls.Add(this.btnAceptar, 1, 6);
+            this.tlpPlan.Controls.Add(this.btnCancelar, 2, 6);
             this.tlpPlan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPlan.Location = new System.Drawing.Point(0, 0);
             this.tlpPlan.Name = "tlpPlan";
@@ -74,10 +74,10 @@
             this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpPlan.Size = new System.Drawing.Size(553, 300);
+            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpPlan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpPlan.Size = new System.Drawing.Size(346, 215);
             this.tlpPlan.TabIndex = 0;
             // 
             // lblID
@@ -107,7 +107,8 @@
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(107, 20);
-            this.txtID.TabIndex = 3;
+            this.txtID.TabIndex = 7;
+            this.txtID.TabStop = false;
             // 
             // txtDescripcion
             // 
@@ -115,7 +116,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(76, 29);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(107, 20);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // lblEspecialidad
             // 
@@ -136,7 +137,7 @@
             this.cbbEspecialidades.Location = new System.Drawing.Point(76, 55);
             this.cbbEspecialidades.Name = "cbbEspecialidades";
             this.cbbEspecialidades.Size = new System.Drawing.Size(107, 21);
-            this.cbbEspecialidades.TabIndex = 5;
+            this.cbbEspecialidades.TabIndex = 1;
             this.cbbEspecialidades.ValueMember = "ID";
             // 
             // lblMaterias
@@ -158,68 +159,71 @@
             this.lbMaterias.Name = "lbMaterias";
             this.tlpPlan.SetRowSpan(this.lbMaterias, 3);
             this.lbMaterias.Size = new System.Drawing.Size(153, 121);
-            this.lbMaterias.TabIndex = 9;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(270, 196);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(67, 23);
-            this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(189, 196);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(67, 23);
-            this.btnAceptar.TabIndex = 6;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.lbMaterias.TabIndex = 2;
             // 
             // lblSeparador
             // 
             this.lblSeparador.AutoSize = true;
             this.lblSeparador.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tlpPlan.SetColumnSpan(this.lblSeparador, 5);
+            this.tlpPlan.SetColumnSpan(this.lblSeparador, 4);
             this.lblSeparador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSeparador.Location = new System.Drawing.Point(3, 173);
-            this.lblSeparador.MaximumSize = new System.Drawing.Size(0, 20);
+            this.lblSeparador.Location = new System.Drawing.Point(3, 182);
+            this.lblSeparador.MaximumSize = new System.Drawing.Size(0, 2);
             this.lblSeparador.Name = "lblSeparador";
-            this.lblSeparador.Size = new System.Drawing.Size(550, 20);
-            this.lblSeparador.TabIndex = 10;
+            this.lblSeparador.Size = new System.Drawing.Size(342, 2);
+            this.lblSeparador.TabIndex = 9;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(189, 156);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 14);
-            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.Click += new System.EventHandler(this.bntAgregar_Click);
             // 
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(270, 156);
             this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(75, 14);
-            this.btnQuitar.TabIndex = 12;
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 4;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
-            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click_1);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAceptar.Location = new System.Drawing.Point(116, 187);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(67, 23);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(189, 187);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(67, 23);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // PlanDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 300);
+            this.ClientSize = new System.Drawing.Size(346, 215);
             this.Controls.Add(this.tlpPlan);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PlanDesktop";
-            this.Text = "PlanDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Plan";
             this.Activated += new System.EventHandler(this.PlanDesktop_Activated);
             this.tlpPlan.ResumeLayout(false);
             this.tlpPlan.PerformLayout();
@@ -237,9 +241,9 @@
         private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.ComboBox cbbEspecialidades;
         private System.Windows.Forms.Label lblMaterias;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ListBox lbMaterias;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblSeparador;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnQuitar;

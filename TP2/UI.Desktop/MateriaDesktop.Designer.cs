@@ -187,9 +187,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 110);
             this.Controls.Add(this.tlMateriaDesktop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MateriaDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MateriaDesktop";
+            this.Text = "Materia";
             this.Activated += new System.EventHandler(this.MateriaDesktop_Activated);
             this.tlMateriaDesktop.ResumeLayout(false);
             this.tlMateriaDesktop.PerformLayout();

@@ -13,24 +13,14 @@ namespace UI.Desktop
 {
     public partial class MateriaDesktop : ApplicationForm
     {
-        private Materia _MateriaActual;
-        private List<Plan> _planes;
+        public Materia MateriaActual { get; set; }
+        public List<Plan> Planes { get; set; }
+        public bool GuardaCambios { get; set; }
 
-        public List<Plan> Planes
-        {
-            get { return _planes; }
-            set { _planes = value; }
-        }
-
-        public Materia MateriaActual
-        {
-            get { return _MateriaActual; }
-            set { _MateriaActual = value; }
-        }
-         
         public MateriaDesktop()
         {
             InitializeComponent();
+            this.GuardaCambios = true; 
         }
         public MateriaDesktop(ModoForm modo)
             :this()
@@ -122,7 +112,11 @@ namespace UI.Desktop
         public override void GuardarCambios() 
         { 
             this.MapearADatos();
-            new MateriaLogic().Save(this.MateriaActual);
+            
+            if (this.GuardaCambios)
+            {
+                new MateriaLogic().Save(this.MateriaActual);
+            }
         }
         public override bool Validar()
         {

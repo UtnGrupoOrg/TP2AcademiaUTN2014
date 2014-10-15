@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Business.Entities
+namespace Business.Entities 
 {
-    public class Materia : BusinessEntity
+    public class Materia : BusinessEntity, IEquatable<Materia>
     {
         private string _Descripcion;
 
@@ -41,11 +41,11 @@ namespace Business.Entities
             {
                 return false;
             }
-            if (this.ID == materia.ID)
+            if (this.ID == materia.ID && this.Descripcion.Equals(materia.Descripcion)  && this._HSSemanales == materia._HSSemanales 
+                && this._HSTotales==materia._HSTotales && this.IdPlan == materia.IdPlan)
             {
                 return true;
-            }
-            else
+            }else
             {
                 return false;
             }

@@ -18,27 +18,11 @@ namespace UI.Desktop
             InitializeComponent();
 
         }
-        private Plan _planActual;
-        private List<Especialidad> _especialidades;
-        private List<Materia> _materias;
+        public Plan PlanActual { get; set; }
+        public List<Especialidad> Especialidades { get; set; }
+        public List<Materia> MateriasConCambios { get; set; }
 
-        public List<Materia> Materias
-        {
-            get { return _materias; }
-            set { _materias = value; }
-        }
-
-        public List<Especialidad> Especialidades
-        {
-            get { return _especialidades; }
-            set { _especialidades = value; }
-        }
-
-        public Plan PlanActual
-        {
-            get { return _planActual; }
-            set { _planActual = value; }
-        }
+        public List<Materia> Materias { get; set; }
 
         public PlanDesktop(ModoForm modo)
             : this()
@@ -53,7 +37,7 @@ namespace UI.Desktop
             PlanActual = new PlanLogic().GetOne(ID);
             this.MapearDeDatos();
             Materias = new MateriaLogic().GetAllByPlan(this.PlanActual);
-            this.UpdateLbMaterias();
+            this.UpdateLbMaterias(Materias);
         }
 
         public override void MapearDeDatos()
@@ -111,7 +95,21 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             this.MapearADatos();
-            new PlanLogic().Save(this.PlanActual);
+            if (this.Modo == ModoForm.Baja)
+            {
+                DialogResult result = MessageBox.Show("Realmente desea eliminar el plan: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    new PlanLogic().Save(this.PlanActual);
+                }
+            }
+            else
+            {
+                foreach(Materia ma in MateriasConCambios){
+                    new MateriaLogic().Save(ma);
+                }
+                new PlanLogic().Save(this.PlanActual);
+            }            
         }
         public override bool Validar()
         {
@@ -127,18 +125,7 @@ namespace UI.Desktop
         {
             if (this.Validar())
             {
-                if (this.Modo == ModoForm.Baja)
-                {
-                    DialogResult result = MessageBox.Show("Realmente desea eliminar el plan: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
-                    {
-                        this.GuardarCambios();
-                    }
-                }
-                else
-                {
-                    this.GuardarCambios();
-                }
+                GuardarCambios();
                 this.Close();
             }
         }
@@ -151,30 +138,46 @@ namespace UI.Desktop
         {
             txtDescripcion.Focus();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            MateriaDesktop materiaDesktop = new MateriaDesktop(ApplicationForm.ModoForm.Alta,PlanActual);
-            materiaDesktop.ShowDialog();
-            Materias.Add(materiaDesktop.MateriaActual);
-            this.UpdateLbMaterias();
-        }
-
-        private void btnQuitar_Click(object sender, EventArgs e)
-        {
-            Materia matSeleccionada = (Materia)lbMaterias.SelectedItem;
-            MateriaDesktop materiaDesktop = new MateriaDesktop(matSeleccionada.ID,ApplicationForm.ModoForm.Baja, PlanActual);
-            materiaDesktop.ShowDialog();
-            Materias.Remove(Materias.Find(x => x.ID == materiaDesktop.MateriaActual.ID));
-            UpdateLbMaterias();
-        }
-        private void UpdateLbMaterias()
+        private void UpdateLbMaterias(List<Materia> materias)
         {
             lbMaterias.DataSource = null;
-            this.lbMaterias.DataSource = Materias;
+            this.lbMaterias.DataSource = materias;
             this.lbMaterias.DisplayMember = "descripcion";
         }
+        private void CambiarLista(MateriaDesktop materiaDesktop){
+            materiaDesktop.GuardaCambios = false;
+            materiaDesktop.ShowDialog();
 
+            if (MateriasConCambios == null)
+            {
+                MateriasConCambios = new List<Materia>();
+            }
+
+            Materia materiaCambiada = materiaDesktop.MateriaActual;
+            this.MateriasConCambios.Add(materiaCambiada);
+            if (materiaCambiada.State == BusinessEntity.States.New)
+            {
+                Materias.Add(materiaCambiada);
+            }
+            else if (materiaCambiada.State == BusinessEntity.States.Deleted)
+            {
+                Materias.Remove(materiaCambiada);
+            }
+            UpdateLbMaterias(Materias);
+        }
+
+        private void bntAgregar_Click(object sender, EventArgs e)
+        {
+            MateriaDesktop materiaDesktop = new MateriaDesktop(ApplicationForm.ModoForm.Alta, PlanActual);
+            CambiarLista(materiaDesktop);
+        }
+
+        private void btnQuitar_Click_1(object sender, EventArgs e)
+        {
+            Materia matSeleccionada = (Materia)lbMaterias.SelectedItem;
+            MateriaDesktop materiaDesktop = new MateriaDesktop(matSeleccionada.ID, ApplicationForm.ModoForm.Baja, PlanActual);
+            CambiarLista(materiaDesktop);
+        }
     }
 }
 
