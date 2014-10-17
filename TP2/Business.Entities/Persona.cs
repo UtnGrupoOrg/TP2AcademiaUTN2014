@@ -28,7 +28,7 @@ namespace Business.Entities
         public string Email
         {
             get { return _Email; }
-            set { _Email = value; }8
+            set { _Email = value; }
         }
         private DateTime _FechaNacimiento;
 
