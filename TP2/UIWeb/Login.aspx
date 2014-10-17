@@ -1,13 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master"AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UIWeb.Login" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Login</title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="PageContent" Runat="Server">
     <div>
     
     </div>
@@ -54,6 +47,4 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-    </form>
-</body>
-</html>
+</asp:Content>

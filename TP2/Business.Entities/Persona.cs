@@ -7,7 +7,7 @@ namespace Business.Entities
 {
     public class Persona : BusinessEntity
     {
-        public enum TiposPersonas {Alumno,Docente }
+        public enum TiposPersonas {Alumno,Docente,Administrativo}
 
         private string _Apellido;
 
@@ -28,7 +28,7 @@ namespace Business.Entities
         public string Email
         {
             get { return _Email; }
-            set { _Email = value; }
+            set { _Email = value; }8
         }
         private DateTime _FechaNacimiento;
 

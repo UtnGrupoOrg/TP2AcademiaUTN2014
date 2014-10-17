@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Database", "Data.Datab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Consola", "UI.Consola\UI.Consola.csproj", "{434E3B6D-8B36-4847-BF85-05AF360C294E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Web", "UI.Web\UI.Web.csproj", "{4B636BE4-AAFD-4C1E-BC9C-B26FF0917150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWeb", "UIWeb\UIWeb.csproj", "{4B636BE4-AAFD-4C1E-BC9C-B26FF0917150}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
