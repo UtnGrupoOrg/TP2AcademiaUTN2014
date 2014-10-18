@@ -10,58 +10,58 @@ namespace Data.Database
 {
     public class AlumnoInscripcionAdapter : Adapter
     {
-        public List<Usuario> GetAll()
+        public List<AlumnoInscripcion> GetAll()
         {
-            List<Usuario> usuarios = new List<Usuario>();
+            List<AlumnoInscripcion> alumnos_inscripciones = new List<AlumnoInscripcion>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT * FROM usuarios", SqlConn);
-                SqlDataReader drUsuarios = cmdGetAll.ExecuteReader();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT * FROM alumnos_inscripciones", SqlConn);
+                SqlDataReader drIncripciones = cmdGetAll.ExecuteReader();
 
-                while (drUsuarios.Read())
+                while (drIncripciones.Read())
                 {
-                    Usuario usr = new Usuario();
-                    this.assignData(usr, drUsuarios);
-                    usuarios.Add(usr);
+                    AlumnoInscripcion ins = new AlumnoInscripcion();
+                    this.assignData(ins, drIncripciones);
+                    alumnos_inscripciones.Add(ins);
                 }
-                drUsuarios.Close();
+                drIncripciones.Close();
             }
             catch (Exception Ex)
             {
-                throw new Exception("Error al recuperar datos de usuarios", Ex);
+                throw new Exception("Error al recuperar datos de alumnos_inscripciones", Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
-            return usuarios;
+            return alumnos_inscripciones;
         }
 
-        public Business.Entities.Usuario GetOne(int ID)
+        public Business.Entities.AlumnoInscripcion GetOne(int ID)
         {
-            Usuario usr = new Usuario();
+            AlumnoInscripcion ins = new AlumnoInscripcion();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetOne = new SqlCommand("SELECT * FROM usuarios WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdGetOne = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_inscripcion=@id", SqlConn);
                 cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                SqlDataReader drUsuarios = cmdGetOne.ExecuteReader();
-                if (drUsuarios.Read())
+                SqlDataReader drIncripciones = cmdGetOne.ExecuteReader();
+                if (drIncripciones.Read())
                 {
-                    this.assignData(usr, drUsuarios);
+                    this.assignData(ins, drIncripciones);
                 }
-                drUsuarios.Close();
+                drIncripciones.Close();
             }
             catch (Exception Ex)
             {
-                throw new Exception("Error al recuperar datos del usuario", Ex);
+                throw new Exception("Error al recuperar datos de la inscripcion", Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
-            return usr;
+            return ins;
 
         }
 
@@ -70,13 +70,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("DELETE alumnos_inscripciones WHERE id_inscripcion=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                throw new Exception("Error al eliminar el usuario", Ex);
+                throw new Exception("Error al eliminar la inscripcion", Ex);
             }
             finally
             {
@@ -84,57 +84,57 @@ namespace Data.Database
             }
         }
 
-        public void Save(Usuario usuario)
+        public void Save(AlumnoInscripcion inscripcion)
         {
-            if (usuario.State == BusinessEntity.States.Deleted)
+            if (inscripcion.State == BusinessEntity.States.Deleted)
             {
-                this.Delete(usuario.ID);
+                this.Delete(inscripcion.ID);
             }
-            else if (usuario.State == BusinessEntity.States.New)
+            else if (inscripcion.State == BusinessEntity.States.New)
             {
-                this.Insert(usuario);
+                this.Insert(inscripcion);
             }
-            else if (usuario.State == BusinessEntity.States.Modified)
+            else if (inscripcion.State == BusinessEntity.States.Modified)
             {
-                this.Update(usuario);
+                this.Update(inscripcion);
             }
-            usuario.State = BusinessEntity.States.Unmodified;
+            inscripcion.State = BusinessEntity.States.Unmodified;
         }
-        protected void Update(Usuario usuario)
+        protected void Update(AlumnoInscripcion inscripcion)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario," +
-                                        "clave=@clave, habilitado = @habilitado, nombre=@nombre,apellido=@apellido," +
-                                        "email=@email WHERE id_usuario=@id", SqlConn);
-                insertParameters(cmdUpdate, usuario);
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = usuario.ID;
+                SqlCommand cmdUpdate = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno," +
+                                        "id_curso=@id_curso, condicion = @condicion, nota=@nota"  +
+                                        "WHERE id_inscripcion=@id", SqlConn);
+                insertParameters(cmdUpdate, inscripcion);
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = inscripcion.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                throw new Exception("Error al modificar datos del usuario", Ex);
+                throw new Exception("Error al modificar datos de la inscripcion", Ex);
             }
             finally
             {
                 this.CloseConnection();
             }
         }
-        protected void Insert(Usuario usuario)
+        protected void Insert(AlumnoInscripcion inscripcion)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdInsert = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado," +
-                                        "nombre,apellido,email) values(@nombre_usuario,@clave,@habilitado," +
-                                        "@nombre,@apellido,@email) SELECT SCOPE_IDENTITY()", SqlConn);
-                insertParameters(cmdInsert, usuario);
-                usuario.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+                SqlCommand cmdInsert = new SqlCommand("INSERT INTO alumnos_inscripciones(id_alumno,id_curso,condicion," +
+                                        "nota) values(@id_alumno,@id_curso,@condicion,@nota) " +
+                                        "SELECT SCOPE_IDENTITY()", SqlConn);
+                insertParameters(cmdInsert, inscripcion);
+                inscripcion.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception Ex)
             {
-                throw new Exception("Error al crear usuario", Ex);
+                throw new Exception("Error al crear la inscripcion", Ex);
             }
             finally
             {
@@ -142,33 +142,29 @@ namespace Data.Database
             }
         }
         /// <summary>
-        /// Asigna los datos de la base de datos al objeto usuario
+        /// Asigna los datos de la base de datos al objeto inscripcion
         /// </summary>
-        /// <param name="usuario"></param>
+        /// <param name="inscripcion"></param>
         /// <param name="dataReader"></param>
-        private void assignData(Usuario usuario, SqlDataReader dataReader)
+        private void assignData(AlumnoInscripcion inscripcion, SqlDataReader dataReader)
         {
-            usuario.ID = (int)dataReader["id_usuario"];
-            usuario.NombreUsuario = (string)dataReader["nombre_usuario"];
-            usuario.Clave = (string)dataReader["clave"];
-            usuario.Habilitado = (bool)dataReader["habilitado"];
-            usuario.Nombre = (string)dataReader["nombre"];
-            usuario.Apellido = (string)dataReader["apellido"];
-            usuario.Email = (string)dataReader["email"];
+            inscripcion.ID = (int)dataReader["id_inscripcion"];
+            inscripcion.IDAlumno = (int)dataReader["id_alumno"];
+            inscripcion.IDCurso = (int)dataReader["id_curso"];
+            inscripcion.Condicion = (string)dataReader["condicion"];
+            inscripcion.Nota = (int)dataReader["nota"];
         }
         /// <summary>
-        /// Agrega los datos del usuario al comando, excepto el ID.
+        /// Agrega los datos del inscripcion al comando, excepto el ID.
         /// </summary>
         /// <param name="command"></param>
-        /// <param name="usuario"></param>
-        private void insertParameters(SqlCommand command, Usuario usuario)
+        /// <param name="inscripcion"></param>
+        private void insertParameters(SqlCommand command, AlumnoInscripcion inscripcion)
         {
-            command.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
-            command.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
-            command.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-            command.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-            command.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
-            command.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+            command.Parameters.Add("@id_alumno", SqlDbType.Int).Value = inscripcion.IDAlumno;
+            command.Parameters.Add("@id_curso", SqlDbType.Int).Value = inscripcion.IDCurso;
+            command.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = inscripcion.Condicion;
+            command.Parameters.Add("@nota", SqlDbType.Int).Value = inscripcion.Nota;
         }
     }
 }
