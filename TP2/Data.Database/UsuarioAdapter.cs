@@ -100,6 +100,7 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;
         }
+
         protected void Update(Usuario usuario)
         {
             try

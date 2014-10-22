@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UIWeb.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Academia</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="bodyForm" runat="server">
+        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+        <asp:Menu ID="menu" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
+            <DynamicMenuStyle BackColor="#E6EEE8" />
+        </asp:Menu>        
+        JAJJJAJJAJ master
+    <div>
+        <asp:ContentPlaceHolder ID="PageContent" runat="server">        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
