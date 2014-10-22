@@ -1,0 +1,26 @@
+﻿p {
+    margin: 0;
+    padding: 0;
+}
+body {
+}
+.txtLogin{
+    width: 200px;
+    float:left;
+}
+.lblLogin{
+    width:80px;
+    float:left;
+    text-align: right;
+    padding-right: 10px;
+}
+#loginPanel{
+    width: 300px;
+    margin: 0px auto;       
+}
+.inputContainer{
+    padding-bottom:5px;
+}
+#btnIngresar{
+    float:right;
+}
