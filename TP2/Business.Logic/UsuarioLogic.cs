@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net.Mail;
+using System.Security.Cryptography;
 using Business.Entities;
 using Data.Database;
 
@@ -9,6 +11,7 @@ namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
+        public static int MIN_PASS_CARACTERES = 8; 
         private UsuarioAdapter _UsuarioData;
 
         public UsuarioLogic()
@@ -42,7 +45,19 @@ namespace Business.Logic
 
         public void Save(Usuario usuario)
         {
-            UsuarioData.Save(usuario);
+            try
+            {                
+                if (usuario.State == BusinessEntity.States.Modified || usuario.State == BusinessEntity.States.New)
+                {
+                    usuario.Clave = this.Hash(usuario.Clave);
+                    this.Validate(usuario);
+                }
+                UsuarioData.Save(usuario);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }            
         }
 
         public void Delete(int ID)
@@ -56,25 +71,45 @@ namespace Business.Logic
         {
             List<Usuario> listUsuarios;
             bool estado = false;
+            listUsuarios = this.GetAll();
+            Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);                
+            if (usuario != null)
+            {
+                if (usuario.isPassword(this.Hash(pass)))
+                {
+                    return estado = true;
+                }
+            }  
+      
+            return estado;
+        }
+        private string Hash(string clave)
+        {
+            // Hash de la contraseña
+            HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+            byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(clave);
+            byte[] bytHash = hashAlg.ComputeHash(bytValue);
+            clave = Convert.ToBase64String(bytHash);
+            return clave;
+        }
+        private void Validate(Usuario usuario)
+        {
+            if (String.IsNullOrEmpty(usuario.Nombre) || String.IsNullOrEmpty(usuario.Apellido) || String.IsNullOrEmpty(usuario.NombreUsuario) || String.IsNullOrEmpty(usuario.Email)
+                || String.IsNullOrEmpty(usuario.Clave)){
+                throw new Exception("Hay campos del usuario que estan vacios");
+            }
+            else if (usuario.Clave.Length < MIN_PASS_CARACTERES)
+            {
+                throw new Exception("La clave tiene menos de " + MIN_PASS_CARACTERES.ToString() + " caracteres");
+            }
             try
             {
-                listUsuarios = this.GetAll();
-                Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);
-                
-                if (usuario != null)
-                {
-                    if (usuario.isPassword(pass))
-                    {
-                        return estado = true;
-                    }
-                }  
+                new MailAddress(usuario.Email);
             }
-            catch (Exception)
-            {
-                // TODO agregar excepcion
-                throw;
-            }            
-            return estado;
+            catch (FormatException){
+                throw new FormatException("El formato del email es incorrecto");                
+            }              
+
         }
     }
 }

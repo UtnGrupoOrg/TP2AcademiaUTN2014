@@ -10,14 +10,8 @@ using System.Net.Mail;
 
 namespace UIWeb
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Usuarios : UIWeb.@baseABM
     {        
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
-        }
         UsuarioLogic _logic;
 
         private UsuarioLogic Logic
@@ -30,37 +24,9 @@ namespace UIWeb
                 return _logic;
             }
         }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
+
         private Usuario Entity { get;set;}
-        private int SelectedId
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null)
-                {
-                    return (int)this.ViewState["SelectedID"];
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get
-            {
-                return (this.SelectedId != 0);
-            }
-        }
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -156,46 +122,34 @@ namespace UIWeb
             Page.Validate();
             if (Page.IsValid)
             {
+                this.Entity = new Usuario();
                 switch (this.FormMode)
                 {
                     case FormModes.Alta:
-                        {
-                            this.Entity = new Usuario();
+                        {                                
                             this.LoadEntity(this.Entity);
                             this.Entity.State = BusinessEntity.States.New;
-                            this.SaveEntity(this.Entity);
-                            this.LoadGrid();
-                            this.formPanel.Visible = false;
                             break;
                         }
                     case FormModes.Baja:
-                        {
-                            this.Entity = new Usuario();
+                        {                                
                             this.Entity.ID = this.SelectedId;
                             this.Entity.State = BusinessEntity.States.Deleted;
-                            this.SaveEntity(this.Entity);
-                            this.LoadGrid();
-                            this.formPanel.Visible = false;
                             break;
                         }
                     case FormModes.Modificacion:
-                        {
-                            this.Entity = new Usuario();
+                        {                                
                             this.Entity.ID = this.SelectedId;
                             this.Entity.State = BusinessEntity.States.Modified;
                             this.LoadEntity(this.Entity);
-                            this.SaveEntity(this.Entity);
-                            this.LoadGrid();
-                            this.formPanel.Visible = false;
-                            break;
-                        }
-                    default:
-                        {
-                            this.LoadGrid();
-                            this.formPanel.Visible = false;
                             break;
                         }
                 }
+                this.SaveEntity(this.Entity);
+                this.LoadGrid();
+                this.formPanel.Visible = false;                    
+
+
             }
         }
         protected void lbtnCancelar_Click(object sender, EventArgs e)

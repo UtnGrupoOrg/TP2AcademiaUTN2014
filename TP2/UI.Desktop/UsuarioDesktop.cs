@@ -100,7 +100,14 @@ namespace UI.Desktop
         public override void GuardarCambios() 
         { 
             this.MapearADatos();
-            new UsuarioLogic().Save(this.UsuarioActual);
+            try
+            {
+                new UsuarioLogic().Save(this.UsuarioActual);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show( e.Message, "Error" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public override bool Validar()
         {
@@ -137,21 +144,30 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (this.Validar())
+            this.Aceptar();
+        }
+        private void UsuarioDesktop_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
             {
-                if (this.Modo == ModoForm.Baja)
-                {
-                    DialogResult result = MessageBox.Show("Realmente desea eliminar el usuario: " + this.txtUsuario.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
-                    {
-                        this.GuardarCambios();
-                    }
-                }
-                else { 
-                    this.GuardarCambios(); 
-                }                
-                this.Close();
+                this.Aceptar();
             }
+        }
+        private void Aceptar()
+        {
+            if (this.Modo == ModoForm.Baja)
+            {
+                DialogResult result = MessageBox.Show("Realmente desea eliminar el usuario: " + this.txtUsuario.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    this.GuardarCambios();
+                }
+            }
+            else if (this.Validar())                
+            {
+                this.GuardarCambios();
+            }
+            this.Close();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -162,5 +178,7 @@ namespace UI.Desktop
         {
             txtNombre.Focus();
         }
+
+
     }
 }
