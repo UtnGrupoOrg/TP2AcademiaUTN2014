@@ -38,10 +38,9 @@ namespace UI.Desktop
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
             this.txtNombre.Text = this.UsuarioActual.Nombre;
             this.txtApellido.Text = this.UsuarioActual.Apellido;
-            this.txtEmail.Text = this.UsuarioActual.Email;
-            this.txtClave.Text = this.UsuarioActual.Clave;
-            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+            this.txtEmail.Text = this.UsuarioActual.Email;       
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            this.chkCambiaClave.Checked = this.UsuarioActual.CambiaClave;
             if (Modo == ApplicationForm.ModoForm.Alta || Modo == ApplicationForm.ModoForm.Modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
@@ -50,6 +49,7 @@ namespace UI.Desktop
             {
                 this.btnAceptar.Text = "Eliminar";
                 this.chkHabilitado.AutoCheck = false;
+                this.chkCambiaClave.AutoCheck = false;
                 this.txtNombre.ReadOnly = true;
                 this.txtApellido.ReadOnly = true;
                 this.txtEmail.ReadOnly = true;
@@ -92,6 +92,7 @@ namespace UI.Desktop
                 this.UsuarioActual.Email = this.txtEmail.Text;
                 this.UsuarioActual.Clave = this.txtClave.Text;
                 this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                this.UsuarioActual.CambiaClave = this.chkCambiaClave.Checked;
                 this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
             }
 
@@ -120,6 +121,7 @@ namespace UI.Desktop
             }else if(this.txtClave.Text.Length < 8)
             {
                 Notificar("La contrasenia debe ser de 8 caracteres o mas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtClave.Focus();
                 return false;
             }
             else if (!String.Equals(this.txtClave.Text, this.txtConfirmarClave.Text))
@@ -136,6 +138,7 @@ namespace UI.Desktop
                 catch (FormatException)
                 {
                     Notificar("El formato del email es incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Focus();
                     return false;
                 }
             }
@@ -161,13 +164,14 @@ namespace UI.Desktop
                 if (result == DialogResult.Yes)
                 {
                     this.GuardarCambios();
+                    this.Close();
                 }
             }
             else if (this.Validar())                
             {
                 this.GuardarCambios();
+                this.Close();
             }
-            this.Close();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

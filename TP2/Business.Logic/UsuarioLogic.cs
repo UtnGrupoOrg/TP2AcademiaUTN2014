@@ -67,7 +67,7 @@ namespace Business.Logic
         /// <summary>
         /// Valida si el usuario y la contraseña son correctos.
         /// </summary>
-        public bool identificarUsuario(string usu, string pass) // TODO validar por valores nulos
+        public bool identificarUsuario(string usu, string pass)
         {
             List<Usuario> listUsuarios;
             bool estado = false;
@@ -75,9 +75,12 @@ namespace Business.Logic
             Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);                
             if (usuario != null)
             {
-                if (usuario.isPassword(this.Hash(pass)))
+                if (pass != null)
                 {
-                    return estado = true;
+                    if (usuario.isPassword(this.Hash(pass)))
+                    {
+                        return estado = true;
+                    }
                 }
             }  
       

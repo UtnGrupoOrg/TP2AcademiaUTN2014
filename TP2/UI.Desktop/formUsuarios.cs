@@ -26,10 +26,10 @@ namespace UI.Desktop
             {
                 this.dgvUsuarios.DataSource = ul.GetAll();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                // TODO agregar excepcion
-                throw;
+                MessageBox.Show(e.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 

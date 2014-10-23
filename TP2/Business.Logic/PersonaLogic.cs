@@ -45,7 +45,9 @@ namespace Business.Logic
             this.PersonaData.Delete(ID);
             
         }
-        
+        public Persona GetOneOfUser(int ID){
+            return this.PersonaData.GetOneOfUser(ID);
+        }
 
 
     }

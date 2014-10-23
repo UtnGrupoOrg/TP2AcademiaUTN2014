@@ -46,6 +46,7 @@
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.chkCambiaClave = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@
             this.tableLayoutPanel1.Controls.Add(this.chkHabilitado, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.chkCambiaClave, 3, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -233,6 +235,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // chkCambiaClave
+            // 
+            this.chkCambiaClave.Location = new System.Drawing.Point(283, 107);
+            this.chkCambiaClave.Name = "chkCambiaClave";
+            this.chkCambiaClave.Size = new System.Drawing.Size(105, 17);
+            this.chkCambiaClave.TabIndex = 12;
+            this.chkCambiaClave.Text = "Cambia Clave";
+            this.chkCambiaClave.UseVisualStyleBackColor = true;
+            // 
             // UsuarioDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,5 +282,6 @@
         private System.Windows.Forms.TextBox txtConfirmarClave;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.CheckBox chkCambiaClave;
     }
 }

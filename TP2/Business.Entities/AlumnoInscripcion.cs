@@ -7,6 +7,7 @@ namespace Business.Entities
 {
     public class AlumnoInscripcion : BusinessEntity
     {
+        public static string[] condiciones = {"Regular","Libre"};
         private string _Condicion;
 
         public string Condicion
@@ -34,6 +35,16 @@ namespace Business.Entities
         {
             get { return _Nota; }
             set { _Nota = value; }
+        }
+        public bool isCondicion(string condicion)
+        {
+            foreach(String str in condiciones){
+                if (condicion.Equals(str, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

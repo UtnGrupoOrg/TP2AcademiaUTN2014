@@ -97,6 +97,33 @@ namespace Data.Database
             }
             return per;
         }
+        public Persona GetOneOfUser(int ID)
+        {
+            Persona per = new Persona();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetOne = new SqlCommand("SELECT per.* FROM personas per INNER JOIN usuarios usu ON per.id_persona = usu.id_persona " +
+                                                      "where usu.id_usuario = @id_usuario", SqlConn);
+
+                cmdGetOne.Parameters.Add("@id_usuario", SqlDbType.Int).Value = ID;
+                SqlDataReader drPersona = cmdGetOne.ExecuteReader();
+                if (drPersona.Read())
+                {
+                    assignData(per, drPersona);
+                }
+                drPersona.Close();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos del usuario", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return per;
+        }
 
         public void Delete(int ID)
         {

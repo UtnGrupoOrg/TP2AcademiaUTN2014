@@ -11,6 +11,7 @@ namespace Data.Database
     {  
         
         public List<Usuario> GetAll() 
+        
         {
             List<Usuario> usuarios = new List<Usuario>();
             try
@@ -27,6 +28,7 @@ namespace Data.Database
                 }
                 drUsuarios.Close();
             }
+            
             catch (Exception Ex)
             {                
                 throw new Exception("Error al recuperar datos de usuarios", Ex);
@@ -108,7 +110,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario,"+
                                         "clave=@clave, habilitado = @habilitado, nombre=@nombre,apellido=@apellido,"+
-                                        "email=@email WHERE id_usuario=@id", SqlConn);                
+                                        "email=@email, id_persona=@id_persona, cambia_clave=@cambia_clave WHERE id_usuario=@id", SqlConn);                
                 insertParameters(cmdUpdate, usuario);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = usuario.ID;
                 cmdUpdate.ExecuteNonQuery();
@@ -128,8 +130,8 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO usuarios(nombre_usuario,clave,habilitado," +
-                                        "nombre,apellido,email) values(@nombre_usuario,@clave,@habilitado," +
-                                        "@nombre,@apellido,@email) SELECT SCOPE_IDENTITY()", SqlConn);
+                                        "nombre,apellido,email,id_persona,cambia_clave) values(@nombre_usuario,@clave,@habilitado," +
+                                        "@nombre,@apellido,@email,@id_persona,@cambia_clave) SELECT SCOPE_IDENTITY()", SqlConn);
                 insertParameters(cmdInsert, usuario);
                 usuario.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
@@ -156,6 +158,8 @@ namespace Data.Database
             usuario.Nombre = (string)dataReader["nombre"];
             usuario.Apellido = (string)dataReader["apellido"];
             usuario.Email = (string)dataReader["email"];
+            usuario.CambiaClave = (bool)dataReader["cambia_clave"];
+            usuario.IdPersona = dataReader["id_persona"] == DBNull.Value ? null : (int?)Convert.ToInt32(dataReader["id_persona"]);
         }
         /// <summary>
         /// Agrega los datos del usuario al comando, excepto el ID.
@@ -170,6 +174,8 @@ namespace Data.Database
             command.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
             command.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
             command.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+            command.Parameters.Add("@id_persona", SqlDbType.Int).Value = (object) usuario.IdPersona ?? DBNull.Value;
+            command.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = usuario.CambiaClave;
         }
     }
 }

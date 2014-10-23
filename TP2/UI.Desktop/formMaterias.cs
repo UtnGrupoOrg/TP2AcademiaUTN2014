@@ -20,7 +20,15 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            this.dgvMaterias.DataSource = new MateriaLogic().GetAllWithPlanDescription();       
+            try
+            {
+                this.dgvMaterias.DataSource = new MateriaLogic().GetAllWithPlanDescription();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void formMaterias_Load(object sender, EventArgs e)

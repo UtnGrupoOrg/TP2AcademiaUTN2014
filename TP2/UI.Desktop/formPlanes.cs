@@ -22,7 +22,15 @@ namespace UI.Desktop
         public void Listar()
         {
             PlanLogic pl = new PlanLogic();
-            this.dgvPlanes.DataSource = pl.GetAllWithEspecialidadDescription(); 
+            try
+            {
+                this.dgvPlanes.DataSource = pl.GetAllWithEspecialidadDescription();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void formPlanes_Load(object sender, EventArgs e)

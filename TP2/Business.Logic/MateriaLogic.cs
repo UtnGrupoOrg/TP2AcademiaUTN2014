@@ -48,6 +48,16 @@ namespace Business.Logic
         {
             this.MateriaData.Delete(ID);
         }
+        // Devuelve las materias que no esten regular para un alumno
 
+        /*public List<Materia> getMateriasDisponibles(int id)
+        {
+            Persona persona = new PersonaLogic().GetOneOfUser(id);
+            if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
+            {
+
+            }
+
+        }*/
     }
 }

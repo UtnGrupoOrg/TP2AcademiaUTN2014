@@ -20,7 +20,13 @@ namespace Business.Entities
         public string Clave
         {
             get { return _Clave; }
-            set { _Clave = value; } //TODO hash password?
+            set { _Clave = value; } 
+        }
+        private bool _CambiaClave; 
+        public bool CambiaClave
+        {
+          get { return _CambiaClave; }
+          set { _CambiaClave = value; }
         }
         private string _Nombre;
 
@@ -61,6 +67,13 @@ namespace Business.Entities
             {
                 return false;
             }
+        }
+        private int? _IdPersona;
+
+        public int? IdPersona
+        {
+            get { return _IdPersona; }
+            set { _IdPersona = value; }
         }
     }
 }

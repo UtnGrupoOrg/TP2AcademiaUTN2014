@@ -16,8 +16,7 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formMain());
-            /*formLogin appLogin = new formLogin();
+            formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new formMain());
@@ -25,7 +24,7 @@ namespace UI.Desktop
             else
             {
                 Application.Exit();
-            }*/
+            }
         }
     }
 }
