@@ -7,6 +7,14 @@ namespace Business.Entities
 {
     public class Comision : BusinessEntity
     {
+        private int _idComision;
+
+        public int IdComision
+        {
+            get { return _idComision; }
+            set { _idComision = value; }
+        }
+        
         private int _AnioEspecialidad;
 
         public int AnioEspecialidad

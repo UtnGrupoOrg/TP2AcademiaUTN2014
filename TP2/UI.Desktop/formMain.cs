@@ -37,6 +37,12 @@ namespace UI.Desktop
         {
             formPlanes formPla = new formPlanes();
             formPla.Show();
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formComision formCom = new formComision();
+            formCom.Show();
         }      
     }
 }

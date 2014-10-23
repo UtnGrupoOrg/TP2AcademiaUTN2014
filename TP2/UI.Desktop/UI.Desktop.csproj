@@ -51,11 +51,23 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionDesktop.Designer.cs">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="formMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formMaterias.Designer.cs">
       <DependentUpon>formMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formComision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formComision.Designer.cs">
+      <DependentUpon>formComision.cs</DependentUpon>
     </Compile>
     <Compile Include="formPlanes.cs">
       <SubType>Form</SubType>
@@ -101,8 +113,14 @@
     <Compile Include="UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ComisionDesktop.resx">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formMaterias.resx">
       <DependentUpon>formMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formComision.resx">
+      <DependentUpon>formComision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPlanes.resx">
       <DependentUpon>formPlanes.cs</DependentUpon>

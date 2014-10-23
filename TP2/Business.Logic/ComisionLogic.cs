@@ -42,5 +42,10 @@ namespace Business.Logic
         {
             this.ComisionData.Save(comision);
         }
+
+        public void Update(Comision comi)
+        {
+            this.ComisionData.Update(comi);
+        }
     }
 }

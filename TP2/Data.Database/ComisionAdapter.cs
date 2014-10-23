@@ -100,7 +100,7 @@ namespace Data.Database
             }
             comision.State = BusinessEntity.States.Unmodified;
         }
-        protected void Update(Comision comision)
+        public void Update(Comision comision)
         {
             try
             {
