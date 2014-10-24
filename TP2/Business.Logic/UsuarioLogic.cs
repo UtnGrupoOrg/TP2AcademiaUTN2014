@@ -16,15 +16,9 @@ namespace Business.Logic
 
         public UsuarioLogic()
         {
-            try
-            {
-                UsuarioData = new UsuarioAdapter();
-            }
-            catch (Exception Ex)
-            {
-                Exception ExceptionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExceptionManejada;
-            }
+            
+            UsuarioData = new UsuarioAdapter();
+            
         }
 
         public UsuarioAdapter UsuarioData
@@ -101,7 +95,7 @@ namespace Business.Logic
                 || String.IsNullOrEmpty(usuario.Clave)){
                 throw new Exception("Hay campos del usuario que estan vacios");
             }
-            else if (usuario.Clave.Length < MIN_PASS_CARACTERES)
+            if (usuario.Clave.Length < MIN_PASS_CARACTERES)
             {
                 throw new Exception("La clave tiene menos de " + MIN_PASS_CARACTERES.ToString() + " caracteres");
             }

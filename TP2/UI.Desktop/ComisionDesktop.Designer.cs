@@ -34,11 +34,11 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtAnioEspecialidad = new System.Windows.Forms.TextBox();
             this.lblPlan = new System.Windows.Forms.Label();
             this.cbxPlanes = new System.Windows.Forms.ComboBox();
-            this.txtAnioEspecialidad = new System.Windows.Forms.TextBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.txtIdComision.ReadOnly = true;
             this.txtIdComision.Size = new System.Drawing.Size(62, 20);
             this.txtIdComision.TabIndex = 1;
+            this.txtIdComision.TabStop = false;
             // 
             // lblAnioEspecialidad
             // 
@@ -76,7 +77,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.tableLayoutPanel1.SetRowSpan(this.txtDescripcion, 2);
             this.txtDescripcion.Size = new System.Drawing.Size(104, 54);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 1;
             // 
             // lblDescripcion
             // 
@@ -143,27 +144,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(425, 116);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // btnAceptar
+            // txtAnioEspecialidad
             // 
-            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(213, 90);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 7;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelar.Location = new System.Drawing.Point(294, 90);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.txtAnioEspecialidad.Location = new System.Drawing.Point(105, 31);
+            this.txtAnioEspecialidad.Margin = new System.Windows.Forms.Padding(5);
+            this.txtAnioEspecialidad.Name = "txtAnioEspecialidad";
+            this.txtAnioEspecialidad.Size = new System.Drawing.Size(100, 20);
+            this.txtAnioEspecialidad.TabIndex = 0;
             // 
             // lblPlan
             // 
@@ -180,15 +167,29 @@
             this.cbxPlanes.Location = new System.Drawing.Point(294, 29);
             this.cbxPlanes.Name = "cbxPlanes";
             this.cbxPlanes.Size = new System.Drawing.Size(121, 21);
-            this.cbxPlanes.TabIndex = 10;
+            this.cbxPlanes.TabIndex = 2;
             // 
-            // txtAnioEspecialidad
+            // btnAceptar
             // 
-            this.txtAnioEspecialidad.Location = new System.Drawing.Point(105, 31);
-            this.txtAnioEspecialidad.Margin = new System.Windows.Forms.Padding(5);
-            this.txtAnioEspecialidad.Name = "txtAnioEspecialidad";
-            this.txtAnioEspecialidad.Size = new System.Drawing.Size(100, 20);
-            this.txtAnioEspecialidad.TabIndex = 6;
+            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAceptar.Location = new System.Drawing.Point(213, 90);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 3;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.Location = new System.Drawing.Point(294, 90);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ComisionDesktop
             // 

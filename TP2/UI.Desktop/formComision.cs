@@ -52,6 +52,7 @@ namespace UI.Desktop
             if (dgvComisiones.SelectedRows.Count > 0)
             {
                 int id = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                System.Console.Out.Write(id);
                 ComisionDesktop frm = new ComisionDesktop(id, ApplicationForm.ModoForm.Modificacion);
                 frm.ShowDialog();
                 this.Listar(); 
