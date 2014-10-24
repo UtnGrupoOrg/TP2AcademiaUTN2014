@@ -39,7 +39,7 @@ namespace UI.Desktop
             this.Planes = new PlanLogic().GetAll();
             this.cbxPlanes.DataSource = Planes;
             this.cbxPlanes.DisplayMember = "Descripcion";
-            this.MapearADatos();
+            this.MapearDatos();
         }
 
         private void ComisionDesktop_Load(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace UI.Desktop
             
         }
 
-        public override void MapearADatos()
+        public override void MapearDatos()
         {
             
             this.txtIdComision.Text = ComisionActual.ID.ToString(); 
@@ -72,7 +72,7 @@ namespace UI.Desktop
 
         }
 
-        public override void MapearDeDatos()
+        public override void RecuperarDatos()
         {
              if (Modo == ApplicationForm.ModoForm.Alta)
             {
@@ -126,7 +126,7 @@ namespace UI.Desktop
         {
             if (Modo == ModoForm.Alta)
             {
-                this.MapearDeDatos();
+                this.RecuperarDatos();
                 new ComisionLogic().Save(this.ComisionActual); 
             }
             else if (Modo == ModoForm.Modificacion)

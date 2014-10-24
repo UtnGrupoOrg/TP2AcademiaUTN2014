@@ -42,16 +42,16 @@ namespace UI.Desktop
             : this(modo)
         {
             MateriaActual = new MateriaLogic().GetOne(ID);
-            this.MapearDeDatos();
+            this.RecuperarDatos();
         }
         public MateriaDesktop(int ID, ModoForm modo,Plan plan)
             : this(modo,plan)
         {
             MateriaActual = new MateriaLogic().GetOne(ID);
-            this.MapearDeDatos();
+            this.RecuperarDatos();
         }
 
-        public override void MapearDeDatos()
+        public override void RecuperarDatos()
         {
             this.txtID.Text = this.MateriaActual.ID.ToString();
             this.txtDescripcion.Text = this.MateriaActual.Descripcion;
@@ -78,7 +78,7 @@ namespace UI.Desktop
 
 
         }
-        public override void MapearADatos() 
+        public override void MapearDatos() 
         {
             if (Modo == ApplicationForm.ModoForm.Alta)
             {
@@ -111,7 +111,7 @@ namespace UI.Desktop
         }
         public override void GuardarCambios() 
         { 
-            this.MapearADatos();
+            this.MapearDatos();
             
             if (this.GuardaCambios)
             {

@@ -35,12 +35,12 @@ namespace UI.Desktop
             : this(modo)
         {
             PlanActual = new PlanLogic().GetOne(ID);
-            this.MapearDeDatos();
+            this.RecuperarDatos();
             Materias = new MateriaLogic().GetAllByPlan(this.PlanActual);
             this.UpdateLbMaterias(Materias);
         }
 
-        public override void MapearDeDatos()
+        public override void RecuperarDatos()
         {
             this.txtID.Text = this.PlanActual.ID.ToString();
             this.txtDescripcion.Text = this.PlanActual.Descripcion;
@@ -63,7 +63,7 @@ namespace UI.Desktop
 
 
         }
-        public override void MapearADatos()
+        public override void MapearDatos()
         {
             if (Modo == ApplicationForm.ModoForm.Alta)
             {
@@ -94,7 +94,7 @@ namespace UI.Desktop
         }
         public override void GuardarCambios()
         {
-            this.MapearADatos();
+            this.MapearDatos();
             if (this.Modo == ModoForm.Baja)
             {
                 DialogResult result = MessageBox.Show("Realmente desea eliminar el plan: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

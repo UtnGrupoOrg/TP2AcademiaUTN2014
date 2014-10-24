@@ -29,10 +29,10 @@ namespace UI.Desktop
             : this(modo)
         {
             UsuarioActual = new UsuarioLogic().GetOne(ID);
-            this.MapearDeDatos();
+            this.RecuperarDatos();
         }
 
-        public override void MapearDeDatos()
+        public override void RecuperarDatos()
         {
             this.txtID.Text = this.UsuarioActual.ID.ToString();
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
@@ -64,7 +64,7 @@ namespace UI.Desktop
 
 
         }
-        public override void MapearADatos() 
+        public override void MapearDatos() 
         {
             if (Modo == ApplicationForm.ModoForm.Alta)
             {
@@ -100,7 +100,7 @@ namespace UI.Desktop
         }
         public override void GuardarCambios() 
         { 
-            this.MapearADatos();
+            this.MapearDatos();
             try
             {
                 new UsuarioLogic().Save(this.UsuarioActual);
