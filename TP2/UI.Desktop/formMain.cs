@@ -41,7 +41,7 @@ namespace UI.Desktop
 
         private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formComision formCom = new formComision();
+            formComisiones formCom = new formComisiones();
             formCom.Show();
         }      
     }

@@ -11,23 +11,24 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public  partial class formComision : Form
+    public  partial class formComisiones : Form
     {
-        public formComision()
+        public formComisiones()
         {
             InitializeComponent();
             this.dgvComisiones.AutoGenerateColumns = false;
             
         }
 
-        private void formPadreDeListas_Load(object sender, EventArgs e)
+        private void formComisiones_Load(object sender, EventArgs e)
         {
             this.Listar();
         }
 
         private void Listar()
         {
-            this.dgvComisiones.DataSource = (new ComisionLogic()).GetAll();
+            this.dgvComisiones.DataSource = (new ComisionLogic()).GetAllWithPlanDescription();
+            
         }
 
         protected virtual void btActualizar_Click(object sender, EventArgs e)
@@ -51,8 +52,7 @@ namespace UI.Desktop
         {
             if (dgvComisiones.SelectedRows.Count > 0)
             {
-                int id = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-                System.Console.Out.Write(id);
+                int id = int.Parse(((DataRowView)this.dgvComisiones.SelectedRows[0].DataBoundItem)["id_comision"].ToString());
                 ComisionDesktop frm = new ComisionDesktop(id, ApplicationForm.ModoForm.Modificacion);
                 frm.ShowDialog();
                 this.Listar(); 
@@ -68,7 +68,7 @@ namespace UI.Desktop
         {
             if (dgvComisiones.SelectedRows.Count>0)
             {
-                int id = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                int id = int.Parse(((DataRowView)this.dgvComisiones.SelectedRows[0].DataBoundItem)["id_comision"].ToString());
                 ComisionDesktop frm = new ComisionDesktop(id, ApplicationForm.ModoForm.Baja);
                 frm.ShowDialog();
                 this.Listar(); 

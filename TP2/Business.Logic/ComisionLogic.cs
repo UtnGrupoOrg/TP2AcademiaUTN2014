@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Data.Database;
 using Business.Entities;
+using System.Data;
 
 namespace Business.Logic
 {
@@ -46,6 +47,11 @@ namespace Business.Logic
         public void Update(Comision comi)
         {
             this.ComisionData.Update(comi);
+        }
+
+        public DataTable GetAllWithPlanDescription()
+        {
+            return this.ComisionData.GetAllWithPlanDescription();
         }
     }
 }

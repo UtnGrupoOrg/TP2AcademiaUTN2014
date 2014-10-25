@@ -125,10 +125,12 @@ namespace Data.Database
         {
             try
             {
-                this.OpenConnection();
+
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO comisiones(desc_comision,anio_especialidad,id_plan) " +
                                         "values(@desc_comision,@anio_especialidad,@id_plan) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);
+                this.OpenConnection();
+                
                 insertParameters(cmdInsert, comision);
                 comision.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
@@ -163,6 +165,33 @@ namespace Data.Database
             command.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comision.Descripcion;
             command.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comision.AnioEspecialidad;
             command.Parameters.Add("@id_plan", SqlDbType.Int).Value = comision.IdPlan;
+        }
+
+        public DataTable GetAllWithPlanDescription()
+        {
+            DataTable comisiones = new DataTable("Comisiones");
+            
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAllWithPlanDescription = new SqlCommand("Select com.id_comision, com.desc_comision, com.anio_especialidad, pla.id_plan, pla.desc_plan " +
+                "from comisiones com " +
+                "join planes pla on com.id_plan = pla.id_plan", this.SqlConn);
+                SqlDataReader drComisiones = cmdGetAllWithPlanDescription.ExecuteReader();
+                comisiones.Load(drComisiones);
+                
+                
+            }
+            catch (Exception Ex)
+            {
+
+                throw new Exception("Error al recuperar datos de las materias", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
         }
     }
 }

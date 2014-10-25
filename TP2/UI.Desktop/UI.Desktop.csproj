@@ -63,11 +63,11 @@
     <Compile Include="formMaterias.Designer.cs">
       <DependentUpon>formMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="formComision.cs">
+    <Compile Include="formComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formComision.Designer.cs">
-      <DependentUpon>formComision.cs</DependentUpon>
+    <Compile Include="formComisiones.Designer.cs">
+      <DependentUpon>formComisiones.cs</DependentUpon>
     </Compile>
     <Compile Include="formPlanes.cs">
       <SubType>Form</SubType>
@@ -119,8 +119,8 @@
     <EmbeddedResource Include="formMaterias.resx">
       <DependentUpon>formMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formComision.resx">
-      <DependentUpon>formComision.cs</DependentUpon>
+    <EmbeddedResource Include="formComisiones.resx">
+      <DependentUpon>formComisiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPlanes.resx">
       <DependentUpon>formPlanes.cs</DependentUpon>

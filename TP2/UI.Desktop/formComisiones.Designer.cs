@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class formComision
+    partial class formComisiones
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descComison = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -91,7 +91,7 @@
             this.id,
             this.descComison,
             this.anioEspecialidad,
-            this.idPlan});
+            this.descPlan});
             this.tlPrincipal.SetColumnSpan(this.dgvComisiones, 2);
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
@@ -165,41 +165,41 @@
             // 
             // id
             // 
-            this.id.DataPropertyName = "ID";
+            this.id.DataPropertyName = "id_comision";
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
             // descComison
             // 
-            this.descComison.DataPropertyName = "Descripcion";
+            this.descComison.DataPropertyName = "desc_comision";
             this.descComison.HeaderText = "Descripcion";
             this.descComison.Name = "descComison";
             this.descComison.ReadOnly = true;
             // 
             // anioEspecialidad
             // 
-            this.anioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            this.anioEspecialidad.DataPropertyName = "anio_especialidad";
             this.anioEspecialidad.HeaderText = "Año Especialidad";
             this.anioEspecialidad.Name = "anioEspecialidad";
             this.anioEspecialidad.ReadOnly = true;
             // 
-            // idPlan
+            // descPlan
             // 
-            this.idPlan.DataPropertyName = "IdPlan";
-            this.idPlan.HeaderText = "ID Plan";
-            this.idPlan.Name = "idPlan";
-            this.idPlan.ReadOnly = true;
+            this.descPlan.DataPropertyName = "desc_plan";
+            this.descPlan.HeaderText = "Plan";
+            this.descPlan.Name = "descPlan";
+            this.descPlan.ReadOnly = true;
             // 
-            // formComision
+            // formComisiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 354);
             this.Controls.Add(this.toolStripContainer1);
-            this.Name = "formComision";
+            this.Name = "formComisiones";
             this.Text = "Comisiones";
-            this.Load += new System.EventHandler(this.formPadreDeListas_Load);
+            this.Load += new System.EventHandler(this.formComisiones_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -227,7 +227,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descComison;
         private System.Windows.Forms.DataGridViewTextBoxColumn anioEspecialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descPlan;
 
     }
 }
