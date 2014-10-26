@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="ComisionDesktop.Designer.cs">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
+	</Compile>
     <Compile Include="formInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
