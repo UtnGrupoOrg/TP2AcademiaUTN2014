@@ -89,6 +89,35 @@ namespace Data.Database
             return materias;
 
         }
+        public List<Materia> getMateriasDisponibles(int ID)
+        {
+            List<Materia> materias = new List<Materia>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdMateriasDisponibles = new SqlCommand("getMateriasParaInscripcion", SqlConn);
+                cmdMateriasDisponibles.CommandType = CommandType.StoredProcedure;
+                cmdMateriasDisponibles.Parameters.Add("@IDalumno", SqlDbType.Int).Value = ID;
+                SqlDataReader drMaterias = cmdMateriasDisponibles.ExecuteReader();
+
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+                    this.assignData(mat, drMaterias);
+                    materias.Add(mat);
+                }
+                drMaterias.Close();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las materias para inscripcion", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return materias;
+        }
 
         public Materia GetOne(int ID)
         {
@@ -214,5 +243,7 @@ namespace Data.Database
             command.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HSTotales;
             command.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IdPlan;
         }
+
+
     }
 }
