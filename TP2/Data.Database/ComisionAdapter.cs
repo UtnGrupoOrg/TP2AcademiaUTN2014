@@ -125,7 +125,7 @@ namespace Data.Database
         {
             try
             {
-
+                this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO comisiones(desc_comision,anio_especialidad,id_plan) " +
                                         "values(@desc_comision,@anio_especialidad,@id_plan) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);

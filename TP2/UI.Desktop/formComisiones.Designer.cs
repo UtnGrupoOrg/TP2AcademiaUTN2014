@@ -31,16 +31,16 @@
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tlPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descComison = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descComison = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -86,6 +86,9 @@
             // 
             // dgvComisiones
             // 
+            this.dgvComisiones.AllowUserToAddRows = false;
+            this.dgvComisiones.AllowUserToDeleteRows = false;
+            this.dgvComisiones.AllowUserToResizeRows = false;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -96,8 +99,37 @@
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
             this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComisiones.Size = new System.Drawing.Size(862, 294);
             this.dgvComisiones.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_comision";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // descComison
+            // 
+            this.descComison.DataPropertyName = "desc_comision";
+            this.descComison.HeaderText = "Descripcion";
+            this.descComison.Name = "descComison";
+            this.descComison.ReadOnly = true;
+            // 
+            // anioEspecialidad
+            // 
+            this.anioEspecialidad.DataPropertyName = "anio_especialidad";
+            this.anioEspecialidad.HeaderText = "Año Especialidad";
+            this.anioEspecialidad.Name = "anioEspecialidad";
+            this.anioEspecialidad.ReadOnly = true;
+            // 
+            // descPlan
+            // 
+            this.descPlan.DataPropertyName = "desc_plan";
+            this.descPlan.HeaderText = "Plan";
+            this.descPlan.Name = "descPlan";
+            this.descPlan.ReadOnly = true;
             // 
             // btActualizar
             // 
@@ -162,34 +194,6 @@
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id_comision";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descComison
-            // 
-            this.descComison.DataPropertyName = "desc_comision";
-            this.descComison.HeaderText = "Descripcion";
-            this.descComison.Name = "descComison";
-            this.descComison.ReadOnly = true;
-            // 
-            // anioEspecialidad
-            // 
-            this.anioEspecialidad.DataPropertyName = "anio_especialidad";
-            this.anioEspecialidad.HeaderText = "Año Especialidad";
-            this.anioEspecialidad.Name = "anioEspecialidad";
-            this.anioEspecialidad.ReadOnly = true;
-            // 
-            // descPlan
-            // 
-            this.descPlan.DataPropertyName = "desc_plan";
-            this.descPlan.HeaderText = "Plan";
-            this.descPlan.Name = "descPlan";
-            this.descPlan.ReadOnly = true;
             // 
             // formComisiones
             // 

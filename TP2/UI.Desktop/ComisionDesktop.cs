@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 using Business.Logic;
 using Business.Entities;
 
@@ -12,16 +13,20 @@ namespace UI.Desktop
 {
     public partial class ComisionDesktop : UI.Desktop.ApplicationForm
     {
-
+        const int START_YEAR = 1960;
         public Comision  ComisionActual { get; set; }
         private List<Plan> Planes { get; set; }
+        private List<int> Fechas { get; set; }
         
         public ComisionDesktop()
         {
             InitializeComponent();
             this.ComisionActual = new Comision();
             Planes = new PlanLogic().GetAll();
-            this.cbxPlanes.DataSource = Planes; 
+            this.cbxPlanes.DataSource = Planes;
+            Fechas = new List<int>();
+            Fechas.AddRange(Enumerable.Range(START_YEAR, DateTime.Now.Year - START_YEAR + 1));
+            this.cbxAnio.DataSource = Fechas;
         }
 
         public ComisionDesktop(ModoForm modo)
@@ -70,7 +75,7 @@ namespace UI.Desktop
             this.ComisionActual.State = BusinessEntity.States.Deleted;
             
             this.btnAceptar.Text = "Eliminar";
-            this.txtAnioEspecialidad.ReadOnly = true;
+            this.cbxPlanes.Enabled = false;
             this.txtDescripcion.ReadOnly = true;
             this.txtIdComision.ReadOnly = true;
             this.cbxPlanes.Enabled = false;
@@ -95,7 +100,7 @@ namespace UI.Desktop
             Comision comi = new ComisionLogic().GetOne(this.ComisionActual.ID);
             this.txtIdComision.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = comi.Descripcion;
-            this.txtAnioEspecialidad.Text = comi.AnioEspecialidad.ToString();
+            this.cbxAnio.SelectedItem = Fechas.Find(x => x == comi.AnioEspecialidad);
             this.cbxPlanes.SelectedItem = Planes.Find(x => x.ID == comi.IdPlan);
 
         }
@@ -104,21 +109,15 @@ namespace UI.Desktop
         {
             
             this.ComisionActual.Descripcion = this.txtDescripcion.Text;
-            this.ComisionActual.AnioEspecialidad = int.Parse(this.txtAnioEspecialidad.Text);
+            this.ComisionActual.AnioEspecialidad = (int)this.cbxAnio.SelectedItem;
             this.ComisionActual.IdPlan = ((Plan)this.cbxPlanes.SelectedItem).ID;
         }
 
         public override bool Validar()
         {
-            int temp;
             if (string.IsNullOrEmpty(this.txtDescripcion.Text))
 	        {
 		        Notificar("Debe completar la descripcion",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return false;
-	        }
-            if (!(int.TryParse(this.txtAnioEspecialidad.Text,out temp)) || temp<1900)
-	        {
-                Notificar("Verifique el año de especialidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
 	        }
             if (cbxPlanes.SelectedIndex == -1)
