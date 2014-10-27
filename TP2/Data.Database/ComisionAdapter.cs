@@ -193,5 +193,36 @@ namespace Data.Database
             }
             return comisiones;
         }
+
+        public List<Comision> getAllWithMateriaAndYear(int id_materia, int anio)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("getComisionWithMateriaAndYear", SqlConn);
+                cmdGetAll.CommandType = CommandType.StoredProcedure;
+                cmdGetAll.Parameters.Add("id_materia", SqlDbType.Int).Value = id_materia;
+                cmdGetAll.Parameters.Add("anio", SqlDbType.Int).Value = anio;   
+                SqlDataReader drComisiones = cmdGetAll.ExecuteReader();
+
+                while (drComisiones.Read())
+                {
+                    Comision com = new Comision();
+                    this.assignData(com, drComisiones);
+                    comisiones.Add(com);
+                }
+                drComisiones.Close();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las comisiones que tienen la materia:" + id_materia.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
+        }
     }
 }

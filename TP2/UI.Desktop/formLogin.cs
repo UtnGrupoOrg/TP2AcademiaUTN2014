@@ -7,12 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     public partial class formLogin : Form
     {
-        Business.Logic.UsuarioLogic usu;
+        private Business.Logic.UsuarioLogic usu;
+        private Usuario usuario;
+
+        public Usuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
         public formLogin()
         {
             InitializeComponent();
@@ -39,7 +48,8 @@ namespace UI.Desktop
             {
                 if (txtUsuario.Text.Length > 0 && txtPass.Text.Length > 0)
                 {
-                    if (usu.identificarUsuario(txtUsuario.Text, txtPass.Text))
+                    this.Usuario = usu.identificarUsuario(txtUsuario.Text, txtPass.Text);
+                    if (Usuario != null)
                     {
                         MessageBox.Show("Usted ha ingresado al sistema correctamente."
                         , "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);

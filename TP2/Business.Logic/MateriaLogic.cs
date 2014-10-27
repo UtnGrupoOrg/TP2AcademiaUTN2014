@@ -56,7 +56,7 @@ namespace Business.Logic
             Persona persona = new PersonaLogic().GetOneOfUser(id);
             if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
             {
-                materias = this.MateriaData.getMateriasDisponibles(id);
+                materias = this.MateriaData.getMateriasDisponibles(persona.ID);
             }
             return materias;
         }

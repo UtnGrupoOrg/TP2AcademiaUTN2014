@@ -56,7 +56,7 @@
     </Compile>
     <Compile Include="ComisionDesktop.Designer.cs">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="formInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formInscripcion.resx">
+      <DependentUpon>formInscripcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formMaterias.resx">
       <DependentUpon>formMaterias.cs</DependentUpon>
