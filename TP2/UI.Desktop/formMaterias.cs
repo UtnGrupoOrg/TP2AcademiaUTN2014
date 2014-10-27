@@ -23,7 +23,6 @@ namespace UI.Desktop
             try
             {
                 this.dgvMaterias.DataSource = new MateriaLogic().GetAllWithPlanDescription();
-                List<Materia> materias = new MateriaLogic().getMateriasDisponibles(1);
             }
             catch (Exception e)
             {

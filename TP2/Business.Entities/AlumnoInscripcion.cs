@@ -29,9 +29,9 @@ namespace Business.Entities
             get { return _IDCurso; }
             set { _IDCurso = value; }
         }
-        private int _Nota;
+        private int? _Nota;
 
-        public int Nota
+        public int? Nota
         {
             get { return _Nota; }
             set { _Nota = value; }

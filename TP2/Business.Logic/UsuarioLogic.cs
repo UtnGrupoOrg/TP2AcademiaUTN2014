@@ -11,7 +11,7 @@ namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
-        public static int MIN_PASS_CARACTERES = 8; 
+        private const int MIN_PASS_CARACTERES = 8; 
         private UsuarioAdapter _UsuarioData;
 
         public UsuarioLogic()

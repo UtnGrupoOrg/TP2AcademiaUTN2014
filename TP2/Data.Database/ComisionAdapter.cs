@@ -193,10 +193,10 @@ namespace Data.Database
             }
             return comisiones;
         }
-
-        public List<Comision> getAllWithMateriaAndYear(int id_materia, int anio)
+        // Devuelve un datable de comisiones y el id del curso que corresponde a la materia, año y comision
+        public DataTable getAllWithMateriaAndYear(int id_materia, int anio)
         {
-            List<Comision> comisiones = new List<Comision>();
+            DataTable comisiones = new DataTable("Comisiones");
             try
             {
                 this.OpenConnection();
@@ -205,14 +205,7 @@ namespace Data.Database
                 cmdGetAll.Parameters.Add("id_materia", SqlDbType.Int).Value = id_materia;
                 cmdGetAll.Parameters.Add("anio", SqlDbType.Int).Value = anio;   
                 SqlDataReader drComisiones = cmdGetAll.ExecuteReader();
-
-                while (drComisiones.Read())
-                {
-                    Comision com = new Comision();
-                    this.assignData(com, drComisiones);
-                    comisiones.Add(com);
-                }
-                drComisiones.Close();
+                comisiones.Load(drComisiones);
             }
             catch (Exception Ex)
             {
@@ -224,5 +217,6 @@ namespace Data.Database
             }
             return comisiones;
         }
+
     }
 }
