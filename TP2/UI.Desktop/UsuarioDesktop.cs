@@ -104,6 +104,12 @@ namespace UI.Desktop
             try
             {
                 new UsuarioLogic().Save(this.UsuarioActual);
+                // Si se esta modificando el mismo usuario que tiene abierta la sesion, se modifica la propiedad en el formMain
+                if (formMain.Usuario.ID == UsuarioActual.ID)
+                {
+                    formMain.Usuario = UsuarioActual;
+                    formMain.Usuario.Clave = null;
+                }
             }
             catch (Exception e)
             {

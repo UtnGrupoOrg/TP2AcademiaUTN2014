@@ -11,14 +11,8 @@ using Business.Entities;
 namespace UI.Desktop
 {
     public partial class formMain : Form
-    {        
-        private Usuario _usuario;
-
-        public Usuario Usuario
-        {
-            get { return _usuario; }
-            set { _usuario = value; }
-        }
+    {
+        public static Usuario Usuario { get; set; }
 
         public formMain()
         {
@@ -27,7 +21,7 @@ namespace UI.Desktop
         public formMain(Usuario usuario)
             :this()
         {
-            this.Usuario = usuario;
+            formMain.Usuario = usuario;
         }
 
         private void mnuSalir_Click(object sender, EventArgs e)
@@ -61,7 +55,7 @@ namespace UI.Desktop
 
         private void inscripcionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formInscripcion formIns = new formInscripcion(this.Usuario);
+            formInscripcion formIns = new formInscripcion(formMain.Usuario);
             if (!formIns.IsDisposed)
             {
                 formIns.Show();
