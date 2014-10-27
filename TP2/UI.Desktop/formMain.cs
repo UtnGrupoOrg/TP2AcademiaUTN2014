@@ -11,7 +11,7 @@ using Business.Entities;
 namespace UI.Desktop
 {
     public partial class formMain : Form
-    {
+    {        
         private Usuario _usuario;
 
         public Usuario Usuario
@@ -62,7 +62,11 @@ namespace UI.Desktop
         private void inscripcionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formInscripcion formIns = new formInscripcion(this.Usuario);
-            formIns.Show();
+            if (!formIns.IsDisposed)
+            {
+                formIns.Show();
+            }
+            
         }      
     }
 }
