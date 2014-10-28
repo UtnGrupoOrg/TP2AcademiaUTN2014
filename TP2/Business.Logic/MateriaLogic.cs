@@ -50,14 +50,15 @@ namespace Business.Logic
         }
         // Devuelve las materias que no esten regular para un alumno
 
-        /*public List<Materia> getMateriasDisponibles(int id)
+        public List<Materia> getMateriasDisponibles(int id)
         {
+            List<Materia> materias = null;
             Persona persona = new PersonaLogic().GetOneOfUser(id);
             if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
             {
-
+                materias = this.MateriaData.getMateriasDisponibles(persona.ID);
             }
-
-        }*/
+            return materias;
+        }
     }
 }

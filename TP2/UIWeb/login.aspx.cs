@@ -19,7 +19,7 @@ namespace UIWeb
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text))
+            if ((new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text)) != null)
             {
                 FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, true);
             }

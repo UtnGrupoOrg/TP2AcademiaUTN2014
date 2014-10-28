@@ -125,7 +125,7 @@ namespace Data.Database
         {
             try
             {
-
+                this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO comisiones(desc_comision,anio_especialidad,id_plan) " +
                                         "values(@desc_comision,@anio_especialidad,@id_plan) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);
@@ -193,5 +193,30 @@ namespace Data.Database
             }
             return comisiones;
         }
+        // Devuelve un datable de comisiones y el id del curso que corresponde a la materia, año y comision
+        public DataTable getAllWithMateriaAndYear(int id_materia, int anio)
+        {
+            DataTable comisiones = new DataTable("Comisiones");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("getComisionWithMateriaAndYear", SqlConn);
+                cmdGetAll.CommandType = CommandType.StoredProcedure;
+                cmdGetAll.Parameters.Add("id_materia", SqlDbType.Int).Value = id_materia;
+                cmdGetAll.Parameters.Add("anio", SqlDbType.Int).Value = anio;   
+                SqlDataReader drComisiones = cmdGetAll.ExecuteReader();
+                comisiones.Load(drComisiones);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las comisiones que tienen la materia:" + id_materia.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
+        }
+
     }
 }

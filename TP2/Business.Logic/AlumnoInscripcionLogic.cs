@@ -34,12 +34,12 @@ namespace Business.Logic
         public void Save(AlumnoInscripcion inscripciona)
         {
             InscripcionData.Save(inscripciona);
+            // TODO validar si ya se terminaron los cupos
         }
 
         public void Delete(int ID)
         {
-            this.InscripcionData.Delete(ID);
-            
+            this.InscripcionData.Delete(ID);            
         }
     }
 }

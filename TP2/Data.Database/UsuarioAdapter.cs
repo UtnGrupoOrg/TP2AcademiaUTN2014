@@ -39,6 +39,35 @@ namespace Data.Database
             }
             return usuarios;
         }
+        public List<Usuario> GetAllWithClave()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT * FROM usuarios", SqlConn);
+                SqlDataReader drUsuarios = cmdGetAll.ExecuteReader();
+
+                while (drUsuarios.Read())
+                {
+                    Usuario usr = new Usuario();
+                    this.assignData(usr, drUsuarios);
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usuarios.Add(usr);
+                }
+                drUsuarios.Close();
+            }
+
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de usuarios", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usuarios;
+        }
 
         public Business.Entities.Usuario GetOne(int ID)
         {
@@ -152,8 +181,7 @@ namespace Data.Database
         private void assignData(Usuario usuario, SqlDataReader dataReader)
         {
             usuario.ID = (int)dataReader["id_usuario"];
-            usuario.NombreUsuario = (string)dataReader["nombre_usuario"];
-            usuario.Clave = (string)dataReader["clave"];
+            usuario.NombreUsuario = (string)dataReader["nombre_usuario"];            
             usuario.Habilitado = (bool)dataReader["habilitado"];
             usuario.Nombre = (string)dataReader["nombre"];
             usuario.Apellido = (string)dataReader["apellido"];

@@ -106,9 +106,8 @@ namespace UI.Desktop
                 this.MateriaActual.HSTotales = Int32.Parse(this.txtHorasTotales.Text);
                 this.MateriaActual.IdPlan = ((Plan)cbxPlan.SelectedItem).ID;
             }
-
-
         }
+
         public override void GuardarCambios() 
         { 
             this.MapearDatos();

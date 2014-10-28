@@ -11,7 +11,7 @@ namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
-        public static int MIN_PASS_CARACTERES = 8; 
+        private const int MIN_PASS_CARACTERES = 8; 
         private UsuarioAdapter _UsuarioData;
 
         public UsuarioLogic()
@@ -43,8 +43,8 @@ namespace Business.Logic
             {                
                 if (usuario.State == BusinessEntity.States.Modified || usuario.State == BusinessEntity.States.New)
                 {
-                    usuario.Clave = this.Hash(usuario.Clave);
                     this.Validate(usuario);
+                    usuario.Clave = this.Hash(usuario.Clave);                    
                 }
                 UsuarioData.Save(usuario);
             }
@@ -61,11 +61,10 @@ namespace Business.Logic
         /// <summary>
         /// Valida si el usuario y la contraseña son correctos.
         /// </summary>
-        public bool identificarUsuario(string usu, string pass)
-        {
+        public Usuario identificarUsuario(string usu, string pass)
+        {            
             List<Usuario> listUsuarios;
-            bool estado = false;
-            listUsuarios = this.GetAll();
+            listUsuarios = this.GetAllWithClave();
             Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);                
             if (usuario != null)
             {
@@ -73,12 +72,12 @@ namespace Business.Logic
                 {
                     if (usuario.isPassword(this.Hash(pass)))
                     {
-                        return estado = true;
+                        return usuario;
                     }
                 }
-            }  
-      
-            return estado;
+            }
+
+            return null;
         }
         private string Hash(string clave)
         {
@@ -107,6 +106,11 @@ namespace Business.Logic
                 throw new FormatException("El formato del email es incorrecto");                
             }              
 
+        }
+
+        private List<Usuario> GetAllWithClave()
+        {
+            return UsuarioData.GetAllWithClave();
         }
     }
 }

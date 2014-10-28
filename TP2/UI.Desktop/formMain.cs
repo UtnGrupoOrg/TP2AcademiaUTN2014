@@ -6,14 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     public partial class formMain : Form
     {
+        public static Usuario Usuario { get; set; }
+
         public formMain()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+        public formMain(Usuario usuario)
+            :this()
+        {
+            formMain.Usuario = usuario;
         }
 
         private void mnuSalir_Click(object sender, EventArgs e)
@@ -43,6 +51,16 @@ namespace UI.Desktop
         {
             formComisiones formCom = new formComisiones();
             formCom.Show();
+        }
+
+        private void inscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formInscripcion formIns = new formInscripcion(formMain.Usuario);
+            if (!formIns.IsDisposed)
+            {
+                formIns.Show();
+            }
+            
         }      
     }
 }

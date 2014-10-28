@@ -163,8 +163,10 @@ namespace Data.Database
         {
             command.Parameters.Add("@id_alumno", SqlDbType.Int).Value = inscripcion.IDAlumno;
             command.Parameters.Add("@id_curso", SqlDbType.Int).Value = inscripcion.IDCurso;
-            command.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = inscripcion.Condicion;
-            command.Parameters.Add("@nota", SqlDbType.Int).Value = inscripcion.Nota;
+            command.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = (object)inscripcion.Condicion ?? DBNull.Value;
+            command.Parameters.Add("@nota", SqlDbType.Int).Value = (object)inscripcion.Nota ?? DBNull.Value;
+
         }
+
     }
 }

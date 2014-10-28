@@ -53,5 +53,10 @@ namespace Business.Logic
         {
             return this.ComisionData.GetAllWithPlanDescription();
         }
+
+        public DataTable getAllWithMateriaAndYear(int id_materia, int anio)
+        {
+            return this.ComisionData.getAllWithMateriaAndYear(id_materia, anio);
+        }
     }
 }
