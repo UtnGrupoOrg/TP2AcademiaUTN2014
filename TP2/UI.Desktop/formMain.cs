@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
     public partial class formMain : Form
     {
         public static Usuario Usuario { get; set; }
+        protected Persona Persona { get; set; }
 
         public formMain()
         {
@@ -22,6 +24,23 @@ namespace UI.Desktop
             :this()
         {
             formMain.Usuario = usuario;
+            Persona = new PersonaLogic().GetOne((int)Usuario.IdPersona);
+        }
+
+        private void OcultarControles()
+        {
+            switch (Persona.TipoPersona)
+            {
+                case Persona.TiposPersonas.Alumno:
+                    {
+
+                        break;
+                    }
+                case Persona.TiposPersonas.Docente:
+                    {
+                        break;
+                    }
+            }
         }
 
         private void mnuSalir_Click(object sender, EventArgs e)
