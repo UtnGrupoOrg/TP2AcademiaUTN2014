@@ -147,13 +147,14 @@
             // tsPlan
             // 
             this.tsPlan.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPlan.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPlan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
             this.tsPlan.Location = new System.Drawing.Point(3, 0);
             this.tsPlan.Name = "tsPlan";
-            this.tsPlan.Size = new System.Drawing.Size(112, 25);
+            this.tsPlan.Size = new System.Drawing.Size(103, 25);
             this.tsPlan.TabIndex = 0;
             // 
             // tsbNuevo

@@ -164,13 +164,14 @@
             // tsMaterias
             // 
             this.tsMaterias.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsMaterias.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsMaterias.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
             this.tsMaterias.Location = new System.Drawing.Point(3, 0);
             this.tsMaterias.Name = "tsMaterias";
-            this.tsMaterias.Size = new System.Drawing.Size(112, 25);
+            this.tsMaterias.Size = new System.Drawing.Size(103, 25);
             this.tsMaterias.TabIndex = 0;
             // 
             // tsbNuevo
