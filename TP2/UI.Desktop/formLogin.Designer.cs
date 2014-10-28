@@ -70,7 +70,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(149, 55);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(194, 20);
-            this.txtUsuario.TabIndex = 3;            
+            this.txtUsuario.TabIndex = 3;
             // 
             // txtPass
             // 
@@ -78,7 +78,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(194, 20);
-            this.txtPass.TabIndex = 4;            
+            this.txtPass.TabIndex = 4;
             // 
             // btnIngresar
             // 

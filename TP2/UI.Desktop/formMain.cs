@@ -80,6 +80,12 @@ namespace UI.Desktop
                 formIns.Show();
             }
             
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formAlumnos formAlu = new formAlumnos();
+            formAlu.Show();
         }      
     }
 }

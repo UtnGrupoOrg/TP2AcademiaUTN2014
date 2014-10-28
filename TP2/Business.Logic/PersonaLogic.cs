@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Data.Database;
 using Business.Entities;
+using System.Data;
+
 
 namespace Business.Logic
 {
@@ -49,6 +51,10 @@ namespace Business.Logic
             return this.PersonaData.GetOneOfUser(ID);
         }
 
+        public DataTable GetAllWithPlanDescription()
+        {
+            return this.PersonaData.GetAllWithPlanDescription();
+        }
 
     }
 }

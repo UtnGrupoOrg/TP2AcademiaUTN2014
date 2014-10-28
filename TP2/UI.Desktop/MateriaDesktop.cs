@@ -114,7 +114,15 @@ namespace UI.Desktop
             
             if (this.GuardaCambios)
             {
-                new MateriaLogic().Save(this.MateriaActual);
+                try
+                {
+                    new MateriaLogic().Save(this.MateriaActual);
+                }
+                catch (Exception e)
+                {
+                    
+                    MessageBox.Show( e.Message, "Error" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         public override bool Validar()
@@ -125,7 +133,8 @@ namespace UI.Desktop
             {
                 Notificar("Hay campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }else if( !(Int32.TryParse(this.txtHorasSemanales.Text,out temp)) || !(Int32.TryParse(this.txtHorasTotales.Text,out temp)))
+            }
+            else if( !(Int32.TryParse(this.txtHorasSemanales.Text,out temp)) || !(Int32.TryParse(this.txtHorasTotales.Text,out temp)))
             {
                 Notificar("Existe un error en el formato de los numeros", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

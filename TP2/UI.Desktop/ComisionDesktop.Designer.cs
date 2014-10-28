@@ -44,8 +44,9 @@
             // 
             // lblIdComision
             // 
+            this.lblIdComision.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdComision.AutoSize = true;
-            this.lblIdComision.Location = new System.Drawing.Point(3, 0);
+            this.lblIdComision.Location = new System.Drawing.Point(16, 6);
             this.lblIdComision.Name = "lblIdComision";
             this.lblIdComision.Size = new System.Drawing.Size(67, 13);
             this.lblIdComision.TabIndex = 0;
@@ -62,8 +63,9 @@
             // 
             // lblAnioEspecialidad
             // 
+            this.lblAnioEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAnioEspecialidad.AutoSize = true;
-            this.lblAnioEspecialidad.Location = new System.Drawing.Point(3, 26);
+            this.lblAnioEspecialidad.Location = new System.Drawing.Point(3, 33);
             this.lblAnioEspecialidad.Name = "lblAnioEspecialidad";
             this.lblAnioEspecialidad.Size = new System.Drawing.Size(94, 13);
             this.lblAnioEspecialidad.TabIndex = 2;
@@ -76,13 +78,14 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.tableLayoutPanel1.SetRowSpan(this.txtDescripcion, 2);
-            this.txtDescripcion.Size = new System.Drawing.Size(121, 57);
+            this.txtDescripcion.Size = new System.Drawing.Size(121, 59);
             this.txtDescripcion.TabIndex = 1;
             // 
             // lblDescripcion
             // 
+            this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 53);
+            this.lblDescripcion.Location = new System.Drawing.Point(15, 53);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(69, 13);
             this.lblDescripcion.TabIndex = 5;
@@ -146,12 +149,13 @@
             // 
             // lblPlan
             // 
+            this.lblPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(230, 26);
+            this.lblPlan.Location = new System.Drawing.Point(250, 33);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(28, 13);
+            this.lblPlan.Size = new System.Drawing.Size(34, 13);
             this.lblPlan.TabIndex = 9;
-            this.lblPlan.Text = "Plan";
+            this.lblPlan.Text = "Plan: ";
             // 
             // cbxPlanes
             // 
@@ -166,7 +170,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(230, 90);
+            this.btnAceptar.Location = new System.Drawing.Point(230, 92);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 3;
@@ -177,7 +181,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelar.Location = new System.Drawing.Point(311, 90);
+            this.btnCancelar.Location = new System.Drawing.Point(311, 92);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -199,6 +203,7 @@
             this.ClientSize = new System.Drawing.Size(436, 118);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Comision";
             this.Load += new System.EventHandler(this.ComisionDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
