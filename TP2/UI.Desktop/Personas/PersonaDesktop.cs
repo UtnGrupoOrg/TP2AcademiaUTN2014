@@ -12,55 +12,37 @@ using System.Net.Mail;
 
 namespace UI.Desktop
 {
-    public partial class AlumnoDesktop : ApplicationForm
+    public partial class PersonaDesktop : ApplicationForm
     {
-        public AlumnoDesktop()
+        public PersonaDesktop()
         {
             InitializeComponent();
         }
-        public Persona AlumnoActual { get; set; }
-        public List<Plan> Planes { get; set; }        
+        public Persona PersonaActual { get; set; }   
         
-        public AlumnoDesktop(ModoForm modo)
+        public PersonaDesktop(ModoForm modo)
             :this()
         {
-            this.Modo = modo;
-            Planes = new PlanLogic().GetAll();
-            this.cbxPlan.DataSource = Planes;
+            this.Modo = modo;            
         }
-        public AlumnoDesktop(ModoForm modo,Plan plan)
-            : this()
-        {
-            this.Modo = modo;
-            Planes = new List<Plan>();
-            Planes.Add(plan);
-            this.cbxPlan.DataSource = Planes;
-            this.cbxPlan.Enabled = false;
-        }
-        public AlumnoDesktop(int ID,ModoForm modo)
+
+        public PersonaDesktop(int ID,ModoForm modo)
             : this(modo)
         {
-            AlumnoActual = new PersonaLogic().GetOne(ID);
-            this.RecuperarDatos();
-        }
-        public AlumnoDesktop(int ID, ModoForm modo, Plan plan)
-            : this(modo,plan)
-        {
-            AlumnoActual = new PersonaLogic().GetOne(ID);
+            PersonaActual = new PersonaLogic().GetOne(ID);
             this.RecuperarDatos();
         }
 
         public override void RecuperarDatos()
         {
-            this.txtID.Text = this.AlumnoActual.ID.ToString();
-            this.txtNombre.Text = this.AlumnoActual.Nombre;
-            this.txtApellido.Text = this.AlumnoActual.Apellido;
-            this.txtLegajo.Text = this.AlumnoActual.Legajo;
-            this.txtEmail.Text = this.AlumnoActual.Email;
-            this.txtTelefono.Text = this.AlumnoActual.Telefono;
-            this.txtDireccion.Text = this.AlumnoActual.Direccion;
-            this.dtpNacimiento.Value = this.AlumnoActual.FechaNacimiento;
-            this.cbxPlan.SelectedItem = Planes.Find(x => x.ID == AlumnoActual.IDPlan);
+            this.txtID.Text = this.PersonaActual.ID.ToString();
+            this.txtNombre.Text = this.PersonaActual.Nombre;
+            this.txtApellido.Text = this.PersonaActual.Apellido;
+            this.txtLegajo.Text = this.PersonaActual.Legajo;
+            this.txtEmail.Text = this.PersonaActual.Email;
+            this.txtTelefono.Text = this.PersonaActual.Telefono;
+            this.txtDireccion.Text = this.PersonaActual.Direccion;
+            this.dtpNacimiento.Value = this.PersonaActual.FechaNacimiento;
 
             if (Modo == ApplicationForm.ModoForm.Alta || Modo == ApplicationForm.ModoForm.Modificacion)
             {
@@ -76,7 +58,6 @@ namespace UI.Desktop
                 this.txtTelefono.ReadOnly = true;
                 this.txtDireccion.ReadOnly = true;
                 this.dtpNacimiento.Enabled = false;
-                this.cbxPlan.Enabled = false;
             }
             else if (Modo == ApplicationForm.ModoForm.Consulta)
             {
@@ -89,34 +70,32 @@ namespace UI.Desktop
         {
             if (Modo == ApplicationForm.ModoForm.Alta)
             {
-                this.AlumnoActual = new Persona();
-                this.AlumnoActual.State = Persona.States.New;
+                this.PersonaActual = new Persona();
+                this.PersonaActual.State = Persona.States.New;
             }
             else if (Modo == ApplicationForm.ModoForm.Modificacion)
             {
-                this.AlumnoActual.State = Persona.States.Modified;
-                this.AlumnoActual.ID = int.Parse(this.txtID.Text);
+                this.PersonaActual.State = Persona.States.Modified;
+                this.PersonaActual.ID = int.Parse(this.txtID.Text);
             }
             else if (Modo == ApplicationForm.ModoForm.Baja)
             {
-                this.AlumnoActual.State = Persona.States.Deleted;
+                this.PersonaActual.State = Persona.States.Deleted;
             }
             else if (Modo == ApplicationForm.ModoForm.Consulta)
             {
-                this.AlumnoActual.State = Persona.States.Unmodified;
+                this.PersonaActual.State = Persona.States.Unmodified;
             }
 
             if (Modo == ApplicationForm.ModoForm.Alta || Modo == ApplicationForm.ModoForm.Modificacion)
             {
-                this.AlumnoActual.Nombre = this.txtNombre.Text;
-                this.AlumnoActual.Apellido = this.txtApellido.Text;
-                this.AlumnoActual.Legajo = this.txtLegajo.Text;
-                this.AlumnoActual.Email = this.txtEmail.Text;
-                this.AlumnoActual.Telefono = this.txtTelefono.Text;
-                this.AlumnoActual.Direccion = this.txtDireccion.Text;
-                this.AlumnoActual.FechaNacimiento = this.dtpNacimiento.Value;
-                this.AlumnoActual.IDPlan = ((Plan)cbxPlan.SelectedItem).ID;
-                this.AlumnoActual.TipoPersona = Persona.TiposPersonas.Alumno;
+                this.PersonaActual.Nombre = this.txtNombre.Text;
+                this.PersonaActual.Apellido = this.txtApellido.Text;
+                this.PersonaActual.Legajo = this.txtLegajo.Text;
+                this.PersonaActual.Email = this.txtEmail.Text;
+                this.PersonaActual.Telefono = this.txtTelefono.Text;
+                this.PersonaActual.Direccion = this.txtDireccion.Text;
+                this.PersonaActual.FechaNacimiento = this.dtpNacimiento.Value;                
             }
         }
 
@@ -125,7 +104,7 @@ namespace UI.Desktop
             this.MapearDatos();
             try
             {
-                new PersonaLogic().Save(this.AlumnoActual);
+                new PersonaLogic().Save(this.PersonaActual);
             }
             catch (Exception e)
             {
@@ -169,7 +148,7 @@ namespace UI.Desktop
             {
                 if (this.Modo == ModoForm.Baja)
                 {
-                    DialogResult result = MessageBox.Show("Realmente desea eliminar el alumno: " + this.txtNombre.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("Realmente desea eliminar la persona: " + this.txtNombre.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         this.GuardarCambios();

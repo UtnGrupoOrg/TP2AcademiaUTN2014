@@ -50,7 +50,7 @@
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
-            this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tlpCurso.Controls.Add(this.label1, 0, 0);
             this.tlpCurso.Controls.Add(this.txtIdCurso, 1, 0);
             this.tlpCurso.Controls.Add(this.label2, 2, 0);
@@ -85,7 +85,7 @@
             // 
             // txtIdCurso
             // 
-            this.txtIdCurso.Location = new System.Drawing.Point(69, 3);
+            this.txtIdCurso.Location = new System.Drawing.Point(68, 3);
             this.txtIdCurso.Name = "txtIdCurso";
             this.txtIdCurso.ReadOnly = true;
             this.txtIdCurso.Size = new System.Drawing.Size(61, 20);
@@ -94,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(198, 0);
+            this.label2.Location = new System.Drawing.Point(195, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 2;
@@ -113,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(198, 33);
+            this.label4.Location = new System.Drawing.Point(195, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 4;
@@ -132,7 +132,7 @@
             // cbxMaterias
             // 
             this.cbxMaterias.FormattingEnabled = true;
-            this.cbxMaterias.Location = new System.Drawing.Point(69, 36);
+            this.cbxMaterias.Location = new System.Drawing.Point(68, 36);
             this.cbxMaterias.Name = "cbxMaterias";
             this.cbxMaterias.Size = new System.Drawing.Size(114, 21);
             this.cbxMaterias.TabIndex = 7;
@@ -140,21 +140,21 @@
             // cbxComision
             // 
             this.cbxComision.FormattingEnabled = true;
-            this.cbxComision.Location = new System.Drawing.Point(301, 36);
+            this.cbxComision.Location = new System.Drawing.Point(298, 36);
             this.cbxComision.Name = "cbxComision";
             this.cbxComision.Size = new System.Drawing.Size(121, 21);
             this.cbxComision.TabIndex = 8;
             // 
             // txtCupo
             // 
-            this.txtCupo.Location = new System.Drawing.Point(69, 68);
+            this.txtCupo.Location = new System.Drawing.Point(68, 68);
             this.txtCupo.Name = "txtCupo";
             this.txtCupo.Size = new System.Drawing.Size(61, 20);
             this.txtCupo.TabIndex = 9;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(198, 103);
+            this.btnAceptar.Location = new System.Drawing.Point(195, 103);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 10;
@@ -163,7 +163,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(301, 103);
+            this.btnCancelar.Location = new System.Drawing.Point(298, 103);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -172,7 +172,7 @@
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(301, 3);
+            this.txtAnio.Location = new System.Drawing.Point(298, 3);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.ReadOnly = true;
             this.txtAnio.Size = new System.Drawing.Size(121, 20);
@@ -185,6 +185,7 @@
             this.ClientSize = new System.Drawing.Size(446, 129);
             this.Controls.Add(this.tlpCurso);
             this.Name = "CursoDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Curso";
             this.tlpCurso.ResumeLayout(false);
             this.tlpCurso.PerformLayout();

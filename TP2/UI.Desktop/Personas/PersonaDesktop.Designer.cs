@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class AlumnoDesktop
+    partial class PersonaDesktop
     {
         /// <summary>
         /// Required designer variable.
@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        protected void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
@@ -37,7 +37,6 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
-            this.lblPlan = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.cbxPlan = new System.Windows.Forms.ComboBox();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -67,7 +65,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblEmail, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblFechaNacimiento, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lblPlan, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 1);
@@ -76,7 +73,6 @@
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtTelefono, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtApellido, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cbxPlan, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.dtpNacimiento, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,18 +160,9 @@
             this.lblFechaNacimiento.TabIndex = 7;
             this.lblFechaNacimiento.Text = "Fecha de Nacimiento:";
             // 
-            // lblPlan
-            // 
-            this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(276, 104);
-            this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(31, 13);
-            this.lblPlan.TabIndex = 8;
-            this.lblPlan.Text = "Plan:";
-            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(357, 134);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 133);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -234,16 +221,6 @@
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 1;
             // 
-            // cbxPlan
-            // 
-            this.cbxPlan.DisplayMember = "descripcion";
-            this.cbxPlan.FormattingEnabled = true;
-            this.cbxPlan.Location = new System.Drawing.Point(357, 107);
-            this.cbxPlan.Name = "cbxPlan";
-            this.cbxPlan.Size = new System.Drawing.Size(121, 21);
-            this.cbxPlan.TabIndex = 7;
-            this.cbxPlan.ValueMember = "ID";
-            // 
             // dtpNacimiento
             // 
             this.dtpNacimiento.Location = new System.Drawing.Point(120, 107);
@@ -256,7 +233,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(276, 134);
+            this.btnAceptar.Location = new System.Drawing.Point(276, 133);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 8;
@@ -264,14 +241,16 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // AlumnoDesktop
+            // PersonaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 164);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "AlumnoDesktop";
-            this.Text = "Alumno";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "PersonaDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -280,7 +259,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
@@ -289,7 +268,6 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblFechaNacimiento;
-        private System.Windows.Forms.Label lblPlan;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtID;
@@ -299,7 +277,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.ComboBox cbxPlan;
         private System.Windows.Forms.DateTimePicker dtpNacimiento;
     }
 }

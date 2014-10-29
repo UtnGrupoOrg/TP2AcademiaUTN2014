@@ -45,17 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocenteDesktop.cs">
+    <Compile Include="Personas\formAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DocenteDesktop.Designer.cs">
-      <DependentUpon>DocenteDesktop.cs</DependentUpon>
+    <Compile Include="Personas\formAlumnos.Designer.cs">
+      <DependentUpon>formAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlumnoDesktop.cs">
+    <Compile Include="Personas\PersonaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlumnoDesktop.Designer.cs">
-      <DependentUpon>AlumnoDesktop.cs</DependentUpon>
+    <Compile Include="Personas\PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
@@ -75,17 +75,11 @@
     <Compile Include="CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAlumnos.cs">
+    <Compile Include="Personas\formPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAlumnos.Designer.cs">
-      <DependentUpon>formAlumnos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formDocentes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formDocentes.Designer.cs">
-      <DependentUpon>formDocentes.cs</DependentUpon>
+    <Compile Include="Personas\formPersonas.Designer.cs">
+      <DependentUpon>formPersonas.cs</DependentUpon>
     </Compile>
     <Compile Include="formInscripcion.cs">
       <SubType>Form</SubType>
@@ -110,6 +104,12 @@
     </Compile>
     <Compile Include="formPlanes.Designer.cs">
       <DependentUpon>formPlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\formDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\formDocentes.Designer.cs">
+      <DependentUpon>formDocentes.cs</DependentUpon>
     </Compile>
     <Compile Include="formUsuarios.cs">
       <SubType>Form</SubType>
@@ -143,17 +143,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Personas\DocenteDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\DocenteDesktop.Designer.cs">
+      <DependentUpon>DocenteDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\AlumnoDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\AlumnoDesktop.Designer.cs">
+      <DependentUpon>AlumnoDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DocenteDesktop.resx">
-      <DependentUpon>DocenteDesktop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AlumnoDesktop.resx">
-      <DependentUpon>AlumnoDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="Personas\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
@@ -161,11 +170,8 @@
     <EmbeddedResource Include="CursoDesktop.resx">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAlumnos.resx">
-      <DependentUpon>formAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formDocentes.resx">
-      <DependentUpon>formDocentes.cs</DependentUpon>
+    <EmbeddedResource Include="Personas\formPersonas.resx">
+      <DependentUpon>formPersonas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInscripcion.resx">
       <DependentUpon>formInscripcion.cs</DependentUpon>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPlanes.resx">
       <DependentUpon>formPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas\formDocentes.resx">
+      <DependentUpon>formDocentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUsuarios.resx">
       <DependentUpon>formUsuarios.cs</DependentUpon>

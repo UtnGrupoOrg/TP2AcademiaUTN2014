@@ -7,29 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class formAlumnos : Form
+    public partial class formAlumnos : formPersonas
     {
-        public formAlumnos()
+        public formAlumnos() 
         {
-            InitializeComponent();
-            this.dgvAlumnos.AutoGenerateColumns = false;
-        }
+            this.InitializeComponent();            
+            this.Text = "Temp";            
+        }        
 
-
-
-        private void formAlumnos_Load(object sender, EventArgs e)
-        {
-            this.Listar();
-        }
-
-        private void Listar()
+        protected override void Listar()
         {
             try
             {
-                this.dgvAlumnos.DataSource = new PersonaLogic().GetAllWithPlanDescription();
+                this.dgvPersonas.DataSource = new PersonaLogic().GetAllWithPlanDescription();
             }
             catch (Exception e)
             {
@@ -37,28 +31,23 @@ namespace UI.Desktop
                 this.Close();
             }
         }
-        private void btnActualizar_Click(object sender, EventArgs e)
+
+        private void formAlumnos_Load(object sender, EventArgs e)
         {
             this.Listar();
+      
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
+        protected override void tsbNuevo_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void tsbNuevo_Click(object sender, EventArgs e)
-        {
-            AlumnoDesktop formAlumno = new AlumnoDesktop(ApplicationForm.ModoForm.Alta);
-            formAlumno.ShowDialog();
+            AlumnoDesktop formPersona = new AlumnoDesktop(ApplicationForm.ModoForm.Alta);
+            formPersona.ShowDialog();
             this.Listar();
         }
-
-        private void tsbEditar_Click(object sender, EventArgs e)
+        protected override void tsbEditar_Click(object sender, EventArgs e)
         {
-            if (this.dgvAlumnos.SelectedRows.Count > 0)
+            if (this.dgvPersonas.SelectedRows.Count > 0)
             {
-                int ID = Int32.Parse(((DataRowView)this.dgvAlumnos.SelectedRows[0].DataBoundItem)["id_persona"].ToString());
+                int ID = Int32.Parse(((DataRowView)this.dgvPersonas.SelectedRows[0].DataBoundItem)["id_persona"].ToString());
                 AlumnoDesktop formAlumno = new AlumnoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formAlumno.ShowDialog();
                 this.Listar();
@@ -69,11 +58,11 @@ namespace UI.Desktop
             }
         }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        protected override void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvAlumnos.SelectedRows.Count > 0)
+            if (this.dgvPersonas.SelectedRows.Count > 0)
             {
-                int ID = Int32.Parse(((DataRowView)this.dgvAlumnos.SelectedRows[0].DataBoundItem)["id_persona"].ToString());
+                int ID = Int32.Parse(((DataRowView)this.dgvPersonas.SelectedRows[0].DataBoundItem)["id_persona"].ToString());
                 AlumnoDesktop formAlumno = new AlumnoDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formAlumno.ShowDialog();
                 this.Listar();

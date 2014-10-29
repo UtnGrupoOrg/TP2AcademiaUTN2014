@@ -171,7 +171,7 @@
             this.tsbEliminar});
             this.tsMaterias.Location = new System.Drawing.Point(3, 0);
             this.tsMaterias.Name = "tsMaterias";
-            this.tsMaterias.Size = new System.Drawing.Size(103, 25);
+            this.tsMaterias.Size = new System.Drawing.Size(72, 25);
             this.tsMaterias.TabIndex = 0;
             // 
             // tsbNuevo
@@ -214,6 +214,7 @@
             this.ClientSize = new System.Drawing.Size(1046, 558);
             this.Controls.Add(this.tcMaterias);
             this.Name = "formMaterias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Materias";
             this.Load += new System.EventHandler(this.formMaterias_Load);
             this.tcMaterias.ContentPanel.ResumeLayout(false);

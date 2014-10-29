@@ -154,7 +154,7 @@
             this.tsbEliminar});
             this.tsPlan.Location = new System.Drawing.Point(3, 0);
             this.tsPlan.Name = "tsPlan";
-            this.tsPlan.Size = new System.Drawing.Size(103, 25);
+            this.tsPlan.Size = new System.Drawing.Size(72, 25);
             this.tsPlan.TabIndex = 0;
             // 
             // tsbNuevo
@@ -194,6 +194,7 @@
             this.ClientSize = new System.Drawing.Size(820, 458);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "formPlanes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formPlan";
             this.Load += new System.EventHandler(this.formPlanes_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);

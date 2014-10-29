@@ -224,7 +224,7 @@
             this.tsbEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(103, 25);
+            this.tsUsuarios.Size = new System.Drawing.Size(72, 25);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -267,6 +267,7 @@
             this.ClientSize = new System.Drawing.Size(752, 420);
             this.Controls.Add(this.tcUsuarios);
             this.Name = "formUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.formUsuarios_Load);
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
