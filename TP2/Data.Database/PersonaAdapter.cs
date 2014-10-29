@@ -71,6 +71,29 @@ namespace Data.Database
             }
             return personasTipo;             
         }
+        public DataTable GetAllWithPlanDescription()
+        {
+            DataTable alumnos = new DataTable("alumnosConPLan");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAllTipo = new SqlCommand("SELECT personas.*, planes.desc_plan FROM personas JOIN planes on planes.id_plan = personas.id_plan WHERE tipo_persona=@tipo", SqlConn);
+                cmdGetAllTipo.Parameters.Add("@tipo", SqlDbType.Int).Value = Persona.TiposPersonas.Alumno;
+                SqlDataReader drPersonasTipo = cmdGetAllTipo.ExecuteReader();
+
+                alumnos.Load(drPersonasTipo);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las personas del tipo "
+                    + Enum.GetName(typeof(Persona.TiposPersonas), Persona.TiposPersonas.Alumno), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnos;      
+        }
 
         public Persona GetOne(int ID)
         {
@@ -146,8 +169,21 @@ namespace Data.Database
 
         public void Save(Persona persona)
         {
-            throw new NotImplementedException();
+            if (persona.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(persona.ID);
+            }
+            else if (persona.State == BusinessEntity.States.New)
+            {
+                this.Insert(persona);
+            }
+            else if (persona.State == BusinessEntity.States.Modified)
+            {
+                this.Update(persona);
+            }
+            persona.State = BusinessEntity.States.Unmodified;
         }
+
         protected void Update(Persona persona)
         {
             try
@@ -157,8 +193,8 @@ namespace Data.Database
                                         "telefono=@telefono, direccion=@direccion, email=@email,fecha_nacimiento=@fecha_nac, " +
                                         "tipo_persona=@tipo,id_plan=@plan WHERE id_persona=@id", SqlConn);
                 insertParameters(cmdUpdate, persona);
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
-                this.insertParameters(cmdUpdate,persona);
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int,1).Value = persona.ID;
+                cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {                
@@ -206,7 +242,7 @@ namespace Data.Database
             per.Email = (string)dataReader["email"];
             per.FechaNacimiento = (DateTime)dataReader["fecha_nacimiento"];
             per.TipoPersona = (Persona.TiposPersonas)dataReader["tipo_persona"];
-            per.IDPlan = (int)dataReader["id_plan"];
+            per.IDPlan = dataReader["id_plan"] == DBNull.Value ? null : (int?)Convert.ToInt32(dataReader["id_plan"]);
         }
         /// <summary>
         /// Agrega los datos de la persona al comando, excepto el ID.
@@ -223,7 +259,7 @@ namespace Data.Database
             command.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
             command.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
             command.Parameters.Add("@tipo", SqlDbType.Int).Value = (int)persona.TipoPersona;
-            command.Parameters.Add("@plan", SqlDbType.Int).Value = persona.IDPlan;
+            command.Parameters.Add("@plan", SqlDbType.Int).Value = (object)persona.IDPlan ?? DBNull.Value;
         }
 
     }

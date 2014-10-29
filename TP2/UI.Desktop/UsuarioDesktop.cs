@@ -124,19 +124,22 @@ namespace UI.Desktop
             {
                 Notificar("Hay campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }else if(this.txtClave.Text.Length < 8)
+            }
+
+            else if(this.txtClave.Text.Length < 8)
             {
                 Notificar("La contrasenia debe ser de 8 caracteres o mas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtClave.Focus();
                 return false;
             }
+
             else if (!String.Equals(this.txtClave.Text, this.txtConfirmarClave.Text))
             {
                 Notificar("Los campos de contrasenias nos son iguales", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
-            {                
+            {
                 try
                 {
                     new MailAddress(this.txtEmail.Text);

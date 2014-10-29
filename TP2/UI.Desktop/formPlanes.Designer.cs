@@ -147,13 +147,14 @@
             // tsPlan
             // 
             this.tsPlan.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPlan.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPlan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
             this.tsPlan.Location = new System.Drawing.Point(3, 0);
             this.tsPlan.Name = "tsPlan";
-            this.tsPlan.Size = new System.Drawing.Size(112, 25);
+            this.tsPlan.Size = new System.Drawing.Size(103, 25);
             this.tsPlan.TabIndex = 0;
             // 
             // tsbNuevo
@@ -163,7 +164,7 @@
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "Nuevo Plan";
+            this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
@@ -173,7 +174,7 @@
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "Editar Plan";
+            this.tsbEditar.Text = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
@@ -183,7 +184,7 @@
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "Eliminar Plan";
+            this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // formPlanes

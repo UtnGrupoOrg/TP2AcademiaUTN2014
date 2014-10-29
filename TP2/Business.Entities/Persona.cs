@@ -37,9 +37,9 @@ namespace Business.Entities
             get { return _FechaNacimiento; }
             set { _FechaNacimiento = value; }
         }
-        private int _IDPlan;
+        private int? _IDPlan;
 
-        public int IDPlan
+        public int? IDPlan
         {
             get { return _IDPlan; }
             set { _IDPlan = value; }

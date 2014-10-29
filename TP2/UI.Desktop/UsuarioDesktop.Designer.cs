@@ -237,7 +237,7 @@
             // 
             // chkCambiaClave
             // 
-            this.chkCambiaClave.Location = new System.Drawing.Point(283, 107);
+            this.chkCambiaClave.Location = new System.Drawing.Point(276, 107);
             this.chkCambiaClave.Name = "chkCambiaClave";
             this.chkCambiaClave.Size = new System.Drawing.Size(105, 17);
             this.chkCambiaClave.TabIndex = 12;

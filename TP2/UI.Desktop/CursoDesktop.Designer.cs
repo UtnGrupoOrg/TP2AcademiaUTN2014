@@ -50,7 +50,11 @@
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+<<<<<<< HEAD
             this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+=======
+            this.tlpCurso.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+>>>>>>> origin/master
             this.tlpCurso.Controls.Add(this.label1, 0, 0);
             this.tlpCurso.Controls.Add(this.txtIdCurso, 1, 0);
             this.tlpCurso.Controls.Add(this.label2, 2, 0);
@@ -94,7 +98,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(199, 0);
+=======
+            this.label2.Location = new System.Drawing.Point(198, 0);
+>>>>>>> origin/master
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 2;
@@ -113,7 +121,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(199, 33);
+=======
+            this.label4.Location = new System.Drawing.Point(198, 33);
+>>>>>>> origin/master
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 4;
@@ -140,7 +152,11 @@
             // cbxComision
             // 
             this.cbxComision.FormattingEnabled = true;
+<<<<<<< HEAD
             this.cbxComision.Location = new System.Drawing.Point(302, 36);
+=======
+            this.cbxComision.Location = new System.Drawing.Point(301, 36);
+>>>>>>> origin/master
             this.cbxComision.Name = "cbxComision";
             this.cbxComision.Size = new System.Drawing.Size(121, 21);
             this.cbxComision.TabIndex = 8;
@@ -154,7 +170,11 @@
             // 
             // btnAceptar
             // 
+<<<<<<< HEAD
             this.btnAceptar.Location = new System.Drawing.Point(199, 103);
+=======
+            this.btnAceptar.Location = new System.Drawing.Point(198, 103);
+>>>>>>> origin/master
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 10;
@@ -164,7 +184,11 @@
             // 
             // btnCancelar
             // 
+<<<<<<< HEAD
             this.btnCancelar.Location = new System.Drawing.Point(302, 103);
+=======
+            this.btnCancelar.Location = new System.Drawing.Point(301, 103);
+>>>>>>> origin/master
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -174,7 +198,11 @@
             // 
             // txtAnio
             // 
+<<<<<<< HEAD
             this.txtAnio.Location = new System.Drawing.Point(302, 3);
+=======
+            this.txtAnio.Location = new System.Drawing.Point(301, 3);
+>>>>>>> origin/master
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.ReadOnly = true;
             this.txtAnio.Size = new System.Drawing.Size(121, 20);
