@@ -79,7 +79,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.tableLayoutPanel1.SetRowSpan(this.txtDescripcion, 2);
             this.txtDescripcion.Size = new System.Drawing.Size(121, 59);
-            this.txtDescripcion.TabIndex = 1;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // lblDescripcion
             // 
@@ -137,7 +137,7 @@
             this.cbxPlanes.Location = new System.Drawing.Point(311, 29);
             this.cbxPlanes.Name = "cbxPlanes";
             this.cbxPlanes.Size = new System.Drawing.Size(121, 21);
-            this.cbxPlanes.TabIndex = 2;
+            this.cbxPlanes.TabIndex = 1;
             this.cbxPlanes.ValueMember = "descripcion";
             // 
             // btnAceptar
@@ -168,7 +168,7 @@
             this.cbxAnio.Location = new System.Drawing.Point(103, 29);
             this.cbxAnio.Name = "cbxAnio";
             this.cbxAnio.Size = new System.Drawing.Size(121, 21);
-            this.cbxAnio.TabIndex = 10;
+            this.cbxAnio.TabIndex = 0;
             // 
             // ComisionDesktop
             // 

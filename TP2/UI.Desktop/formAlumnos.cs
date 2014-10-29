@@ -65,7 +65,7 @@ namespace UI.Desktop
             }
             else
             {
-                MessageBox.Show("Seleccione una Alumno", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Seleccione un Alumno", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -80,7 +80,7 @@ namespace UI.Desktop
             }
             else
             {
-                MessageBox.Show("Seleccione una Alumno", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Seleccione un Alumno", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

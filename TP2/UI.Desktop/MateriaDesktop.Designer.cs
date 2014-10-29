@@ -124,7 +124,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(205, 82);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -134,7 +134,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(286, 82);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -144,14 +144,14 @@
             this.txtDescripcion.Location = new System.Drawing.Point(99, 29);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcion.TabIndex = 7;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // txtHorasSemanales
             // 
             this.txtHorasSemanales.Location = new System.Drawing.Point(99, 56);
             this.txtHorasSemanales.Name = "txtHorasSemanales";
             this.txtHorasSemanales.Size = new System.Drawing.Size(100, 20);
-            this.txtHorasSemanales.TabIndex = 8;
+            this.txtHorasSemanales.TabIndex = 2;
             // 
             // txtID
             // 
@@ -160,6 +160,7 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 9;
+            this.txtID.TabStop = false;
             // 
             // txtHorasTotales
             // 
@@ -167,7 +168,7 @@
             this.txtHorasTotales.Location = new System.Drawing.Point(286, 56);
             this.txtHorasTotales.Name = "txtHorasTotales";
             this.txtHorasTotales.Size = new System.Drawing.Size(125, 20);
-            this.txtHorasTotales.TabIndex = 10;
+            this.txtHorasTotales.TabIndex = 3;
             // 
             // cbxPlan
             // 
@@ -178,7 +179,7 @@
             this.cbxPlan.Location = new System.Drawing.Point(286, 29);
             this.cbxPlan.Name = "cbxPlan";
             this.cbxPlan.Size = new System.Drawing.Size(125, 21);
-            this.cbxPlan.TabIndex = 11;
+            this.cbxPlan.TabIndex = 1;
             this.cbxPlan.ValueMember = "ID";
             // 
             // MateriaDesktop

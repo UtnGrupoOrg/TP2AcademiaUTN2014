@@ -242,7 +242,7 @@ namespace Data.Database
             per.Email = (string)dataReader["email"];
             per.FechaNacimiento = (DateTime)dataReader["fecha_nacimiento"];
             per.TipoPersona = (Persona.TiposPersonas)dataReader["tipo_persona"];
-            per.IDPlan = (int)dataReader["id_plan"];
+            per.IDPlan = dataReader["id_plan"] == DBNull.Value ? null : (int?)Convert.ToInt32(dataReader["id_plan"]);
         }
         /// <summary>
         /// Agrega los datos de la persona al comando, excepto el ID.
