@@ -61,6 +61,12 @@ namespace UI.Desktop
                 formIns.Show();
             }
             
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCursos formCursos = new formCursos();
+            formCursos.Show();
         }      
     }
 }
