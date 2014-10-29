@@ -76,19 +76,13 @@
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="Personas\formPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="formCursos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formCursos.Designer.cs">
       <DependentUpon>formCursos.cs</DependentUpon>
-    <Compile Include="formAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formAlumnos.Designer.cs">
-      <DependentUpon>formAlumnos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formDocentes.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Personas\formPersonas.Designer.cs">
       <DependentUpon>formPersonas.cs</DependentUpon>
@@ -184,13 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Personas\formPersonas.resx">
       <DependentUpon>formPersonas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formCursos.resx">
       <DependentUpon>formCursos.cs</DependentUpon>
-    <EmbeddedResource Include="formAlumnos.resx">
-      <DependentUpon>formAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formDocentes.resx">
-      <DependentUpon>formDocentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInscripcion.resx">
       <DependentUpon>formInscripcion.cs</DependentUpon>
