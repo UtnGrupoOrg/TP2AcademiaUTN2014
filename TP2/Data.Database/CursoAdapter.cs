@@ -10,6 +10,7 @@ namespace Data.Database
 {
     public class CursoAdapter : Adapter
     {
+       
         public List<Curso> GetAll()
         {
             List<Curso> cursos = new List<Curso>();
@@ -164,6 +165,29 @@ namespace Data.Database
             command.Parameters.Add("@id_comision", SqlDbType.Int).Value = curso.IDComision;
             command.Parameters.Add("@anio", SqlDbType.Int).Value = curso.AnioCalendario;
             command.Parameters.Add("@cupo", SqlDbType.Int).Value = curso.Cupo;
+        }
+        public DataTable GetAllWithDescription()
+        {
+            DataTable cursos = new DataTable("Cursos");
+            SqlDataReader drGetAll;
+            try
+            {
+
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.id_curso, mat.id_materia, cur.anio_calendario,cur.id_comision, cur.cupo, mat.desc_materia,com.desc_comision FROM cursos cur   JOIN materias mat ON cur.id_materia = mat.id_materia JOIN comisiones com ON cur.id_comision=com.id_comision", this.SqlConn);
+
+                drGetAll = cmdGetAll.ExecuteReader();
+                cursos.Load(drGetAll);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de cursos", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
         }
     }
 }

@@ -22,8 +22,7 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            CursoLogic cursoLogic = new CursoLogic();
-            this.dgvCursos.DataSource = cursoLogic.GetAll();
+            this.dgvCursos.DataSource = new CursoLogic().GetAllWithDescription();
         }
 
         private void formCursos_Load(object sender, EventArgs e)

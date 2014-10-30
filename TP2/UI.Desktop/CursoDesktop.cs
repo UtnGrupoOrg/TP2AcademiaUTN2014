@@ -31,7 +31,7 @@ namespace UI.Desktop
         public CursoDesktop(ModoForm modo) : this()
         {
             this.Modo = modo;
-  
+            this.txtAnio.Text = DateTime.Now.Year.ToString();
         }
 
         public CursoDesktop(int ID, ModoForm modo):this()

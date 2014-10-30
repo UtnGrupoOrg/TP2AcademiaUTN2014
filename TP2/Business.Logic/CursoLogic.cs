@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data.Database;
+using System.Data;
 
 namespace Business.Logic
 {
@@ -36,6 +37,10 @@ namespace Business.Logic
             CursoData.Save(curso);
         }
 
+        public DataTable GetAllWithDescription()
+        {
+            return CursoData.GetAllWithDescription();
+        }
         public void Delete(int ID)
         {
             CursoData.Delete(ID);
