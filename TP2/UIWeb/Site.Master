@@ -10,10 +10,39 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-        <asp:Menu ID="menu" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
-            <DynamicMenuStyle BackColor="#E6EEE8" />
-        </asp:Menu>   
+    
+    <asp:menu id="NavigationMenu"
+        staticdisplaylevels="2"
+        staticsubmenuindent="10" 
+        orientation="Horizontal"
+        dynamichorizontaloffset="10"
+        target="_blank"  
+        runat="server">
+
+        <items>
+          <asp:menuitem navigateurl="Home.aspx" 
+            text="Home"
+            tooltip="Home">
+            <asp:menuitem navigateurl="Music.aspx"
+              text="Personas"
+              tooltip="Personas">
+              <asp:menuitem navigateurl="Alumnos.aspx" 
+                text="Alumnos"
+                tooltip="Alumnos" Value="Alumnos"/>
+              <asp:menuitem navigateurl="Docentes.aspx"
+                text="Docentes"
+                tooltip="Docentes" Value="Docentes"/>
+            </asp:menuitem>
+          </asp:menuitem>
+            <asp:MenuItem Text="Materias" ToolTip="Materias" Value="Materias"></asp:MenuItem>
+            <asp:MenuItem NavigateUrl="Planes.aspx" Text="Planes" ToolTip="Planes" Value="Planes"></asp:MenuItem>
+            <asp:MenuItem NavigateUrl="Comisiones.aspx" Text="Comisiones" ToolTip="Comisiones" Value="Comisiones"></asp:MenuItem>
+            <asp:MenuItem NavigateUrl="Usuarios.aspx" Target="_self" Text="Usuarios" ToolTip="Usuarios" Value="Usuarios"></asp:MenuItem>
+            <asp:MenuItem></asp:MenuItem>
+        </items>
+
+      </asp:menu>
+      
     <div>
         <asp:ContentPlaceHolder ID="PageContent" runat="server">        
         </asp:ContentPlaceHolder>
