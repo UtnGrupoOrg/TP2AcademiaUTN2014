@@ -25,6 +25,7 @@ namespace UIWeb
             }
             else
             {
+                respuesta.Visible = true;
                 respuesta.Text = "Usuario y/o contraseña incorrectos";
             }
         }
