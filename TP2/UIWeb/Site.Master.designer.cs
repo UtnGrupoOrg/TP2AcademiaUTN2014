@@ -31,13 +31,22 @@ namespace UIWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
         
         /// <summary>
-        /// NavigationMenu control.
+        /// SiteMapDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource;
+        
+        /// <summary>
+        /// menu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu menu;
         
         /// <summary>
         /// PageContent control.
