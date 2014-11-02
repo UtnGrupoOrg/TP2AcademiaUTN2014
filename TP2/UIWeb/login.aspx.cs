@@ -29,5 +29,11 @@ namespace UIWeb
                 respuesta.Text = "Usuario y/o contraseña incorrectos";
             }
         }
+
+        protected void lnkOlvideClave_Click(object sender, EventArgs e)
+        {
+            respuesta.Visible = true;
+            respuesta.Text = "Tendrá que hacer memoria";
+        }
     }
 }

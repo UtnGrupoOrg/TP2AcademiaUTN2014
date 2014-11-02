@@ -24,9 +24,14 @@
                 </p>    
             
                 <br />
-                    <asp:LinkButton ID="lnkOlvideClave" runat="server" Text="Olvide mi contraseña"></asp:LinkButton>
+                    <asp:LinkButton ID="lnkOlvideClave" runat="server" Text="Olvide mi contraseña" OnClick="lnkOlvideClave_Click"></asp:LinkButton>
                     <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"></asp:Button>
                 <br />  
+                <asp:UpdateProgress ID="UpdateProgressLogin" runat="server">
+                    <ProgressTemplate>
+                       Loading...
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
                 <asp:Label ID="respuesta" runat="server" Text="" Visible="false"></asp:Label>          
             </asp:Panel>
         </ContentTemplate>
