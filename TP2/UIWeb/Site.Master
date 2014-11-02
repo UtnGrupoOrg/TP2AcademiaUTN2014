@@ -10,8 +10,8 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-        <asp:Menu ID="menu" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
+        <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
+        <asp:Menu ID="menu" Orientation="Horizontal" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
             <DynamicMenuStyle BackColor="#E6EEE8" />
         </asp:Menu>   
     <div>

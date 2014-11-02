@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business.Entities;
 using Business.Logic;
 using System.Web.Security;
 
@@ -14,14 +15,25 @@ namespace UIWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.RoleExists())
+            {
+                this.GenerateRoles();
+            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            if ((new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text)) != null)
+            Usuario usuario = new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text);
+            if (usuario != null)
             {
-                FormsAuthentication.RedirectFromLoginPage(txtUsuario.Text, true);
+                Persona per = new PersonaLogic().GetOneOfUser(usuario.ID);
+                string rol = Enum.GetName(typeof(Persona.TiposPersonas), per.TipoPersona);
+                if (!Roles.IsUserInRole(usuario.NombreUsuario,rol))
+                {
+                    Roles.AddUserToRole(usuario.NombreUsuario, rol);
+                }
+
+                FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
             }
             else
             {
@@ -34,6 +46,23 @@ namespace UIWeb
         {
             respuesta.Visible = true;
             respuesta.Text = "Tendrá que hacer memoria";
+        }
+        protected bool RoleExists()
+        {
+            foreach(Persona.TiposPersonas tiper in Enum.GetValues(typeof(Persona.TiposPersonas))){
+                if (!Roles.RoleExists(Enum.GetName(typeof(Persona.TiposPersonas), tiper)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        protected void GenerateRoles()
+        {            
+            foreach (Persona.TiposPersonas tiper in Enum.GetValues(typeof(Persona.TiposPersonas)))
+            {
+                Roles.CreateRole(Enum.GetName(typeof(Persona.TiposPersonas), tiper));
+            }
         }
     }
 }
