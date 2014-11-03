@@ -24,4 +24,8 @@
     <Users>admin</Users>
     <Roles>Alumno</Roles>
   </UsersInRoles>
+  <UsersInRoles>
+    <Users>admin</Users>
+    <Roles>Administrativo</Roles>
+  </UsersInRoles>
 </NewDataSet>

@@ -10,10 +10,18 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
-        <asp:Menu ID="menu" Orientation="Horizontal" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
-            <DynamicMenuStyle BackColor="#E6EEE8" />
-        </asp:Menu>   
+        <header>
+            <div id="Titulo"><a href="Default.aspx" title="Home">Academia</a></div>
+            <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
+            <div id="MenuHolder">
+                <asp:Menu ID="menu" Orientation="Horizontal" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
+                    <DynamicMenuStyle BackColor="#E6EEE8" />
+                </asp:Menu>
+            </div>
+            <div id="LogOut">
+                <asp:LinkButton ID="btnSalir" runat="server" OnClick="btnSalir_Click">Salir</asp:LinkButton>
+            </div>
+        </header>   
     <div>
         <asp:ContentPlaceHolder ID="PageContent" runat="server">        
         </asp:ContentPlaceHolder>

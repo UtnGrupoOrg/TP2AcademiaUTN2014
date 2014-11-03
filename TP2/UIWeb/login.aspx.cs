@@ -15,10 +15,18 @@ namespace UIWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.RoleExists())
-            {
-                this.GenerateRoles();
-            }
+            if (!Page.IsPostBack) {
+
+                if (!this.RoleExists())
+                {
+                    this.GenerateRoles();
+                }
+
+                if (User.Identity.IsAuthenticated)
+                {
+                    Response.Redirect("~/default.aspx");
+                }
+            }            
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)

@@ -61,8 +61,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="Materias.aspx" />
-    <Content Include="Usuarios.aspx" />
+    <Content Include="admin\Materias.aspx" />
+    <Content Include="admin\Usuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -92,11 +92,11 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Materias.aspx.cs">
+    <Compile Include="admin\Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Materias.aspx.designer.cs">
+    <Compile Include="admin\Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,11 +107,11 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.aspx.cs">
+    <Compile Include="admin\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Usuarios.aspx.designer.cs">
+    <Compile Include="admin\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -136,7 +136,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="admin\" />
     <Folder Include="alumno\" />
     <Folder Include="App_Code\" />
     <Folder Include="docente\" />

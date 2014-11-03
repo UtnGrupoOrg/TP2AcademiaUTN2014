@@ -3,6 +3,10 @@
     <siteMapNode url="~" title="Home"  description="">        
         <siteMapNode url="~/admin/usuarios.aspx" title="Usuarios" description="Usuarios" roles="Administrativo"/>
         <siteMapNode url="~/admin/materias.aspx" title="Materias" description="Materias" roles="Administrativo"/>
-        <siteMapNode url="~/default.aspx" title="Home"  description="Home" />
+        <siteMapNode url="~/admin/cursos.aspx" title="Cursos" description="Cursos" roles="Administrativo"/>
+        <siteMapNode url="~/admin/planes.aspx" title="Planes" description="Planes" roles="Administrativo"/>
+        <siteMapNode url="~/admin/comisiones.aspx" title="Comisiones" description="Comisiones" roles="Administrativo"/>
+        <siteMapNode url="~/admin/personas.aspx" title="Personas" description="Personas" roles="Administrativo"/>
+        <siteMapNode url="~/admin/especialidades.aspx" title="Especialidades" description="Especialidades" roles="Administrativo"/>
     </siteMapNode>
 </siteMap>

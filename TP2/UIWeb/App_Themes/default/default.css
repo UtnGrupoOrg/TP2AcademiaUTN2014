@@ -4,8 +4,10 @@
 }
 body {
     background-color: #FFFFFF;
-    font-family: "Open Sans",arial;
+    font-family: "Open Sans",arial;    
     font-size: 14px;
+    margin: 0;
+    padding: 0;
 }
 /*Login */ 
 .txtLogin{
@@ -20,7 +22,7 @@ body {
 }
 #loginPanel{
     width: 297px;
-    margin: 0px auto;   
+    margin: 0px auto;   /* Para alinear al medio si se sabe el ancho */
     padding: 25px;
     background-color: #F7F7F7;    
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -64,4 +66,57 @@ body {
     color: white;
     text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+}
+/* Menu */
+#MenuHolder{ 
+    display: inline-block;   
+    float:left;        
+    margin-top:23px;
+    min-width: 800px;
+}
+#menu{   
+    border-left: 3px solid grey ;    
+}
+#menu a.static {
+    padding-left: 7px;
+    padding-right: 7px;      
+    
+}
+#menu a {
+    text-decoration: none;  
+    color: grey;
+    display: block;
+    font-size: 25px;     
+}
+#menu ul {
+    list-style: outside none none;    
+    margin:0px;
+    padding-left:30px;
+    padding-right:30px;
+}
+#Titulo{
+    float:left;    
+    text-align: left;    
+    padding:0.2% 2% 2% 2%;       
+    height: 18px;    
+}
+#Titulo a{    
+    text-decoration: none; 
+    font-size: 50px;        
+    color:black;    
+}
+#LogOut{         
+    padding-right: 50px;
+    padding-top:23px;       
+}
+#LogOut a{
+    font-size: 20px;   
+    text-decoration: none;
+    color:black;
+    padding-left:23px; 
+    border-left: 3px solid grey ;
+}
+header{
+    height: 60px;     
+    padding-bottom: 30px
 }
