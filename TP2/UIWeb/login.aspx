@@ -25,14 +25,14 @@
             
                 <br />
                     <asp:LinkButton ID="lnkOlvideClave" runat="server" Text="Olvide mi contraseña" OnClick="lnkOlvideClave_Click"></asp:LinkButton>
-                    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"></asp:Button>
+                    <asp:Button ID="btnIngresar" CssClass="button" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"></asp:Button>
                 <br />  
                 <asp:UpdateProgress ID="UpdateProgressLogin" runat="server">
                     <ProgressTemplate>
                        Loading...
                     </ProgressTemplate>
                 </asp:UpdateProgress>
-                <asp:Label ID="respuesta" runat="server" Text="" Visible="false"></asp:Label>          
+                <asp:Label ID="respuesta" CssClass="respuesta" runat="server" Text="" Visible="false"></asp:Label>          
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>

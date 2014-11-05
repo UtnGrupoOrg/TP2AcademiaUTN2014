@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
 using System.Net.Mail;
+using System.Drawing;
 
 namespace UIWeb
 {
@@ -68,7 +69,15 @@ namespace UIWeb
         }
         private void SaveEntity(Usuario usuario)
         {
-            this.Logic.Save(usuario);
+            try
+            {
+                this.Logic.Save(usuario);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
         private void EnableForm(bool enable)
         {
@@ -184,6 +193,7 @@ namespace UIWeb
                 e.Row.Cells[0].Style["display"] = "none";
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);               
             }
         }
 

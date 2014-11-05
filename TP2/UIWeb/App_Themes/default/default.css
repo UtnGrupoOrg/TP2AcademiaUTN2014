@@ -9,6 +9,9 @@ body {
     margin: 0;
     padding: 0;
 }
+h1{
+    text-align:center;
+}
 /*Login */ 
 .txtLogin{
     width: 200px;
@@ -37,13 +40,6 @@ body {
 }
 #btnIngresar{
     float: right;
-    border: 1px solid rgba(0, 102, 255, 1);
-    background-color: rgba(0, 201, 255, 1);
-    border-radius: 2px;
-    width: 90px;
-    height: 27px;
-    color: white;
-    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
 }
 #lnkOlvideClave{
     color: #3C3C3C;   
@@ -56,7 +52,7 @@ body {
     font-weight: 100;
     text-align: center;
 }
-#respuesta{    
+.respuesta{    
     background-color: red;
     width: 100%;
     text-align: center;
@@ -73,8 +69,7 @@ body {
     min-width: 700px;
 }
 #menu{   
-    border-left: 3px solid grey ;    
-    float: none !important;
+    border-left: 3px solid black ;        
 }
 #menu a.static {
     padding-left: 7px;
@@ -83,7 +78,7 @@ body {
 }
 #menu a {
     text-decoration: none;  
-    color: grey;
+    color: rgba(71, 71, 71, 1);
     display: block;
     font-size: 20px;     
 }
@@ -105,24 +100,30 @@ body {
 }
 #LogOut{         
     padding-right: 50px;
-    padding-top:23px;   
-    position: fixed;
+    padding-top:23px;      
 }
 #LogOut a{
     font-size: 20px;   
     text-decoration: none;
-    color:grey;
+    color:rgba(71, 71, 71, 1);
     padding-left:23px; 
-    border-left: 3px solid grey ;
+    border-left: 3px solid black ;
 }
 header{
-    height: 60px;     
-    padding-bottom: 30px;        
-    max-width: 1200px;
-    margin: auto;
+    background-color: #6BDFFF;
+    border-bottom: solid rgba(0, 201, 255, 1);
+    display: block;
 }
-header div{  
-    display: inline-block;    
+#headerPanel{
+    height: 60px;     
+    padding-bottom: 5px;       
+    padding-top: 5px;   
+    width: 1200px;
+    margin: 0px auto;
+}
+#headerPanel div{  
+    display: block !important;  
+    float:left !important;
 }
 .centered{
   position: absolute;
@@ -136,35 +137,104 @@ table
 	width: 480px;
 	text-align: left;
 	border-collapse: collapse;
-  border-left: none ;
-  border-right: none ;
+    border-left: none ;
+    border-right: none ;
 }
 table th
 {
 	font-size: 13px;
-	font-weight: normal;
-	padding: 8px;
-	background: #b9c9fe;
-	border-top: 4px solid #aabcfe;
-	border-bottom: 1px solid #fff;
-	color: #039;
-  border-left: none ;
-  border-right: none ;
+	font-size: 13px;
+    font-weight: normal;
+    padding: 8px;
+    background: none repeat scroll 0% 0% #8BE6FF;
+    border-width: 4px medium 1px;
+    border-style: solid none;
+    border-color: rgba(0, 201, 255, 1) -moz-use-text-color #FFF;
+    color: rgba(0, 30, 90, 1);
     
 }
-table td
-{
-	padding: 8px;
-	background: #e8edff; 
-	border-bottom: 1px solid #fff;
-	color: #669;
-	border-top: 1px solid transparent;
-  border-left: none ;
-  border-right: none ;
+table td {
+    padding: 8px;    
+    border-width: 1px medium;
+    border-style: solid none;
+    border-color: transparent -moz-use-text-color #FFF;
 }
-table tr:hover td
+
+table tr{
+    background: none repeat scroll 0% 0% rgba(230, 250, 255, 1);
+    color: rgba(104, 104, 153, 1);
+}
+
+table tr:hover td {
+    background: none repeat scroll 0% 0% rgba(207, 245, 255, 1);
+    color: #339;
+    cursor: pointer;
+}
+
+.button{
+    border: 1px solid rgba(115, 171, 255, 1);
+    background-color: #00C9FF;
+    border-radius: 2px;
+    width: 90px;
+    height: 27px;
+    color: #FFF;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+.formbutton{
+    padding: 6px;
+}
+#PageContent_lbtnEliminar{
+    background-color: #FF7E7E;
+    border: 1px solid #FF6060;
+}
+.rowselected{
+    background-color: #FF7E7E ;
+    color:white;
+}
+.rowselected:hover td{
+    background-color: rgba(255, 107, 107, 1);
+    color:white;
+}
+
+#PageContent_formPanel{
+    width: 200px;
+    margin: 0px auto;   /* Para alinear al medio si se sabe el ancho */
+    padding: 25px;
+    background-color: #F7F7F7;    
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);    
+}
+#PageContent_formPanel span{
+    padding-top: 4px;      
+    padding-bottom: 1px;   
+    display: inline-block;
+}
+#PageContent_formPanel input[type="text"], #PageContent_formPanel input[type="password"]{
+    width: 100% ;   
+}
+
+.error{  
+    background-color: red;
+    width: 100%;
+    text-align: center !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 0px 5px 0px;      
+    color: white;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+span.error[style*="inline"]
 {
-	background: #d0dafd;
-	color: #339;
-  cursor: pointer;
+display:block !Important;
+}
+span.error[style*="visible"]
+{
+display:block !Important;
+}
+#PageContent_formActionsPanel{
+    padding-top: 20px;
+}
+#PageContent_gridActionsPanel{
+    padding-left: 45px;    
 }
