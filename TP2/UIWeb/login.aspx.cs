@@ -31,23 +31,32 @@ namespace UIWeb
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text);
-            if (usuario != null)
+            try
             {
-                Persona per = new PersonaLogic().GetOneOfUser(usuario.ID);
-                string rol = Enum.GetName(typeof(Persona.TiposPersonas), per.TipoPersona);
-                if (!Roles.IsUserInRole(usuario.NombreUsuario,rol))
+                Usuario usuario = new UsuarioLogic().identificarUsuario(txtUsuario.Text, txtClave.Text);
+                if (usuario != null)
                 {
-                    Roles.AddUserToRole(usuario.NombreUsuario, rol);
-                }
+                    Persona per = new PersonaLogic().GetOneOfUser(usuario.ID);
+                    string rol = Enum.GetName(typeof(Persona.TiposPersonas), per.TipoPersona);
+                    if (!Roles.IsUserInRole(usuario.NombreUsuario, rol))
+                    {
+                        Roles.AddUserToRole(usuario.NombreUsuario, rol);
+                    }
 
-                FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
+                    FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
+                }
+                else
+                {
+                    respuesta.Visible = true;
+                    respuesta.Text = "Usuario y/o contraseña incorrectos";
+                }
             }
-            else
+            catch (Exception)
             {
                 respuesta.Visible = true;
-                respuesta.Text = "Usuario y/o contraseña incorrectos";
+                respuesta.Text = "Hubo un error en el logueo";
             }
+           
         }
 
         protected void lnkOlvideClave_Click(object sender, EventArgs e)

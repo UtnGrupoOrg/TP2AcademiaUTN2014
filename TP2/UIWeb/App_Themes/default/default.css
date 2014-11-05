@@ -68,25 +68,24 @@ body {
     border-radius: 4px;
 }
 /* Menu */
-#MenuHolder{ 
-    display: inline-block;   
-    float:left;        
+#MenuHolder{     
     margin-top:23px;
-    min-width: 800px;
+    min-width: 700px;
 }
 #menu{   
     border-left: 3px solid grey ;    
+    float: none !important;
 }
 #menu a.static {
     padding-left: 7px;
-    padding-right: 7px;      
+    padding-right: 7px;   
     
 }
 #menu a {
     text-decoration: none;  
     color: grey;
     display: block;
-    font-size: 25px;     
+    font-size: 20px;     
 }
 #menu ul {
     list-style: outside none none;    
@@ -94,11 +93,10 @@ body {
     padding-left:30px;
     padding-right:30px;
 }
-#Titulo{
-    float:left;    
+#Titulo{      
     text-align: left;    
-    padding:0.2% 2% 2% 2%;       
-    height: 18px;    
+    padding-right: 30px;
+    padding-left: 30px;
 }
 #Titulo a{    
     text-decoration: none; 
@@ -107,16 +105,66 @@ body {
 }
 #LogOut{         
     padding-right: 50px;
-    padding-top:23px;       
+    padding-top:23px;   
+    position: fixed;
 }
 #LogOut a{
     font-size: 20px;   
     text-decoration: none;
-    color:black;
+    color:grey;
     padding-left:23px; 
     border-left: 3px solid grey ;
 }
 header{
     height: 60px;     
-    padding-bottom: 30px
+    padding-bottom: 30px;        
+    max-width: 1200px;
+    margin: auto;
+}
+header div{  
+    display: inline-block;    
+}
+.centered{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+table
+{	
+	font-size: 12px;
+	margin: 45px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+  border-left: none ;
+  border-right: none ;
+}
+table th
+{
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+  border-left: none ;
+  border-right: none ;
+    
+}
+table td
+{
+	padding: 8px;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+  border-left: none ;
+  border-right: none ;
+}
+table tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+  cursor: pointer;
 }

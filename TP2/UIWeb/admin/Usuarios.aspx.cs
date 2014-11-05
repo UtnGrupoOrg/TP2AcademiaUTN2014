@@ -36,6 +36,8 @@ namespace UIWeb
         }
         private void LoadGrid()
         {
+            this.gridPanel.Visible = true;
+            this.gridActionsPanel.Visible = true;
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
         }
@@ -92,6 +94,8 @@ namespace UIWeb
         {
             if (this.IsEntitySelected)
             {
+                this.gridPanel.Visible = false;
+                this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedId);
@@ -146,7 +150,7 @@ namespace UIWeb
                         }
                 }
                 this.SaveEntity(this.Entity);
-                this.LoadGrid();
+                this.LoadGrid();                
                 this.formPanel.Visible = false;                    
 
 
@@ -171,7 +175,17 @@ namespace UIWeb
                 }
         }
 
-
+        protected void gridView_RowCreated1(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+                e.Row.Cells[0].Style["display"] = "none";
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Style["display"] = "none";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
+            }
+        }
 
     }
 
