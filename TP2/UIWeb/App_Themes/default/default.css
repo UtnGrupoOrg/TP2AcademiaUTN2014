@@ -189,11 +189,11 @@ table tr:hover td {
     border: 1px solid #FF6060;
 }
 .rowselected{
-    background-color: #FF7E7E ;
+    background-color: #00C9FF ;
     color:white;
 }
 .rowselected:hover td{
-    background-color: rgba(255, 107, 107, 1);
+    background-color: rgba(10, 185, 233, 1);
     color:white;
 }
 

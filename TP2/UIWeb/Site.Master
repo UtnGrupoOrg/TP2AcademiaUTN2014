@@ -12,7 +12,7 @@
     <form id="bodyForm" runat="server">
         <header>
             <div id="headerPanel">
-                <div id="Titulo"><a href="Default.aspx" title="Home">Academia</a></div>
+                <div id="Titulo"><a href="/Default.aspx" title="Home">Academia</a></div>
                 <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
                 <div id="MenuHolder">
                     <asp:Menu ID="menu" Orientation="Horizontal" SkipLinkText="" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
