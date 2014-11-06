@@ -67,7 +67,7 @@ namespace UIWeb
 
         private void LoadInscriptos(int IdCurso)
         {
-            //this.tit.InnerText = (string)this.Session["Curso"];
+            this.tit.InnerText = ViewState["materia"] as string+ " " + ViewState["anio"] as string;
             this.gridPanelCursos.Visible = false;
             this.gridPanelInscriptos.Visible = true;         
             try
@@ -86,8 +86,10 @@ namespace UIWeb
 
         protected void gridViewCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadInscriptos((int)this.gridViewCursos.SelectedValue);
             ViewState["Curso"] = ((int)this.gridViewCursos.SelectedValue).ToString();
+            ViewState["materia"] = this.gridViewCursos.SelectedRow.Cells[2].Text;
+            ViewState["anio"] = this.gridViewCursos.SelectedRow.Cells[4].Text;
+            LoadInscriptos((int)this.gridViewCursos.SelectedValue);
         }
         protected void GridViewInscriptos_SelectedIndexChanged(object sender, EventArgs e)
         {
