@@ -15,11 +15,11 @@
     </asp:Panel>
     
     <asp:Panel ID="gridActionsPanel" runat="server" Height="20px">
-        <asp:LinkButton ID="lbtnEditar" runat="server" OnClick="lbtnEditar_Click1">Editar</asp:LinkButton>
-        <asp:LinkButton ID="lbtnEliminar" runat="server" OnClick="lbtnEliminar_Click1">Eliminar</asp:LinkButton>
-        <asp:LinkButton ID="lbtnNuevo" runat="server" OnClick="lbtnNuevo_Click1">Nuevo</asp:LinkButton>
+        <asp:LinkButton ID="lbtnNuevo" runat="server" CssClass="button formbutton" OnClick="lbtnNuevo_Click1">Nuevo</asp:LinkButton>
+        <asp:LinkButton ID="lbtnEditar" runat="server" OnClick="lbtnEditar_Click1" CssClass="button formbutton">Editar</asp:LinkButton>
+        <asp:LinkButton ID="lbtnEliminar" runat="server" OnClick="lbtnEliminar_Click1" CssClass="button formbutton">Eliminar</asp:LinkButton>
     </asp:Panel>
-    <asp:Panel ID="formPanel" runat="server" Height="167px">
+    <asp:Panel ID="formPanel" runat="server" Height="167px" CssClass="centered">
         <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
         <br />
@@ -35,8 +35,8 @@
         <asp:TextBox ID="txtHorasTotales" runat="server"></asp:TextBox>
     </asp:Panel>
     <asp:Panel ID="formActionsPanel" runat="server" Height="34px">
-        <asp:LinkButton ID="lbtnAceptar" runat="server" OnClick="lbtnAceptar_Click1">Aceptar</asp:LinkButton>
-        <asp:LinkButton ID="lbtnCancelar" runat="server" OnClick="lbtnCancelar_Click1">Cancelar</asp:LinkButton>
+        <asp:LinkButton ID="lbtnAceptar" runat="server" CssClass="button formbutton" OnClick="lbtnAceptar_Click1">Aceptar</asp:LinkButton>
+        <asp:LinkButton ID="lbtnCancelar" runat="server" CssClass="button formbutton" OnClick="lbtnCancelar_Click1">Cancelar</asp:LinkButton>
     </asp:Panel>
     
 </asp:Content>
