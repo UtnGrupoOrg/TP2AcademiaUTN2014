@@ -8,5 +8,7 @@
         <siteMapNode url="~/admin/comisiones.aspx" title="Comisiones" description="Comisiones" roles="Administrativo"/>
         <siteMapNode url="~/admin/personas.aspx" title="Personas" description="Personas" roles="Administrativo"/>
         <siteMapNode url="~/admin/especialidades.aspx" title="Especialidades" description="Especialidades" roles="Administrativo"/>
+        <siteMapNode url="~/docente/cursos.aspx" title="Cursos" description="Cursos" roles="Docente"/>
+        <siteMapNode url="~/docente/cuenta.aspx" title="Cuenta" description="Cuenta" roles="Docente"/>
     </siteMapNode>
 </siteMap>

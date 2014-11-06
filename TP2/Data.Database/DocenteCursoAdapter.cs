@@ -37,6 +37,31 @@ namespace Data.Database
             }
             return docente_cursos;
         }
+        public DataTable GetAllWithDescription(int ID)
+        {
+
+            DataTable cursos = new DataTable("Docentes_cursos");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.id_curso, cur.anio_calendario, cur.cupo, mat.desc_materia, com.desc_comision FROM cursos cur " +
+                                                     "INNER JOIN materias mat on mat.id_materia = cur.id_materia " +
+                                                     "INNER JOIN comisiones com on com.id_comision = cur.id_comision  "+
+                                                     "INNER JOIN docente_cursos dic on dic.id_curso = cur.id_curso where dic.id_docente = @id", SqlConn);
+                cmdGetAll.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drCurso = cmdGetAll.ExecuteReader();
+                cursos.Load(drCurso);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de docentes_cursos", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
 
         public Business.Entities.DocenteCurso GetOne(int ID)
         {

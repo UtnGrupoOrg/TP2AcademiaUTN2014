@@ -38,12 +38,11 @@ namespace UIWeb
                 {
                     Persona per = new PersonaLogic().GetOneOfUser(usuario.ID);
                     string rol = Enum.GetName(typeof(Persona.TiposPersonas), per.TipoPersona);
-                    if (!Roles.IsUserInRole(usuario.NombreUsuario, rol))
+                    if (!Roles.IsUserInRole(usuario.ID.ToString(), rol))
                     {
-                        Roles.AddUserToRole(usuario.NombreUsuario, rol);
+                        Roles.AddUserToRole(usuario.ID.ToString(), rol);
                     }
-
-                    FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
+                    FormsAuthentication.RedirectFromLoginPage(usuario.ID.ToString(), true);
                 }
                 else
                 {

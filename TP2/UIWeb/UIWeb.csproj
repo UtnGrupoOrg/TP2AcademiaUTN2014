@@ -61,6 +61,7 @@
     <Content Include="admin\Materias.aspx" />
     <Content Include="App_Themes\default\default.css" />
     <Content Include="Default.aspx" />
+    <Content Include="docente\Cursos.aspx" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="docente\Cursos.aspx.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="docente\Cursos.aspx.designer.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscripcion.aspx.cs">
       <DependentUpon>Inscripcion.aspx</DependentUpon>
@@ -139,7 +147,6 @@
   <ItemGroup>
     <Folder Include="alumno\" />
     <Folder Include="App_Code\" />
-    <Folder Include="docente\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

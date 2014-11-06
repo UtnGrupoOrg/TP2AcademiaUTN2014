@@ -115,6 +115,8 @@ namespace UIWeb
         {
             if (this.IsEntitySelected)
             {
+                this.gridPanel.Visible = false;
+                this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Baja;
                 this.EnableForm(false);
@@ -124,6 +126,8 @@ namespace UIWeb
 
         protected void lbtnNuevo_Click(object sender, EventArgs e)
         {
+            this.gridPanel.Visible = false;
+            this.gridActionsPanel.Visible = false;
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
             this.ClearForm();

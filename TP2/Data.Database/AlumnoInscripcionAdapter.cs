@@ -38,6 +38,34 @@ namespace Data.Database
             return alumnos_inscripciones;
         }
 
+        public DataTable GetAllOfCurso(int id_curso)
+        {
+            DataTable alumnos_inscripciones = new DataTable("inscripciones");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT per.nombre, per.apellido, per.email, per.legajo, ins.* " +
+                                                      "  FROM personas per " +
+                                                      "  INNER JOIN alumnos_inscripciones ins on per.id_persona = ins.id_alumno "+
+                                                      "  where ins.id_curso = @id_curso" +
+                                                      " Order by per.apellido", SqlConn);
+                cmdGetAll.Parameters.Add("@id_curso", SqlDbType.Int).Value = id_curso;
+                SqlDataReader drIncripciones = cmdGetAll.ExecuteReader();
+
+                alumnos_inscripciones.Load(drIncripciones);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de alumnos en el curso " + id_curso.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnos_inscripciones;
+        }
+
+
         public Business.Entities.AlumnoInscripcion GetOne(int ID)
         {
             AlumnoInscripcion ins = new AlumnoInscripcion();
@@ -106,7 +134,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno," +
-                                        "id_curso=@id_curso, condicion = @condicion, nota=@nota"  +
+                                        "id_curso=@id_curso, condicion = @condicion, nota=@nota "  +
                                         "WHERE id_inscripcion=@id", SqlConn);
                 insertParameters(cmdUpdate, inscripcion);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = inscripcion.ID;
@@ -168,5 +196,32 @@ namespace Data.Database
 
         }
 
+
+        public DataTable GetOneWithPersona(int id)
+        {
+            DataTable alumnos_inscripciones = new DataTable("inscripciones");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT per.nombre, per.apellido, per.email, per.legajo, ins.* " +
+                                                      "  FROM personas per " +
+                                                      "  INNER JOIN alumnos_inscripciones ins on per.id_persona = ins.id_alumno " +
+                                                      "  where ins.id_inscripcion = @id" +
+                                                      " Order by per.apellido", SqlConn);
+                cmdGetAll.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drIncripciones = cmdGetAll.ExecuteReader();
+
+                alumnos_inscripciones.Load(drIncripciones);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de alumnos y la inscripcion:  " + id.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnos_inscripciones;
+        }
     }
 }

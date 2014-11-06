@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using Business.Entities;
 using Data.Database;
@@ -26,6 +27,11 @@ namespace Business.Logic
             return InscripcionData.GetAll();
         }
 
+        public DataTable GetAllOfCurso(int id_curso)
+        {
+            return InscripcionData.GetAllOfCurso(id_curso);
+        }
+
         public AlumnoInscripcion GetOne(int ID)
         {
             return InscripcionData.GetOne(ID);
@@ -35,11 +41,17 @@ namespace Business.Logic
         {
             InscripcionData.Save(inscripciona);
             // TODO validar si ya se terminaron los cupos
+            // TODO validar que los campos de la condicion sean libre o regular
         }
 
         public void Delete(int ID)
         {
             this.InscripcionData.Delete(ID);            
+        }
+
+        public DataTable GetOneWithPersona(int id)
+        {
+            return this.InscripcionData.GetOneWithPersona(id);
         }
     }
 }

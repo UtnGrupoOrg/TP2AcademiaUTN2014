@@ -38,6 +38,27 @@ namespace Data.Database
             }
             return cursos;
         }
+        public DataTable GetAllWithDescription()
+        {
+
+            DataTable cursos = new DataTable("Cursos");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.*, mat.desc_materia, com.desc_comision FROM cursos cur INNER JOIN materias mat on mat.id_materia = cur.id_materia INNER JOIN comisiones com on com.id_comision = cur.id_comision  ", SqlConn);
+                SqlDataReader drCurso = cmdGetAll.ExecuteReader();
+                cursos.Load(drCurso);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de cursos", Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
 
         public Curso GetOne(int ID)
         {
@@ -166,28 +187,6 @@ namespace Data.Database
             command.Parameters.Add("@anio", SqlDbType.Int).Value = curso.AnioCalendario;
             command.Parameters.Add("@cupo", SqlDbType.Int).Value = curso.Cupo;
         }
-        public DataTable GetAllWithDescription()
-        {
-            DataTable cursos = new DataTable("Cursos");
-            SqlDataReader drGetAll;
-            try
-            {
 
-                this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.id_curso, mat.id_materia, cur.anio_calendario,cur.id_comision, cur.cupo, mat.desc_materia,com.desc_comision FROM cursos cur   JOIN materias mat ON cur.id_materia = mat.id_materia JOIN comisiones com ON cur.id_comision=com.id_comision", this.SqlConn);
-
-                drGetAll = cmdGetAll.ExecuteReader();
-                cursos.Load(drGetAll);
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception("Error al recuperar datos de cursos", Ex);
-            }
-            finally
-            {
-                this.CloseConnection();
-            }
-            return cursos;
-        }
     }
 }
