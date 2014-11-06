@@ -20,6 +20,7 @@
                     </asp:Menu>
                 </div>
                 <div id="LogOut">
+                    <asp:LinkButton ID="lbtnCuenta" runat="server"></asp:LinkButton>
                     <asp:LinkButton ID="btnSalir" runat="server" OnClick="btnSalir_Click">Salir</asp:LinkButton>
                 </div>
             </div>

@@ -9,6 +9,5 @@
         <siteMapNode url="~/admin/personas.aspx" title="Personas" description="Personas" roles="Administrativo"/>
         <siteMapNode url="~/admin/especialidades.aspx" title="Especialidades" description="Especialidades" roles="Administrativo"/>
         <siteMapNode url="~/docente/cursos.aspx" title="Cursos" description="Cursos" roles=" Docente"/>
-        <siteMapNode url="~/cuenta.aspx" title="Cuenta" description="Cuenta" roles="Administrativo Docente Alumno"/>
     </siteMapNode>
 </siteMap>
