@@ -40,4 +40,8 @@
     <Users>18</Users>
     <Roles>Administrativo</Roles>
   </UsersInRoles>
+  <UsersInRoles>
+    <Users>18</Users>
+    <Roles>Alumno</Roles>
+  </UsersInRoles>
 </NewDataSet>

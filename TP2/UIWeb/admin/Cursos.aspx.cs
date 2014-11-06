@@ -25,11 +25,13 @@ namespace UIWeb.admin
 
         private void LoadGrid()
         {
-            panelAbm.Visible = false;
+            formPanel.Visible = false;
+            gvCursos.Visible = true;
+            formActionsPanel.Visible = true;
             this.gvCursos.DataSource = new CursoLogic().GetAllWithDescription();
             this.panelGv.Visible = true;
             this.gvCursos.DataBind();
-            this.panelAcciones.Visible = true;
+            this.gridActionsPanel.Visible = true;
             lblMensaje.Visible = false;          
             
             
@@ -66,7 +68,9 @@ namespace UIWeb.admin
 
         private void loadPanelAbm()
         {
-            panelAbm.Visible = true;
+            panelGv.Visible = false;
+
+            formPanel.Visible = true;
             lblMensaje.Visible = false;
             switch (this.FormMode)
             {
@@ -86,7 +90,7 @@ namespace UIWeb.admin
         /// </summary>
         private void lockForm()
         {
-            this.txtDescCurso.Enabled = false;
+            
             this.txtAnioCurso.Enabled = false;
             this.txtCupo.Enabled = false;
             this.ddlComisiones.Enabled = false;
@@ -98,7 +102,6 @@ namespace UIWeb.admin
         private void loadForm()
         {
             Curso = new CursoLogic().GetOne(SelectedId);
-            txtDescCurso.Text = Curso.Descripcion;
             txtCupo.Text = Curso.Cupo.ToString();
             txtAnioCurso.Text = Curso.AnioCalendario.ToString();
             ddlComisiones.SelectedIndex = ddlComisiones.Items.IndexOf(ddlComisiones.Items.FindByValue(Curso.IDComision.ToString()));
@@ -109,7 +112,7 @@ namespace UIWeb.admin
         /// </summary>
         private void enableForm()
         {
-            this.txtDescCurso.Enabled = true;
+            
             this.txtAnioCurso.Enabled = true;
             this.txtCupo.Enabled = true;
             this.ddlComisiones.Enabled = true;
@@ -120,7 +123,7 @@ namespace UIWeb.admin
         /// </summary>
         private void resetForm()
         {
-            this.txtDescCurso.Text = "";
+            
             this.txtCupo.Text = "";
             this.txtAnioCurso.Text = "";
         }
@@ -130,7 +133,32 @@ namespace UIWeb.admin
             this.SelectedId = (int)this.gvCursos.SelectedValue;
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        
+
+        private void loadCurso()
+        {
+            
+            Curso.Cupo = int.Parse(txtCupo.Text);
+            Curso.AnioCalendario = int.Parse(txtAnioCurso.Text);
+            Curso.IDComision = int.Parse(ddlComisiones.SelectedValue);
+            Curso.IDMateria = int.Parse(ddlMaterias.SelectedValue);
+        }
+        
+        
+
+        protected void gvCursos_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+                e.Row.Cells[0].Style["display"] = "none";
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Style["display"] = "none";
+                e.Row.ToolTip = "Click to select row";
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gvCursos, "Select$" + e.Row.RowIndex);
+            }
+        }
+
+        protected void lbtnAceptar_Click(object sender, EventArgs e)
         {
             Page.Validate();
             if (Page.IsValid)
@@ -140,7 +168,7 @@ namespace UIWeb.admin
                 {
                     case FormModes.Alta: this.loadCurso(); this.Curso.State = BusinessEntity.States.New;
                         break;
-                    case FormModes.Baja: this.Curso.ID = this.SelectedId; this.Curso.State = BusinessEntity.States.Deleted; 
+                    case FormModes.Baja: this.Curso.ID = this.SelectedId; this.Curso.State = BusinessEntity.States.Deleted;
                         break;
                     case FormModes.Modificacion: this.Curso.ID = SelectedId; this.Curso.State = BusinessEntity.States.Modified; this.loadCurso();
                         break;
@@ -149,23 +177,14 @@ namespace UIWeb.admin
                 }
                 new CursoLogic().Save(this.Curso);
                 this.LoadGrid();
-                panelAbm.Visible = false;
+                formPanel.Visible = false;
             }
         }
 
-        private void loadCurso()
+        protected void lbtnCancelar_Click(object sender, EventArgs e)
         {
-            Curso.Descripcion = txtDescCurso.Text;
-            Curso.Cupo = int.Parse(txtCupo.Text);
-            Curso.AnioCalendario = int.Parse(txtAnioCurso.Text);
-            Curso.IDComision = int.Parse(ddlComisiones.SelectedValue);
-            Curso.IDMateria = int.Parse(ddlMaterias.SelectedValue);
-        }
-        //Boton cancelar
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            
             this.LoadGrid();
+            
         }
     }
 }

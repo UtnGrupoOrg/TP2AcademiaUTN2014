@@ -148,7 +148,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO cursos(id_materia,id_comision,anio_calendario," +
-                                        "cupo,desc_curso) values(@id_materia,@id_comision,@anio,@cupo) " +
+                                        "cupo) values(@id_materia,@id_comision,@anio,@cupo) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);
                 insertParameters(cmdInsert, curso);
                 curso.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
