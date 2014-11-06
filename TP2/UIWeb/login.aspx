@@ -29,7 +29,7 @@
                 <br />  
                 <asp:UpdateProgress ID="UpdateProgressLogin" runat="server">
                     <ProgressTemplate>
-                       Loading...
+                        <asp:Image ID="imgLoading" runat="server" ImageUrl="~/Resources/loading.GIF" Height="40px" />
                     </ProgressTemplate>
                 </asp:UpdateProgress>
                 <asp:Label ID="respuesta" CssClass="respuesta" runat="server" Text="" Visible="false"></asp:Label>          

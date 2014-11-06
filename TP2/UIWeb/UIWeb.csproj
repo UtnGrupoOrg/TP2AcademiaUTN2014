@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Cursos.aspx" />
     <Content Include="admin\Materias.aspx" />
     <Content Include="App_Themes\default\default.css" />
     <Content Include="Default.aspx" />
@@ -65,11 +66,19 @@
     <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
+    <Content Include="Resources\loading.GIF" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Cursos.aspx.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Cursos.aspx.designer.cs">
+      <DependentUpon>Cursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
