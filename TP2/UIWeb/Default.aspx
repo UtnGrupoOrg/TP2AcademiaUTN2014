@@ -3,8 +3,6 @@
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentHome" runat="server">      
 
     
-    <div>
-    Home<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    </div>
+    <h1> Bienvenidos! </h1>
     
 </asp:Content>

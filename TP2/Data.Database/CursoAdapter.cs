@@ -128,7 +128,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE cursos SET id_materia=@id_materia,id_comision=@id_comision," +
-                                        "anio_calendario=@anio,cupo=@cupo,desc_curso=@desc_curso WHERE id_curso=@id", SqlConn);
+                                        "anio_calendario=@anio,cupo=@cupo WHERE id_curso=@id", SqlConn);
                 insertParameters(cmdUpdate, curso);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = curso.ID;
                 cmdUpdate.ExecuteNonQuery();
@@ -148,7 +148,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO cursos(id_materia,id_comision,anio_calendario," +
-                                        "cupo,desc_curso) values(@id_materia,@id_comision,@anio,@cupo,@desc_curso) " +
+                                        "cupo,desc_curso) values(@id_materia,@id_comision,@anio,@cupo) " +
                                         "SELECT SCOPE_IDENTITY()", SqlConn);
                 insertParameters(cmdInsert, curso);
                 curso.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
@@ -174,7 +174,6 @@ namespace Data.Database
             curso.IDComision = (int)dataReader["id_comision"];
             curso.AnioCalendario = (int)dataReader["anio_calendario"];
             curso.Cupo = (int)dataReader["cupo"];
-            curso.Descripcion = dataReader["desc_curso"].ToString();
         }
         /// <summary>
         /// Asigna los datos del curso al comando, excepto el ID.
@@ -187,7 +186,6 @@ namespace Data.Database
             command.Parameters.Add("@id_comision", SqlDbType.Int).Value = curso.IDComision;
             command.Parameters.Add("@anio", SqlDbType.Int).Value = curso.AnioCalendario;
             command.Parameters.Add("@cupo", SqlDbType.Int).Value = curso.Cupo;
-            command.Parameters.Add("@desc_curso", SqlDbType.VarChar).Value = curso.Descripcion;
         }
 
     }

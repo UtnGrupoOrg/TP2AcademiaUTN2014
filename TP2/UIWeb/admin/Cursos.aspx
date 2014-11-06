@@ -12,7 +12,6 @@
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="id_curso" HeaderText="ID Curso" />
-                            <asp:BoundField DataField="desc_curso" HeaderText="Curso" />
                             <asp:BoundField DataField="cupo" HeaderText="Cupo" />
                             <asp:BoundField DataField="anio_calendario" HeaderText="Año" />
                             <asp:BoundField DataField="desc_materia" HeaderText="Materia" />
