@@ -10,6 +10,7 @@
                 <asp:Panel ID="gridPanel" runat="server">
                     <asp:GridView ID="gridView" runat="server" AutoGenerateSelectButton="True" AutoGenerateColumns="False" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" OnRowCreated="gridView_RowCreated1">
                         <Columns>
+                            <asp:BoundField DataField="id" HeaderText="ID" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                            
                         </Columns>
@@ -28,11 +29,10 @@
                 <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" CssClass="error" Display="Dynamic" ErrorMessage="RequiredFieldValidator">Debes completar este campo</asp:RequiredFieldValidator>
-                <br />
                     <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" CssClass="button formbutton" runat="server" CausesValidation="false" Text="Button" OnClick="lbtnCancelar_Click">Cancelar</asp:LinkButton>
-                </asp:Panel>
+                    </asp:Panel>
             </asp:Panel>
         </ContentTemplate>
      </asp:UpdatePanel>

@@ -134,7 +134,7 @@ table
 {	
 	font-size: 12px;
 	margin: 45px;
-	width: 480px;
+	min-width: 200px;
 	text-align: left;
 	border-collapse: collapse;
     border-left: none ;

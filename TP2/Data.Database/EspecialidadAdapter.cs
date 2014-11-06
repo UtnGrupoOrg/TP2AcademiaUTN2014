@@ -105,7 +105,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("UPDATE especialidades SET desc_especialidad=@desc_esp," +                                        
+                SqlCommand cmdUpdate = new SqlCommand("UPDATE especialidades SET desc_especialidad=@desc_esp " +                                        
                                         "WHERE id_especialidad=@id", SqlConn);
                 insertParameters(cmdUpdate, especialidad);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int, 1).Value = especialidad.ID;
