@@ -121,6 +121,7 @@ namespace UIWeb
                 this.FormMode = FormModes.Baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedId);
+                this.lbtnAceptar.Text = "Eliminar";
             }
         }
 
@@ -196,8 +197,7 @@ namespace UIWeb
             {
                 e.Row.Cells[0].Style["display"] = "none";
                 e.Row.ToolTip = "Click to select row";
-                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
-                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);               
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);                           
             }
         }
 

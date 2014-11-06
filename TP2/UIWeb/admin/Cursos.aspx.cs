@@ -30,8 +30,7 @@ namespace UIWeb.admin
             this.panelGv.Visible = true;
             this.gvCursos.DataBind();
             this.panelAcciones.Visible = true;
-            lblMensaje.Visible = false;
-            
+            lblMensaje.Visible = false;          
             
             
         }

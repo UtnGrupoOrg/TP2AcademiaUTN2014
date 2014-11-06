@@ -36,8 +36,7 @@ namespace UIWeb.admin
         }
         private void LoadGrid()
         {
-            this.gridPanel.Visible = true;
-            this.gridActionsPanel.Visible = true;
+            this.gridContainer.Visible = true;
             this.formPanel.Visible = false;
             this.formActionsPanel.Visible = false;
             this.grdMaterias.DataSource = this.Logic.GetAllWithPlanDescription();
@@ -87,8 +86,7 @@ namespace UIWeb.admin
         {
             if (this.IsEntitySelected)
             {
-                this.gridPanel.Visible = false;
-                this.gridActionsPanel.Visible = false;
+                this.gridContainer.Visible = false;                  
                 this.formPanel.Visible = true;
                 this.formActionsPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
@@ -101,17 +99,19 @@ namespace UIWeb.admin
         {
             if (this.IsEntitySelected)
             {
-
+                this.gridContainer.Visible = false;             
                 this.formPanel.Visible = true;
                 this.formActionsPanel.Visible = true;
                 this.FormMode = FormModes.Baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedId);
+                this.lbtnAceptar.Text = "Eliminar";
             }
         }
 
         protected void lbtnNuevo_Click1(object sender, EventArgs e)
         {
+            this.gridContainer.Visible = false;            
             this.formPanel.Visible = true;
             this.formActionsPanel.Visible = true;
             this.FormMode = FormModes.Alta;
