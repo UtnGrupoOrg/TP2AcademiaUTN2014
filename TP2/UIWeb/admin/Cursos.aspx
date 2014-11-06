@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cursos.aspx.cs" Inherits="UIWeb.admin.Cursos" MasterPageFile="~/Site.Master"%>
 
-<!DOCTYPE html>
+
 
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentUsuarios" runat="server"> 
     <div>
@@ -8,7 +8,7 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:Panel ID="panelGv" runat="server">
-                    <asp:GridView ID="gvCursos" runat="server" AutoGenerateColumns="False" CellPadding="4" EnablePersistedSelection="True" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="True" DataKeyNames="id_comision" OnSelectedIndexChanged="gvCursos_SelectedIndexChanged">
+                    <asp:GridView ID="gvCursos" runat="server" AutoGenerateColumns="False" CellPadding="4" EnablePersistedSelection="True" ForeColor="#333333" GridLines="None" AutoGenerateSelectButton="True" DataKeyNames="id_curso" OnSelectedIndexChanged="gvCursos_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="id_curso" HeaderText="ID Curso" />
@@ -29,6 +29,7 @@
                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
+                    <asp:Label ID="lblFila" runat="server" Text="Label"></asp:Label>
                 </asp:Panel>
                 <asp:Panel ID="panelAcciones" runat="server">
                     <asp:LinkButton ID="lbNuevo" runat="server" OnClick="lbNuevo_Click">Nuevo</asp:LinkButton>
@@ -44,11 +45,10 @@
                 <asp:Label ID="lblCupo" runat="server" Text="Cupo: "></asp:Label>
                 <asp:TextBox ID="txtCupo" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCupo" Display="Dynamic" ErrorMessage="No puede estar vacio."></asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtCupo" Display="Dynamic" ErrorMessage="Corrobore el ingreso." MinimumValue="0"></asp:RangeValidator>
                 <br />
                 <asp:Label ID="lblAnio" runat="server" Text="Año Curso: "></asp:Label>
                 <asp:TextBox ID="txtAnioCurso" runat="server"></asp:TextBox>
-                <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="2050" MinimumValue="1960"></asp:RangeValidator>
+                <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="2050" MinimumValue="1960" ControlToValidate="txtAnioCurso"></asp:RangeValidator>
                 <br />
                 <br />
                 <asp:Label ID="lblMateria" runat="server" Text="Materia: "></asp:Label>
@@ -62,7 +62,7 @@
                 <asp:ObjectDataSource ID="odsComisiones" runat="server" SelectMethod="GetAll" TypeName="Data.Database.ComisionAdapter"></asp:ObjectDataSource>
                 <br />
                 <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
-                <asp:Button ID="Button2" runat="server" Text="Cancelar" OnClick="Button2_Click" />
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="Button2_Click" CausesValidation="False" />
                 </asp:Panel>
                 
                 

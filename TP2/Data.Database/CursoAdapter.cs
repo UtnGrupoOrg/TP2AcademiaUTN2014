@@ -176,7 +176,7 @@ namespace Data.Database
             {
 
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.id_curso, cur.desc_curso, mat.id_materia, cur.anio_calendario,cur.id_comision, cur.cupo, mat.desc_materia,com.desc_comision FROM cursos cur   JOIN materias mat ON cur.id_materia = mat.id_materia JOIN comisiones com ON cur.id_comision=com.id_comision", this.SqlConn);
+                SqlCommand cmdGetAll = new SqlCommand("SELECT cur.id_curso, ISNULL(cur.desc_curso,'Sin descripcion') as desc_curso, mat.id_materia, cur.anio_calendario,cur.id_comision, cur.cupo, mat.desc_materia,com.desc_comision FROM cursos cur   JOIN materias mat ON cur.id_materia = mat.id_materia JOIN comisiones com ON cur.id_comision=com.id_comision", this.SqlConn);
 
                 drGetAll = cmdGetAll.ExecuteReader();
                 cursos.Load(drGetAll);

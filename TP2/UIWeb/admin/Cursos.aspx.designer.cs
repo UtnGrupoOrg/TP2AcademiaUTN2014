@@ -49,6 +49,15 @@ namespace UIWeb.admin {
         protected global::System.Web.UI.WebControls.GridView gvCursos;
         
         /// <summary>
+        /// Control lblFila.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFila;
+        
+        /// <summary>
         /// Control panelAcciones.
         /// </summary>
         /// <remarks>
@@ -148,15 +157,6 @@ namespace UIWeb.admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Control RangeValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
-        
-        /// <summary>
         /// Control lblAnio.
         /// </summary>
         /// <remarks>
@@ -247,13 +247,13 @@ namespace UIWeb.admin {
         protected global::System.Web.UI.WebControls.Button btnAceptar;
         
         /// <summary>
-        /// Control Button2.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
         /// Control UpdateProgress1.

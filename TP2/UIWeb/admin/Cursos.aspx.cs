@@ -25,12 +25,13 @@ namespace UIWeb.admin
 
         private void LoadGrid()
         {
-            
+            panelAbm.Visible = false;
             this.gvCursos.DataSource = new CursoLogic().GetAllWithDescription();
             this.panelGv.Visible = true;
             this.gvCursos.DataBind();
             this.panelAcciones.Visible = true;
             lblMensaje.Visible = false;
+            
             
             
         }
@@ -66,6 +67,7 @@ namespace UIWeb.admin
 
         private void loadPanelAbm()
         {
+            panelAbm.Visible = true;
             lblMensaje.Visible = false;
             switch (this.FormMode)
             {
@@ -78,6 +80,7 @@ namespace UIWeb.admin
                 default:
                     break;
             }
+            
         }
         /// <summary>
         /// Bloquea el abm. esto sirve para la baja y modificacion
@@ -125,7 +128,7 @@ namespace UIWeb.admin
 
         protected void gvCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedId = (int)gvCursos.SelectedValue;
+            this.SelectedId = (int)this.gvCursos.SelectedValue;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -159,9 +162,10 @@ namespace UIWeb.admin
             Curso.IDComision = int.Parse(ddlComisiones.SelectedValue);
             Curso.IDMateria = int.Parse(ddlMaterias.SelectedValue);
         }
-
+        //Boton cancelar
         protected void Button2_Click(object sender, EventArgs e)
         {
+            
             this.LoadGrid();
         }
     }
