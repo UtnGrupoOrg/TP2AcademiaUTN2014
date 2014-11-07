@@ -61,6 +61,7 @@
     <Content Include="admin\Cursos.aspx" />
     <Content Include="admin\Especialidades.aspx" />
     <Content Include="admin\Materias.aspx" />
+    <Content Include="admin\Planes.aspx" />
     <Content Include="App_Themes\default\default.css" />
     <Content Include="Default.aspx" />
     <Content Include="docente\Cursos.aspx" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="admin\Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Planes.aspx.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Planes.aspx.designer.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="baseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
