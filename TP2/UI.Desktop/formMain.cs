@@ -104,6 +104,12 @@ namespace UI.Desktop
         {
             formCursos formCursos = new formCursos();
             formCursos.Show();
+        }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formEspecialidades formEspecialidades = new formEspecialidades();
+            formEspecialidades.Show();
         }      
     }
 }
