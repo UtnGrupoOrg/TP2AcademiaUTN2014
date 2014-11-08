@@ -16,16 +16,16 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //formLogin appLogin = new formLogin();
-            //if (appLogin.ShowDialog() == DialogResult.OK)
-            //{
-            //    Application.Run(new formMain(appLogin.Usuario));
-            //}
-            //else
-            //{
-            //   Application.Exit();
-            //}
-            Application.Run(new formMain());
+            formLogin applogin = new  formLogin();
+            if (applogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new formMain(applogin.Usuario));
+            }
+            else
+            {
+                Application.Exit();
+            }
+            
         }
     }
 }

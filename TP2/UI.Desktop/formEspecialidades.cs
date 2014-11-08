@@ -66,7 +66,8 @@ namespace UI.Desktop
         {
             if (dgvEspecialidades.SelectedRows.Count > 0)
             {
-                int id = int.Parse(((DataRowView)this.dgvEspecialidades.SelectedRows[0].DataBoundItem)["ID"].ToString());
+                
+                int id = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop frm = new EspecialidadDesktop(id, ApplicationForm.ModoForm.Baja);
                 frm.ShowDialog();
                 this.Listar();
