@@ -64,12 +64,15 @@
     <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
     <Content Include="App_Themes\default\default.css" />
+    <Content Include="Resources\loading2.GIF" />
+    <Content Include="Cuenta.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="docente\Cursos.aspx" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
     <Content Include="Resources\loading.GIF" />
+    <Content Include="Resources\Symbol_OK.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -112,6 +115,13 @@
     </Compile>
     <Compile Include="baseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta.aspx.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta.aspx.designer.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

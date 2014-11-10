@@ -114,7 +114,7 @@ namespace UIWeb.admin
             persona.Nombre = this.txtNombre.Text;
             persona.Apellido = this.txtApellido.Text;
             persona.Email = this.txtEmail.Text;
-            persona.Direccion = this.txtDia.Text;
+            persona.Direccion = this.txtDireccion.Text;
             persona.Telefono = this.txtTelefono.Text;
             persona.Legajo = this.txtLegajo.Text;
             persona.FechaNacimiento = (DateTime)this.getDate();

@@ -47,6 +47,7 @@
                 <asp:RequiredFieldValidator ID="rfvClave"  CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtClave" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
                 <asp:Label ID="lblRepetirClave" runat="server" Text="Repetir Clave: "></asp:Label>
                 <asp:TextBox ID="txtRepetirClave" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvRepetirClave"  CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtRepetirClave" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="cvClave" CssClass="error" runat="server" Text="Las contraseñas no coinciden." Display="dynamic" ControlToValidate="txtClave" ControlToCompare="txtRepetirClave" ErrorMessage="CompareValidator"></asp:CompareValidator>
                 <asp:RegularExpressionValidator CssClass="error" ID="valPassword" runat="server"
                                                ControlToValidate="txtClave"

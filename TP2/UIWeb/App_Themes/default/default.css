@@ -250,3 +250,7 @@ display:block !Important;
     background-color: #6BDFFF;
     border: solid rgba(0, 201, 255, 1);    
 }
+.loading{    
+    padding-left: 8px;
+    display: inline-block !important;    
+}

@@ -5,6 +5,7 @@ using System.Text;
 using Data.Database;
 using Business.Entities;
 using System.Data;
+using System.Threading;
 
 
 namespace Business.Logic
@@ -39,6 +40,7 @@ namespace Business.Logic
 
         public void Save(Persona persona)
         {
+            Thread.Sleep(2000000000);
             PersonaData.Save(persona);
         }
 

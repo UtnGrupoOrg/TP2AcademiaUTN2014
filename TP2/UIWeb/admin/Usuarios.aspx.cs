@@ -86,9 +86,7 @@ namespace UIWeb
             this.txtEmail.Enabled = enable;
             this.txtNombreUsuario.Enabled = enable;
             this.txtClave.Visible = enable;
-            this.lblClave.Visible = enable;
             this.txtRepetirClave.Visible = enable;
-            this.lblRepetirClave.Visible = enable;
         }
 
         private void ClearForm()
