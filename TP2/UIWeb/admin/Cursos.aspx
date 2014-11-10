@@ -39,12 +39,12 @@
                 <asp:Label ID="lblMateria" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="ddlMaterias" runat="server" DataSourceID="odsMaterias" DataTextField="Descripcion" DataValueField="ID">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="odsMaterias" runat="server" SelectMethod="GetAll" TypeName="Data.Database.MateriaAdapter"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsMaterias" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.MateriaLogic"></asp:ObjectDataSource>
 
                 <asp:Label ID="lblComision" runat="server" Text="Comision: "></asp:Label>
                 <asp:DropDownList ID="ddlComisiones" runat="server" DataSourceID="odsComisiones" DataTextField="Descripcion" DataValueField="ID">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="odsComisiones" runat="server" SelectMethod="GetAll" TypeName="Data.Database.ComisionAdapter"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsComisiones" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.ComisionLogic"></asp:ObjectDataSource>
                 
                 <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>

@@ -55,6 +55,9 @@ namespace Business.Logic
         {
             return this.PersonaData.GetAllWithPlanDescription();
         }
-
+        public DataTable GetAllWithPlanDescription(Persona.TiposPersonas tipoPersona)
+        {
+            return this.PersonaData.GetAllWithPlanDescription(tipoPersona);
+        }
     }
 }

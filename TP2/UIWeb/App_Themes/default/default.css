@@ -99,20 +99,22 @@ h1{
     color:black;    
 }
 #LogOut{         
-    padding-right: 50px;
-    padding-top:23px;      
+    margin-top: 23px;
+    margin-right: 50px;
+    margin-left: 23px;
+    border-left: 3px solid black ;  
 }
 #LogOut a{
     font-size: 20px;   
     text-decoration: none;
-    color:rgba(71, 71, 71, 1);
-    padding-left:23px; 
-    border-left: 3px solid black ;
+    color:rgba(71, 71, 71, 1);  
+    margin-left: 5px;     
+    padding-left: 5px;    
 }
 header{
     background-color: #6BDFFF;
     border-bottom: solid rgba(0, 201, 255, 1);
-    display: block;
+    display: block;    
 }
 #headerPanel{
     height: 60px;     
@@ -208,9 +210,15 @@ table tr:hover td {
     padding-top: 4px;      
     padding-bottom: 1px;   
     display: inline-block;
+    width:100%;
 }
 #PageContent_formPanel input[type="text"], #PageContent_formPanel input[type="password"]{
     width: 100% ;   
+}
+#PageContent_formPanel .fecha{
+    display: inline-block;
+    width: 25.5% !important;
+    padding: 3px;
 }
 
 .error{  
@@ -237,4 +245,8 @@ display:block !Important;
 }
 #PageContent_gridActionsPanel{
     padding-left: 45px;    
+}
+.dynamicmenu{
+    background-color: #6BDFFF;
+    border: solid rgba(0, 201, 255, 1);    
 }

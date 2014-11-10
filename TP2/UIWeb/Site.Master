@@ -15,7 +15,7 @@
                 <div id="Titulo"><a href="/Default.aspx" title="Home">Academia</a></div>
                 <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
                 <div id="MenuHolder">
-                    <asp:Menu ID="menu" Orientation="Horizontal" SkipLinkText="" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
+                    <asp:Menu ID="menu" Orientation="Horizontal" SkipLinkText="" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8" DynamicMenuStyle-CssClass="dynamicmenu">
                         <DynamicMenuStyle BackColor="#E6EEE8" />
                     </asp:Menu>
                 </div>

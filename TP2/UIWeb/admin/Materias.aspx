@@ -33,7 +33,7 @@
                 <asp:Label ID="Label3" runat="server" Text="Plan"></asp:Label>
                 <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="odsPlan" DataTextField="Descripcion">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="odsPlan" runat="server" SelectMethod="GetAll" TypeName="Data.Database.PlanAdapter"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsPlan" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Horas Semanales"></asp:Label>
                 <asp:TextBox ID="txtHorasSemanales" runat="server"></asp:TextBox>

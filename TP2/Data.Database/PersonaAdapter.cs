@@ -94,6 +94,29 @@ namespace Data.Database
             }
             return alumnos;      
         }
+        public DataTable GetAllWithPlanDescription(Persona.TiposPersonas tipoPersona)
+        {
+            DataTable alumnos = new DataTable("alumnosConPLan");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAllTipo = new SqlCommand("SELECT personas.*, planes.desc_plan FROM personas LEFT JOIN planes on planes.id_plan = personas.id_plan WHERE tipo_persona=@tipo", SqlConn);
+                cmdGetAllTipo.Parameters.Add("@tipo", SqlDbType.Int).Value = (int)tipoPersona;
+                SqlDataReader drPersonasTipo = cmdGetAllTipo.ExecuteReader();
+
+                alumnos.Load(drPersonasTipo);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de las personas del tipo "
+                    + Enum.GetName(typeof(Persona.TiposPersonas), Persona.TiposPersonas.Alumno), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnos;
+        }
 
         public Persona GetOne(int ID)
         {
