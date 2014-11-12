@@ -121,15 +121,6 @@ namespace UIWeb.admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlAnioCalendario;
         
         /// <summary>
-        /// odsAnios control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsAnios;
-        
-        /// <summary>
         /// lblPlan control.
         /// </summary>
         /// <remarks>

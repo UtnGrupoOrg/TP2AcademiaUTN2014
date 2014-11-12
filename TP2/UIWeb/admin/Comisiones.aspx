@@ -30,14 +30,14 @@
             <asp:Panel CssClass="centered" ID="formPanel" runat="server" Visible="false">
                 
                 <asp:Label ID="lblAnioEspecialidad" runat="server" Text="Año Especialidad"></asp:Label>
-                <asp:DropDownList ID="ddlAnioCalendario" runat="server" DataSourceID="odsAnios" DataTextField="anio_especialidad">
+                <asp:DropDownList ID="ddlAnioCalendario" runat="server">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="odsAnios" runat="server" SelectMethod="GetAllWithPlanDescription" TypeName="Business.Logic.ComisionLogic"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="Fechas" runat="server"></asp:ObjectDataSource>
                 <br />
                 <asp:Label ID="lblPlan" runat="server" Text="Plan"></asp:Label>
-                <asp:DropDownList ID="ddlPlanes" runat="server" DataSourceID="odsPlanes" DataTextField="desc_plan">
+                <asp:DropDownList ID="ddlPlanes" runat="server" DataSourceID="odsPlanes" DataTextField="Descripcion">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="odsPlanes" runat="server" SelectMethod="GetAllWithEspecialidadDescription" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsPlanes" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
                 <br />
                 <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
                 <br />
