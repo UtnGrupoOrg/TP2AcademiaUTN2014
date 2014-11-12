@@ -44,6 +44,7 @@ namespace UIWeb.admin
         }
 
         private Persona Entity { get; set; }
+        private AlumnoInscripcion Inscripcion { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -79,9 +80,9 @@ namespace UIWeb.admin
         private void LoadGrid()
         {
             if (Tipo != null)
-            {
-                this.gridPanel.Visible = true;
-                this.gridActionsPanel.Visible = true;
+            {               
+                this.EnableGrid(true);
+                gridView.SelectedIndex = -1;
                 this.gridView.DataSource = Logic.GetAllWithPlanDescription((Persona.TiposPersonas)Tipo);
                 this.gridView.DataBind();
             }
@@ -129,10 +130,9 @@ namespace UIWeb.admin
             {
                 this.Logic.Save(persona);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                this.SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -243,13 +243,18 @@ namespace UIWeb.admin
 
         protected void gridView_RowCreated1(object sender, GridViewRowEventArgs e)
         {
+            SeleccionTabla(gridView, e);
+        }
+
+        protected void SeleccionTabla(GridView grid, GridViewRowEventArgs e)
+        {
             if (e.Row.RowType == DataControlRowType.Header)
                 e.Row.Cells[0].Style["display"] = "none";
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Cells[0].Style["display"] = "none";
                 e.Row.ToolTip = "Click to select row";
-                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(grid, "Select$" + e.Row.RowIndex);
             }
         }
 
@@ -299,10 +304,181 @@ namespace UIWeb.admin
             
         }
 
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
+        }
+
+        //
+        // Inscripcion
+        //
+
+        protected void gridMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedId = (int)this.gridMaterias.SelectedValue;
+        }
+        protected void gridComisiones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedId = (int)this.gridComisiones.SelectedValue;
+        }
+
         protected void lbtnInscribir_Click(object sender, EventArgs e)
         {
+            ViewState["personaID"] = this.SelectedId;
+            this.LoadGridMaterias();
+            this.FormMode = FormModes.Alta;
+        }
+
+        protected void lbtnSiguiente_Click(object sender, EventArgs e)
+        {
+            ViewState["materia"] = new MateriaLogic().GetOne(this.SelectedId).Descripcion;
+            LoadComisiones(this.SelectedId);
+        }
+
+        protected void lbtnAtras_Click(object sender, EventArgs e)
+        {
+            this.EnableGridComisiones(false);
+            this.LoadGridMaterias();
+        }
+        protected void lbtnAtrasPersonas_Click(object sender, EventArgs e)
+        {
+            this.EnableGridMateria(false);
+            this.LoadGrid();
+        }
+        protected void lbtnInscribirse_Click(object sender, EventArgs e)
+        {
+            this.Inscripcion = new AlumnoInscripcion();
+            this.loadInscripcion(this.Inscripcion);
+            this.SaveInscripcion(this.Inscripcion);
+            this.SetMessage("Se inscribió a con exito a " + ViewState["materia"] as string);
+            this.EnableGridComisiones(false);
+            this.LoadGridMaterias();            
+        }
+
+        protected void loadInscripcion(AlumnoInscripcion inscripcion)
+        {
+            int? personaID = ViewState["personaID"] as int?;
+            if (personaID != null)
+            {
+                inscripcion.State = BusinessEntity.States.New;
+                try
+                {
+                    inscripcion.IDAlumno = new PersonaLogic().GetOne((int)personaID).ID;
+                }
+                catch (Exception e)
+                {
+                    SetError(e.Message);
+                }
+                inscripcion.IDCurso = this.SelectedId;
+            }
+            else
+            {
+                SetError("Hubo un error al crear la inscripcion");
+            }
+        }
+
+        private void LoadGridMaterias()
+        {
+            int? personaID = ViewState["personaID"] as int?;
+            if (personaID != null)
+            {
+                gridMaterias.SelectedIndex = -1;
+                this.EnableGrid(false);
+                this.EnableGridComisiones(false);
+                this.EnableGridMateria(true);
+                List<Materia> materias=null;
+                try
+                {
+                    materias = new MateriaLogic().getMateriasDisponiblesOfPersona((int)personaID);
+                    if (!materias.Any())
+                    {
+                        this.SetMessage("No hay materias disponibles para inscribirse");
+                        this.EnableGridMateria(false);
+                        this.LoadGrid();
+                    }
+                    this.gridMaterias.DataSource = materias;
+                    this.subtit.InnerText = " Materias disponibles para inscripcion de " + new PersonaLogic().GetOne((int)personaID).Nombre;
+                }
+                catch (Exception e)
+                {
+                    SetError(e.Message);
+                }
+            }
+            else
+            {
+                SetError("Hubo un error al cargar la lista de materias");
+            }
+            this.gridMaterias.DataBind();
 
         }
 
+        private void SaveInscripcion(AlumnoInscripcion inscripcion)
+        {
+            try
+            {
+                new AlumnoInscripcionLogic().Save(inscripcion);
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
+        }
+
+        protected void EnableGridComisiones(bool value)
+        {
+            this.subtit.Visible = value;
+            this.lbtnAtras.Visible = value;
+            this.lbtnInscribirse.Visible = value;
+            this.gridComisionesPanel.Visible = value;
+        }
+        protected void EnableGridMateria(bool value)
+        {
+            this.subtit.Visible = value;
+            this.gridMateriasPanel.Visible = value;
+            this.lbtnSiguiente.Visible = value;
+            this.lbtnAtrasPersonas.Visible = value;
+        }
+        protected void EnableGrid(bool value)
+        {
+            this.gridPanel.Visible = value;
+            this.lbtnEditar.Visible = value;
+            this.lbtnNuevo.Visible = value;
+            this.lbtnEliminar.Visible = value;
+            this.lbtnInscribir.Visible = value;
+        }
+
+        protected void LoadComisiones(int id_materia)
+        {
+            gridComisiones.SelectedIndex = -1;
+            this.EnableGridMateria(false);
+            this.EnableGridComisiones(true);            
+            this.subtit.InnerText = " Comisiones";
+            try
+            {
+                this.gridComisiones.DataSource = new ComisionLogic().getAllWithMateriaAndYear(id_materia, DateTime.Today.Year);
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
+            this.gridComisiones.DataBind();
+        }
+
+        protected void gridMaterias_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            SeleccionTabla(gridMaterias, e);
+        }
+        protected void gridComisiones_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            SeleccionTabla(gridComisiones, e);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace UIWeb.admin
         {
             comision.Descripcion = this.txtDescripcion.Text;
             comision.IdPlan= Int32.Parse(ddlPlanes.SelectedValue);
-            //con anios a hacer
+            //TODO con anios a hacer
         }
         private void SaveEntity(Comision comision)
         {

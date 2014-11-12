@@ -1,18 +1,7 @@
 ﻿<%@ Page Title="Inscripcion" Language="C#" AutoEventWireup="true" CodeBehind="Inscripcion.aspx.cs" MasterPageFile="~/Site.Master" Inherits="UIWeb.Inscripcion" %>
 
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentUsuarios" runat="server">        
-    <script>
-        function CloseError_Click() {
-            var div = document.getElementById('PageContent_ErrorBox');
-            if (div) {
-                div.parentNode.removeChild(div);
-            }
-            var div = document.getElementById('PageContent_MessageBox');
-            if (div) {
-                div.parentNode.removeChild(div);
-            }
-        }
-    </script>
+    <script src="../Resources/scripts.js"></script> 
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
     <div id="headtit">
         <h1 > Inscripción a Materias </h1>

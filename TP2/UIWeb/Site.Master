@@ -9,7 +9,8 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="bodyForm" runat="server">
+    
+    <form id="bodyForm" runat="server">        
         <header>
             <div id="headerPanel">
                 <div id="Titulo"><a href="/Default.aspx" title="Home">Academia</a></div>
@@ -25,7 +26,7 @@
                 </div>
             </div>
         </header>   
-    <div>
+    <div>         
         <asp:ContentPlaceHolder ID="PageContent" runat="server">        
         </asp:ContentPlaceHolder>
     </div>

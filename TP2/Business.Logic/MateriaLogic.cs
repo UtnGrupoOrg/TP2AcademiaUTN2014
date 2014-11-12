@@ -60,5 +60,15 @@ namespace Business.Logic
             }
             return materias;
         }
+        public List<Materia> getMateriasDisponiblesOfPersona(int id)
+        {
+            List<Materia> materias = null;
+            Persona persona = new PersonaLogic().GetOne(id);
+            if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
+            {
+                materias = this.MateriaData.getMateriasDisponibles(persona.ID);
+            }
+            return materias;
+        }
     }
 }

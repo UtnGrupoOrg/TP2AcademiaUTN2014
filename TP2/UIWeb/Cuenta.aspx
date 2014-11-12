@@ -50,7 +50,7 @@
                 </asp:UpdatePanel>
                 <asp:Panel ID="formActionsPanel" runat="server">
                      <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Guardar</asp:LinkButton> 
-                     <asp:UpdateProgress CssClass="loading" ID="upLoading" runat="server" >
+                     <asp:UpdateProgress ID="upLoading" runat="server" >
                         <ProgressTemplate>
                             <asp:Image ID="Image1" CssClass="loading" runat="server" ImageUrl="~/Resources/loading2.GIF"/>
                         </ProgressTemplate>

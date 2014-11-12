@@ -74,6 +74,7 @@
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
     <Content Include="Resources\loading.GIF" />
+    <Content Include="Resources\scripts.js" />
     <Content Include="Resources\Symbol_OK.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

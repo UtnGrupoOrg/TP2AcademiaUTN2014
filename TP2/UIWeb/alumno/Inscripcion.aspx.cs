@@ -45,7 +45,7 @@ namespace UIWeb
                 this.SetMessage("No hay materias disponibles para inscribirse");
                 this.lbtnSiguiente.Visible = false; 
             }
-            this.gridMaterias.DataSource = new MateriaLogic().getMateriasDisponibles(this.UserID);
+            this.gridMaterias.DataSource = materias;
             this.gridMaterias.DataBind();
         }
         protected void LoadComisiones(int id_materia)

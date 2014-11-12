@@ -9,6 +9,12 @@ body {
     margin: 0;
     padding: 0;
 }
+#headtit{
+    text-align:center;
+}
+h1{
+    display:inline !important;
+}
 h1,h2{
     text-align:center;
 }
@@ -256,6 +262,10 @@ display:block !Important;
 {
     display: inline-block !important;
 }
+#PageContent_upLoading2[style*="block"]
+{
+    display: inline-block !important;
+}
 #PageContent_ErrorBox{     
      background-color: red; 
 }
@@ -277,6 +287,7 @@ display:block !Important;
     width:20px;
     height:20px;cursor: pointer;
     float:right;
+    padding-right: 5px;
 }
 #PageContent_CloseError :hover{
     cursor: pointer;
