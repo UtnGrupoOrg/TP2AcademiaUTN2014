@@ -16,7 +16,7 @@
                             <asp:BoundField DataField="NombreUsuario" HeaderText="Usuario" />
                             <asp:BoundField DataField="Habilitado" HeaderText="Habilitado" />
                         </Columns>
-                        <SelectedRowStyle ForeColor="White" CssClass="rowselected" />
+                        <SelectedRowStyle CssClass="rowselected" />
                     </asp:GridView>
 
                 </asp:Panel>      
@@ -38,8 +38,7 @@
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 <asp:CustomValidator ID="cvEmail" CssClass="error" ValidateEmptyText="true" ControlToValidate="txtEmail" Display="dynamic" OnServerValidate="validateEmail" Text="El formato del email debe ser usuario@proveedor.algo" runat="server" />
                 <asp:Label ID="lblHabilitado" runat="server" Text="Habilitado: "></asp:Label>
-                <asp:CheckBox ID="ckxHabilitado" runat="server" />
-                <br />
+                <asp:CheckBox ID="ckxHabilitado" runat="server" />                
                 <asp:Label ID="lblNombreUsuario" runat="server" Text="Usuario: "></asp:Label>
                 <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvNombreUsuario" CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtNombreUsuario" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
@@ -48,6 +47,7 @@
                 <asp:RequiredFieldValidator ID="rfvClave"  CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtClave" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
                 <asp:Label ID="lblRepetirClave" runat="server" Text="Repetir Clave: "></asp:Label>
                 <asp:TextBox ID="txtRepetirClave" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvRepetirClave"  CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtRepetirClave" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="cvClave" CssClass="error" runat="server" Text="Las contraseñas no coinciden." Display="dynamic" ControlToValidate="txtClave" ControlToCompare="txtRepetirClave" ErrorMessage="CompareValidator"></asp:CompareValidator>
                 <asp:RegularExpressionValidator CssClass="error" ID="valPassword" runat="server"
                                                ControlToValidate="txtClave"

@@ -13,8 +13,12 @@ namespace UIWeb
     public partial class Site : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            this.lbtnCuenta.Text = (new UsuarioLogic().GetOne(Int32.Parse(HttpContext.Current.User.Identity.Name.ToString()))).NombreUsuario;
+        {            
+            this.lbtnCuenta.InnerText = (new UsuarioLogic().GetOne(Int32.Parse(HttpContext.Current.User.Identity.Name))).NombreUsuario;
+            if (!Page.IsPostBack)
+            {
+                this.lbtnCuenta.Attributes.Add("href", "/Cuenta.aspx");
+            }
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)

@@ -6,7 +6,6 @@ using Data.Database;
 using Business.Entities;
 using System.Data;
 
-
 namespace Business.Logic
 {
     public class PersonaLogic : BusinessLogic
@@ -38,7 +37,7 @@ namespace Business.Logic
         }
 
         public void Save(Persona persona)
-        {
+        {            
             PersonaData.Save(persona);
         }
 
@@ -55,6 +54,9 @@ namespace Business.Logic
         {
             return this.PersonaData.GetAllWithPlanDescription();
         }
-
+        public DataTable GetAllWithPlanDescription(Persona.TiposPersonas tipoPersona)
+        {
+            return this.PersonaData.GetAllWithPlanDescription(tipoPersona);
+        }
     }
 }

@@ -62,14 +62,19 @@
     <Content Include="admin\Cursos.aspx" />
     <Content Include="admin\Especialidades.aspx" />
     <Content Include="admin\Materias.aspx" />
+    <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
+    <Content Include="alumno\Inscripcion.aspx" />
     <Content Include="App_Themes\default\default.css" />
+    <Content Include="Resources\close-button.png" />
+    <Content Include="Resources\loading2.GIF" />
+    <Content Include="Cuenta.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="docente\Cursos.aspx" />
-    <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
     <Content Include="Resources\loading.GIF" />
+    <Content Include="Resources\Symbol_OK.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -103,6 +108,13 @@
     <Compile Include="admin\Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,8 +122,22 @@
     <Compile Include="admin\Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="alumno\Inscripcion.aspx.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alumno\Inscripcion.aspx.designer.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="baseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta.aspx.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta.aspx.designer.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -126,13 +152,6 @@
     </Compile>
     <Compile Include="docente\Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscripcion.aspx.cs">
-      <DependentUpon>Inscripcion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscripcion.aspx.designer.cs">
-      <DependentUpon>Inscripcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -178,7 +197,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="alumno\" />
     <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>

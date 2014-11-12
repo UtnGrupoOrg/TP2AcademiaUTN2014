@@ -86,9 +86,7 @@ namespace UIWeb
             this.txtEmail.Enabled = enable;
             this.txtNombreUsuario.Enabled = enable;
             this.txtClave.Visible = enable;
-            this.lblClave.Visible = enable;
             this.txtRepetirClave.Visible = enable;
-            this.lblRepetirClave.Visible = enable;
         }
 
         private void ClearForm()
@@ -176,19 +174,6 @@ namespace UIWeb
             this.formPanel.Visible = false;
         }
 
-        protected void validateEmail(object source, ServerValidateEventArgs args)
-        {
-             try
-                {
-                    new MailAddress(args.Value.ToString());
-                    args.IsValid = true;
-                }
-                catch (FormatException)
-                {
-                    args.IsValid = false;
-                }
-        }
-
         protected void gridView_RowCreated1(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
@@ -198,6 +183,19 @@ namespace UIWeb
                 e.Row.Cells[0].Style["display"] = "none";
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);                           
+            }
+        }
+
+        protected void validateEmail(object source, ServerValidateEventArgs args)
+        {
+            try
+            {
+                new MailAddress(args.Value.ToString());
+                args.IsValid = true;
+            }
+            catch (FormatException)
+            {
+                args.IsValid = false;
             }
         }
 

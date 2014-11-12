@@ -15,13 +15,13 @@
                 <div id="Titulo"><a href="/Default.aspx" title="Home">Academia</a></div>
                 <asp:SiteMapDataSource  ShowStartingNode="false" ID="SiteMapDataSource" runat="server" />
                 <div id="MenuHolder">
-                    <asp:Menu ID="menu" Orientation="Horizontal" SkipLinkText="" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8">
+                    <asp:Menu ID="menu" Orientation="Horizontal" SkipLinkText="" IncludeStyleBlock="False" runat="server" DataSourceId="SiteMapDataSource" BackColor="#E6EEE8" DynamicMenuStyle-CssClass="dynamicmenu">
                         <DynamicMenuStyle BackColor="#E6EEE8" />
                     </asp:Menu>
                 </div>
                 <div id="LogOut">
-                    <asp:LinkButton ID="lbtnCuenta" runat="server"></asp:LinkButton>
-                    <asp:LinkButton ID="btnSalir" runat="server" OnClick="btnSalir_Click">Salir</asp:LinkButton>
+                    <a id="lbtnCuenta" runat="server" ></a>                                        
+                    <asp:LinkButton ID="btnSalir" CausesValidation="false" runat="server" OnClick="btnSalir_Click">Salir</asp:LinkButton>
                 </div>
             </div>
         </header>   
