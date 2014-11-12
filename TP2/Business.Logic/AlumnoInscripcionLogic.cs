@@ -42,6 +42,7 @@ namespace Business.Logic
             InscripcionData.Save(inscripciona);
             // TODO validar si ya se terminaron los cupos
             // TODO validar que los campos de la condicion sean libre o regular
+            // TODO validar que el alumno no este inscripto a ese curso
         }
 
         public void Delete(int ID)

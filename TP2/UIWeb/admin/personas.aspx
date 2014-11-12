@@ -27,7 +27,7 @@
                 <asp:Panel ID="gridActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnNuevo" CssClass="button formbutton" runat="server" Text="Button" OnClick="lbtnNuevo_Click" >Nuevo</asp:LinkButton>
                     <asp:LinkButton ID="lbtnEditar" CssClass="button formbutton" runat="server" Text="Button" OnClick="lbtnEditar_Click" >Editar</asp:LinkButton>
-                    <asp:LinkButton ID="lbtnInscribir" Visible="false" CssClass="button formbutton" runat="server" Text="Button" >Inscribir</asp:LinkButton>   
+                    <asp:LinkButton ID="lbtnInscribir" Visible="false" CssClass="button formbutton" runat="server" Text="Button" OnClick="lbtnInscribir_Click" >Inscribir</asp:LinkButton>   
                     <asp:LinkButton ID="lbtnEliminar" CssClass="button formbutton" runat="server" Text="Button" OnClick="lbtnEliminar_Click" >Eliminar</asp:LinkButton>                                     
                 </asp:Panel>
             </asp:Panel>

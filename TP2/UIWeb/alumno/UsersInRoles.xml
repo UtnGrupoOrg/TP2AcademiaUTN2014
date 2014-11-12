@@ -16,12 +16,4 @@
       </xs:complexType>
     </xs:element>
   </xs:schema>
-  <UsersInRoles>
-    <Users>22</Users>
-    <Roles>Alumno</Roles>
-  </UsersInRoles>
-  <UsersInRoles>
-    <Users>18</Users>
-    <Roles>Administrativo</Roles>
-  </UsersInRoles>
 </NewDataSet>

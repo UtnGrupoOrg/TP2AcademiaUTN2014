@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace UIWeb
 {
-    public partial class Cuenta : System.Web.UI.Page
+    public partial class Cuenta : UIWeb.@baseABM
     {
         UsuarioLogic _usuarioLogic;
 
@@ -42,15 +42,14 @@ namespace UIWeb
 
         private Usuario Usuario { get; set; }
         private Persona Persona { get; set; }
-        private int userID;
+        
         protected void Page_Load(object sender, EventArgs e)
-        {
-            userID = Int32.Parse(HttpContext.Current.User.Identity.Name);
+        {            
             if (!Page.IsPostBack)
             {                
                 this.EnableForm(true);
-                this.formPanel.Visible = true;                
-                this.LoadForm(userID);
+                this.formPanel.Visible = true;
+                this.LoadForm(UserID);
             }            
         }
 
@@ -71,8 +70,8 @@ namespace UIWeb
         }
 
         private void LoadEntity()
-        {           
-            this.Usuario = UsuarioLogic.GetOne(userID);
+        {
+            this.Usuario = UsuarioLogic.GetOne(UserID);
             this.Persona = PersonaLogic.GetOne((int)Usuario.IdPersona);
             this.Usuario.State = BusinessEntity.States.Modified;
             this.Persona.State = BusinessEntity.States.Modified;

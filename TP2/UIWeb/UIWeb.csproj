@@ -63,12 +63,13 @@
     <Content Include="admin\Materias.aspx" />
     <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
+    <Content Include="alumno\Inscripcion.aspx" />
     <Content Include="App_Themes\default\default.css" />
+    <Content Include="Resources\close-button.png" />
     <Content Include="Resources\loading2.GIF" />
     <Content Include="Cuenta.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="docente\Cursos.aspx" />
-    <Content Include="Inscripcion.aspx" />
     <Content Include="login.aspx" />
     <Content Include="admin\Usuarios.aspx" />
     <Content Include="Resources\loading.GIF" />
@@ -113,6 +114,13 @@
     <Compile Include="admin\Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="alumno\Inscripcion.aspx.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alumno\Inscripcion.aspx.designer.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="baseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -136,13 +144,6 @@
     </Compile>
     <Compile Include="docente\Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscripcion.aspx.cs">
-      <DependentUpon>Inscripcion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscripcion.aspx.designer.cs">
-      <DependentUpon>Inscripcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -188,7 +189,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="alumno\" />
     <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>

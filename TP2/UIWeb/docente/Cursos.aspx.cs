@@ -40,6 +40,7 @@ namespace UIWeb
         }
         private void LoadCursos()
         {
+            gridViewCursos.SelectedIndex = -1;
             this.gridPanelCursos.Visible = true;            
             Persona per = null;
             try
@@ -67,6 +68,7 @@ namespace UIWeb
 
         private void LoadInscriptos(int IdCurso)
         {
+            GridViewInscriptos.SelectedIndex = -1;
             this.tit.InnerText = ViewState["materia"] as string+ " " + ViewState["anio"] as string;
             this.gridPanelCursos.Visible = false;
             this.gridPanelInscriptos.Visible = true;         

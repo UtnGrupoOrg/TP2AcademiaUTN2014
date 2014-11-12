@@ -13,5 +13,6 @@
         </siteMapNode>
         <siteMapNode url="~/admin/especialidades.aspx" title="Especialidades" description="Especialidades" roles="Administrativo"/>
         <siteMapNode url="~/docente/cursos.aspx" title="Cursos" description="Cursos" roles=" Docente"/>
+        <siteMapNode url="~/alumno/inscripcion.aspx" title="Inscripcion" description="Inscripcion" roles="Alumno"/>
     </siteMapNode>
 </siteMap>

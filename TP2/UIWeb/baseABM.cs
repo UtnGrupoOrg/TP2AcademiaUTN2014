@@ -45,5 +45,21 @@ namespace UIWeb
                 return (this.SelectedId != 0);
             }
         }
+        protected int _userID;
+        protected int UserID
+        {
+            get
+            {
+                if (_userID == 0)
+                {
+                    return Int32.Parse(HttpContext.Current.User.Identity.Name);
+                }
+                else
+                {
+                    return _userID;
+                }
+            }
+        }
+        
     }
 }

@@ -9,8 +9,13 @@ body {
     margin: 0;
     padding: 0;
 }
-h1{
+h1,h2{
     text-align:center;
+}
+h2{
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
 }
 /*Login */ 
 .txtLogin{
@@ -221,6 +226,7 @@ table tr:hover td {
     padding: 3px;
 }
 
+
 .error{  
     background-color: red;
     width: 100%;
@@ -245,6 +251,35 @@ display:block !Important;
 }
 #PageContent_gridActionsPanel{
     padding-left: 45px;    
+}
+#PageContent_upLoading[style*="block"]
+{
+    display: inline-block !important;
+}
+#PageContent_ErrorBox{     
+     background-color: red; 
+}
+#PageContent_MessageBox{     
+     background-color: rgba(48, 218, 68, 1); 
+}
+.Box{     
+    width: 50%;
+    margin: 0 auto;         
+    text-align: center !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 0px 5px 0px;      
+    color: white;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; 
+}
+.Close{
+    width:20px;
+    height:20px;cursor: pointer;
+    float:right;
+}
+#PageContent_CloseError :hover{
+    cursor: pointer;
 }
 .dynamicmenu{
     background-color: #6BDFFF;

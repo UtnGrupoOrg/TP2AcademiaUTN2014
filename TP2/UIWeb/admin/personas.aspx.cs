@@ -299,5 +299,10 @@ namespace UIWeb.admin
             
         }
 
+        protected void lbtnInscribir_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

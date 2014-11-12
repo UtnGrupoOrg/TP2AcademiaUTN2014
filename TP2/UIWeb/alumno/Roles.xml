@@ -4,11 +4,10 @@
     <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="UsersInRoles">
+          <xs:element name="Roles">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="Users" type="xs:string" minOccurs="0" />
-                <xs:element name="Roles" type="xs:string" minOccurs="0" />
+                <xs:element name="RoleName" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -16,12 +15,4 @@
       </xs:complexType>
     </xs:element>
   </xs:schema>
-  <UsersInRoles>
-    <Users>22</Users>
-    <Roles>Alumno</Roles>
-  </UsersInRoles>
-  <UsersInRoles>
-    <Users>18</Users>
-    <Roles>Administrativo</Roles>
-  </UsersInRoles>
 </NewDataSet>
