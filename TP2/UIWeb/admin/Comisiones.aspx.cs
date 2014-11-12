@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
 
+
 namespace UIWeb.admin
 {
     public partial class Comisiones : UIWeb.@baseABM
@@ -14,7 +15,8 @@ namespace UIWeb.admin
         ComisionLogic _logic;
         const int START_YEAR = 1960;
         List<int> Fechas;
-
+        List<Plan> Planes;
+        
         private ComisionLogic Logic
         {
             get {
@@ -49,7 +51,8 @@ namespace UIWeb.admin
             Comision com = new ComisionLogic().GetOne(SelectedId);
             this.Entity = this.Logic.GetOne(id);
             this.txtDescripcion.Text = this.Entity.Descripcion;
-            ddlPlanes.SelectedIndex = ddlPlanes.Items.IndexOf(ddlPlanes.Items.FindByValue(com.IdPlan.ToString()));
+            Plan plan = (Planes.Find(x => x.ID == com.IdPlan));
+            ddlPlanes.SelectedIndex = ddlPlanes.Items.IndexOf(ddlPlanes.Items.FindByValue(plan.Descripcion));  
             ddlAnioCalendario.SelectedIndex = ddlAnioCalendario.Items.IndexOf(ddlAnioCalendario.Items.FindByValue(com.AnioEspecialidad.ToString()));
             this.ddlPlanes.DataBind();
         }
@@ -57,8 +60,10 @@ namespace UIWeb.admin
         private void LoadEntity(Comision comision)
         {
             comision.Descripcion = this.txtDescripcion.Text;
-            comision.IdPlan= Int32.Parse(ddlPlanes.SelectedValue);
-            //TODO con anios a hacer
+         /*   comision.IdPlan = ((Plan)ddlPlanes.SelectedItem).ID;*/
+            string busca = ddlPlanes.SelectedValue;
+            comision.IdPlan = (Planes.Find(x => x.Descripcion == busca)).ID;
+            comision.AnioEspecialidad = Int32.Parse(ddlAnioCalendario.SelectedValue);
         }
         private void SaveEntity(Comision comision)
         {
@@ -104,7 +109,7 @@ namespace UIWeb.admin
 
         private void prepararForm()
         {
-           this.ddlAnioCalendario.DataSource = Fechas;
+          /* this.ddlAnioCalendario.DataSource = Fechas;*/
         }
 
         protected void lbtnEditar_Click(object sender, EventArgs e)
@@ -167,6 +172,8 @@ namespace UIWeb.admin
                 this.SaveEntity(this.Entity);
                 this.LoadGrid();
                 this.formPanel.Visible = false;
+                this.gridActionsPanel.Visible = true;
+                this.gridPanel.Visible = true;
             }
         }
 
@@ -184,8 +191,14 @@ namespace UIWeb.admin
             {
                 this.LoadGrid();
             }
+            Planes= (new PlanLogic()).GetAll(); 
             Fechas = new List<int>();
             Fechas.AddRange(Enumerable.Range(START_YEAR, DateTime.Now.Year - START_YEAR + 1));
+            this.ddlAnioCalendario.DataSource = Fechas;
+            foreach (int fecha in Fechas)
+            {
+                this.ddlAnioCalendario.Items.Add(fecha.ToString());
+            }
         }
 
     }
