@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Comisiones.aspx" />
     <Content Include="admin\Cursos.aspx" />
     <Content Include="admin\Especialidades.aspx" />
     <Content Include="admin\Materias.aspx" />
@@ -74,6 +75,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Cursos.aspx.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

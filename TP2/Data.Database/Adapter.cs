@@ -9,7 +9,7 @@ namespace Data.Database
     public class Adapter
     {
         //private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
-        const string consKeyDefaultCnnString = "ConnStringLocalPedro";
+        const string consKeyDefaultCnnString = "ConnStringServerFabri";
 
         private SqlConnection _sqlConn;
 
