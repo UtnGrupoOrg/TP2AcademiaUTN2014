@@ -40,10 +40,10 @@
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#4e648a</Color>
+                          <Color>#7292cc</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#384c70</BackgroundColor>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -76,10 +76,10 @@
                       <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#4e648a</Color>
+                          <Color>#7292cc</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#384c70</BackgroundColor>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -124,7 +124,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -176,13 +175,12 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Detalles" />
+              <Group Name="Details" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>estadoAcademico</DataSetName>
-        <Top>0.03528cm</Top>
-        <Left>5.52979cm</Left>
+        <Left>5.15938cm</Left>
         <Height>1.2cm</Height>
         <Width>5cm</Width>
         <Style>
@@ -193,12 +191,7 @@
       </Tablix>
     </ReportItems>
     <Height>2in</Height>
-    <Style>
-      <Border>
-        <Style>None</Style>
-      </Border>
-      <BackgroundColor>LightGrey</BackgroundColor>
-    </Style>
+    <Style />
   </Body>
   <Width>6.5in</Width>
   <Page>
@@ -214,11 +207,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>ESTADO ACADÉMICO</Value>
+                  <Value>Estado Academico</Value>
                   <Style>
-                    <FontSize>14pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>CornflowerBlue</Color>
+                    <FontSize>20pt</FontSize>
+                    <Color>LightBlue</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -228,9 +220,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
-          <Top>1.13771cm</Top>
-          <Height>1.2259cm</Height>
-          <Width>16.51cm</Width>
+          <Top>0.57891cm</Top>
+          <Left>4.01849cm</Left>
+          <Height>1.235cm</Height>
+          <Width>8.08271cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -248,7 +241,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>= Now()</Value>
+                  <Value>=Now()</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -256,10 +249,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.31432cm</Top>
-          <Left>0.47307cm</Left>
+          <Top>0.57891cm</Top>
+          <Left>13.62287cm</Left>
           <Height>0.6cm</Height>
-          <Width>5.80729cm</Width>
+          <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -290,7 +283,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!PageNumber &amp; "de" &amp; Globals!TotalPages</Value>
+                  <Value>= Globals.PageNumber &amp; "de" &amp; Globals.TotalPages</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -298,8 +291,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>1.24037cm</Top>
-          <Left>12.90849cm</Left>
+          <Top>1.10808cm</Top>
+          <Left>13.30537cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -335,7 +328,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>58666fb1-b534-4219-9c8a-943f63d6f44f</rd:DataSourceID>
+      <rd:DataSourceID>bb57b1aa-c7e7-438d-9334-562439d3f413</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -346,7 +339,7 @@
       </Query>
       <Fields>
         <Field Name="Materia">
-          <DataField>desc_materia</DataField>
+          <DataField>Materia</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Condicion">
@@ -356,7 +349,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsReportes</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Pedro\Documents\GitHub\TP2AcademiaUTN2014\TP2\UIWeb\Reporting\DataSet\dsReportes.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\lauti\Documents\GitHub\TP2AcademiaUTN2014\TP2\UIWeb\Reporting\DataSet\dsReportes.xsd</rd:SchemaPath>
         <rd:TableName>estadoAcademico</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -365,5 +358,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>cd1792b1-c657-4005-8e17-3a15d9beb9f6</rd:ReportID>
+  <rd:ReportID>83146ce5-ece9-4e59-98db-f329600742b0</rd:ReportID>
 </Report>
