@@ -34,7 +34,23 @@ namespace Business.Logic
 
         public void Save(Business.Entities.Curso curso)
         {
-            CursoData.Save(curso);
+            if (Validar(curso))
+            {
+                CursoData.Save(curso);
+            }
+            
+        }
+
+        private bool Validar(Entities.Curso curso)
+        {
+            if (curso.State==Entities.Curso.States.New||curso.State==Entities.Curso.States.Modified)
+            {
+                if (string.IsNullOrEmpty(curso.Descripcion)||curso.Cupo<0|| Enumerable.Range(1960,2050).Contains(curso.AnioCalendario))
+                {
+                    throw new Exception("Hay campos vacios o erroneos");
+                }
+            }
+            return true;
         }
 
         public DataTable GetAllWithDescription()
