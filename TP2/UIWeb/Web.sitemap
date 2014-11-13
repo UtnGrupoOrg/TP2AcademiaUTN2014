@@ -11,9 +11,13 @@
           <siteMapNode url="~/admin/personas.aspx?tipo=1" title="Docentes" description="Docentes" roles="Administrativo"/>
           <siteMapNode url="~/admin/personas.aspx?tipo=2" title="Administrativos" description="Administrativos" roles="Administrativo"/>
         </siteMapNode>
-        <siteMapNode url="~/admin/especialidades.aspx" title="Especialidades" description="Especialidades" roles="Administrativo"/>
+      <siteMapNode url="" title="Reportes" description="Reportes" roles="Administrativo">
+        <siteMapNode url="~/admin/ReportePersonas.aspx" title="Personas" description="Reporte Personas" roles="Administrativo"/>
+        <siteMapNode url="~/admin/ReportePersonasxEspecialidad.aspx" title="Personas Por Especialidad" description="Personas Por Especialidad" roles="Administrativo"/>
+      </siteMapNode>
+        <siteMapNode url="~/admin/especialidades.aspx" title="Especialidad" description="Personas Por Especialidad" roles="Administrativo"/>
         <siteMapNode url="~/docente/cursos.aspx" title="Cursos" description="Cursos" roles=" Docente"/>
         <siteMapNode url="~/alumno/inscripcion.aspx" title="Inscripcion" description="Inscripcion" roles="Alumno"/>
-        <siteMapNode url="~/alumno/EstadoAcademico.aspx" title="EstadoAcademico" description="EstadoAcademico" roles="Alumno"/>
+      
     </siteMapNode>
 </siteMap>
