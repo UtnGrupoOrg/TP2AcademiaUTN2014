@@ -45,7 +45,7 @@ namespace Business.Logic
         {
             if (curso.State==Entities.Curso.States.New||curso.State==Entities.Curso.States.Modified)
             {
-                if (string.IsNullOrEmpty(curso.Descripcion)||curso.Cupo<0|| Enumerable.Range(1960,2050).Contains(curso.AnioCalendario))
+                if (curso.Cupo<0|| !Enumerable.Range(1960,2050).Contains(curso.AnioCalendario))
                 {
                     throw new Exception("Hay campos vacios o erroneos");
                 }

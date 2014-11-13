@@ -229,6 +229,7 @@ namespace UIWeb.admin
                         }
                 }
                 this.SaveEntity(this.Entity);
+                this.formActionsPanel.Visible = true;
                 this.LoadGrid();
                 this.formPanel.Visible = false;
 
@@ -237,6 +238,7 @@ namespace UIWeb.admin
         }
         protected void lbtnCancelar_Click(object sender, EventArgs e)
         {
+            this.formActionsPanel.Visible = true;
             this.LoadGrid();
             this.formPanel.Visible = false;
         }
