@@ -68,20 +68,33 @@ namespace UIWeb
 
         private void LoadInscriptos(int IdCurso)
         {
+            this.MessageBox.Visible = false;
             GridViewInscriptos.SelectedIndex = -1;
             this.tit.InnerText = ViewState["materia"] as string+ " " + ViewState["anio"] as string;
             this.gridPanelCursos.Visible = false;
-            this.gridPanelInscriptos.Visible = true;         
+            this.gridPanelInscriptos.Visible = true;   
+            DataTable tabla=null;
             try
             {
-                DataTable tabla = this.Logic.GetAllOfCurso(IdCurso);
-                this.GridViewInscriptos.DataSource = tabla;
+                tabla = this.Logic.GetAllOfCurso(IdCurso);
+                
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                this.SetError(e.Message);
             }
+            if (tabla.Rows.Count == 0)
+            {
+                this.SetMessage("No hay alumnos inscriptos en esta comision");
+                this.LoadCursos();
+            }
+            else
+            {
+                this.GridViewInscriptos.DataSource = tabla;
+            }
+            
+            
             this.GridViewInscriptos.DataBind();
 
         }
@@ -108,7 +121,17 @@ namespace UIWeb
             this.txtNombre.Text = inscripcionWithPersonaData.Rows[0]["nombre"].ToString();
             this.txtApellido.Text = inscripcionWithPersonaData.Rows[0]["apellido"].ToString();
             this.txtLegajo.Text = inscripcionWithPersonaData.Rows[0]["legajo"].ToString();
-            this.ddlCondiciones.SelectedValue = inscripcionWithPersonaData.Rows[0]["condicion"].ToString();
+            string condicion=null;
+            if (inscripcionWithPersonaData.Rows[0]["condicion"].ToString() == "")
+            {
+                condicion = null;
+            }
+            else
+            {
+                condicion = inscripcionWithPersonaData.Rows[0]["condicion"].ToString();
+            }
+
+            this.ddlCondiciones.SelectedValue = condicion;
         }
 
         private void LoadEntity(AlumnoInscripcion inscripcion)
@@ -131,10 +154,10 @@ namespace UIWeb
             {
                 this.Logic.Save(inscripcion);
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                this.SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -185,7 +208,16 @@ namespace UIWeb
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(grid, "Select$" + e.Row.RowIndex);
             }
         }
-
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
+        }
 
 
     }

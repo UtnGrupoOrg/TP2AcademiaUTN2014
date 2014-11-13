@@ -15,7 +15,7 @@ namespace UIWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usu = (new UsuarioLogic().GetOne(Int32.Parse(HttpContext.Current.User.Identity.Name.ToString())));
-            Persona per = new PersonaLogic().GetOne(usu.IdPersona.GetValueOrDefault());
+            Persona per = new PersonaLogic().GetOne(usu.IdPersona);
             this.titulo.InnerText = "Bienvenido " + usu.NombreUsuario + " (" + per.TipoPersona + ")";
         }
     }

@@ -68,9 +68,9 @@ namespace Business.Entities
                 return false;
             }
         }
-        private int? _IdPersona;
+        private int _IdPersona;
 
-        public int? IdPersona
+        public int IdPersona
         {
             get { return _IdPersona; }
             set { _IdPersona = value; }

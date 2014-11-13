@@ -85,7 +85,8 @@
                                                ValidationExpression=".{8}.*" />  
                 <asp:Label ID="lblPersona" runat="server" Text="Persona: "></asp:Label>    
                 <asp:TextBox ID="txtPersona" readonly="true" runat="server"></asp:TextBox>
-                <asp:LinkButton ID="lbtnAgregarPersona" CausesValidation="false" CssClass="button formbutton" runat="server" OnClick="lbtnAgregarPersona_Click">Agregar</asp:LinkButton> 
+                <asp:LinkButton ID="lbtnAgregarPersona" CausesValidation="false" CssClass="button formbutton" runat="server" OnClick="lbtnAgregarPersona_Click">Agregar</asp:LinkButton>
+                <asp:CustomValidator ID="cvPersona" CssClass="error" ValidateEmptyText="true" ControlToValidate="txtPersona" Display="dynamic" OnServerValidate="validatePersona" Text="Se debe agregar una persona" runat="server" /> 
                 <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" CssClass="button formbutton" runat="server" CausesValidation="false" Text="Button" OnClick="lbtnCancelar_Click">Cancelar</asp:LinkButton>
