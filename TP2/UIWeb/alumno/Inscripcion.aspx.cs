@@ -40,7 +40,7 @@ namespace UIWeb
             gridMaterias.SelectedIndex = -1;
             this.EnableGridComisiones(false);
             List<Materia> materias = new MateriaLogic().getMateriasDisponibles(this.UserID);
-            if (!materias.Any())
+            if (materias == null || !materias.Any())
             {
                 this.SetMessage("No hay materias disponibles para inscribirse");
                 this.lbtnSiguiente.Visible = false; 
