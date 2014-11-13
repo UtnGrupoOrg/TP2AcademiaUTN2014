@@ -51,7 +51,7 @@
                                                ControlToValidate="txtCupo"
                                                Display="dynamic"
                                                ErrorMessage="Ingrese numero de cupo valido"
-                                               ValidationExpression="/^[-+]?\d+$/" />  
+                                               ValidationExpression="\d+" />  
                 <asp:Label ID="lblAnio" runat="server" Text="Año Curso: "></asp:Label>
                 <asp:TextBox ID="txtAnioCurso" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtAnioCurso" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
@@ -59,7 +59,7 @@
                                                ControlToValidate="txtAnioCurso"
                                                Display="dynamic"
                                                ErrorMessage="Ingrese año valido"
-                                               ValidationExpression="/^[-+]?\d+$/" />  
+                                               ValidationExpression="\d+" />  
                 <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="2050" MinimumValue="1960" ControlToValidate="txtAnioCurso"></asp:RangeValidator>
                 <asp:Label ID="lblMateria" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="ddlMaterias" runat="server" DataSourceID="odsMaterias" DataTextField="Descripcion" DataValueField="ID">

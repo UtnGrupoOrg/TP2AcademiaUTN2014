@@ -67,7 +67,7 @@ namespace UIWeb.admin
             materia.Descripcion = this.txtDescripcion.Text;
             materia.HSSemanales = Int32.Parse(txtHorasSemanales.Text);
             materia.HSTotales = Int32.Parse(txtHorasTotales.Text);
-            materia.IdPlan= Int32.Parse(ddlPlan.SelectedValue);
+            materia.IdPlan = Int32.Parse(this.ddlPlan.SelectedValue.ToString());
         }
         private void SaveEntity(Materia materia)
         {

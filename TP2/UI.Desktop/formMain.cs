@@ -25,19 +25,28 @@ namespace UI.Desktop
         {
             formMain.Usuario = usuario;
             Persona = new PersonaLogic().GetOne((int)Usuario.IdPersona);
+            MostrarControles();
         }
 
-        private void OcultarControles()
+        private void MostrarControles()
         {
             switch (Persona.TipoPersona)
             {
                 case Persona.TiposPersonas.Alumno:
                     {
-
+                        this.inscripcionToolStripMenuItem.Visible = true;
                         break;
                     }
-                case Persona.TiposPersonas.Docente:
+                case Persona.TiposPersonas.Administrativo:
                     {
+                        this.usuariosToolStripMenuItem.Visible = true;
+                        this.materiasToolStripMenuItem.Visible = true;
+                        this.planesToolStripMenuItem.Visible = true;
+                        this.comisionesToolStripMenuItem.Visible = true;
+                        this.alumnosToolStripMenuItem.Visible = true;
+                        this.docentesToolStripMenuItem.Visible = true;
+                        this.especialidadesToolStripMenuItem.Visible = true;
+                        this.cursosToolStripMenuItem.Visible = true;
                         break;
                     }
             }
@@ -92,12 +101,6 @@ namespace UI.Desktop
         {
             formDocentes formDoc = new formDocentes();
             formDoc.Show();
-        }
-
-        private void tempToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formAlumnos formTemp = new formAlumnos();
-            formTemp.Show();
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)

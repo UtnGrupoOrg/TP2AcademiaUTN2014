@@ -67,6 +67,7 @@ namespace UIWeb
             this.txtNombreUsuario.Text = this.Entity.NombreUsuario;
             Persona persona = new PersonaLogic().GetOne(Entity.IdPersona);
             this.txtPersona.Text = persona.Nombre + " " + persona.Apellido;
+            ViewState["personaID"] = Entity.IdPersona;
         }
         
         private void LoadEntity(Usuario usuario)

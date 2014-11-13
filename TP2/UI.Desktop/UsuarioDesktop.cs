@@ -24,6 +24,8 @@ namespace UI.Desktop
             :this()
         {
             this.Modo = modo;
+            this.cbbPersonas.DataSource = new PersonaLogic().GetAll();
+            this.cbbPersonas.SelectedIndex = -1;
         }
         public UsuarioDesktop(int ID,ModoForm modo)
             : this(modo)
@@ -41,6 +43,7 @@ namespace UI.Desktop
             this.txtEmail.Text = this.UsuarioActual.Email;       
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
             this.chkCambiaClave.Checked = this.UsuarioActual.CambiaClave;
+            this.cbbPersonas.SelectedValue = this.UsuarioActual.IdPersona;
             if (Modo == ApplicationForm.ModoForm.Alta || Modo == ApplicationForm.ModoForm.Modificacion)
             {
                 this.btnAceptar.Text = "Guardar";
@@ -56,6 +59,7 @@ namespace UI.Desktop
                 this.txtClave.ReadOnly = true;
                 this.txtConfirmarClave.ReadOnly = true;
                 this.txtUsuario.ReadOnly = true;
+                this.cbbPersonas.Enabled = false;
             }
             else if (Modo == ApplicationForm.ModoForm.Consulta)
             {
@@ -94,9 +98,8 @@ namespace UI.Desktop
                 this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
                 this.UsuarioActual.CambiaClave = this.chkCambiaClave.Checked;
                 this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
+                this.UsuarioActual.IdPersona = (int)this.cbbPersonas.SelectedValue;
             }
-
-
         }
         public override void GuardarCambios() 
         { 

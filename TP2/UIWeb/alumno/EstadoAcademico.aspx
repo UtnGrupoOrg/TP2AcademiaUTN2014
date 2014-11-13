@@ -5,7 +5,7 @@
     <asp:ScriptManager ID="ScriptManager" runat="server">
     </asp:ScriptManager>
     <div id="headtit">  
-        <h1 > Usuarios </h1> 
+        <h1 > Estado Academico </h1> 
         <asp:UpdateProgress ID="upLoading" runat="server" >
                 <ProgressTemplate>
                     <asp:Image ID="Image1" CssClass="loading" runat="server" ImageUrl="~/Resources/loading2.GIF"/>

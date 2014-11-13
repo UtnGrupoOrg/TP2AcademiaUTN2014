@@ -47,6 +47,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.chkCambiaClave = new System.Windows.Forms.CheckBox();
+            this.lblPersona = new System.Windows.Forms.Label();
+            this.cbbPersonas = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,20 +74,23 @@
             this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkHabilitado, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.chkCambiaClave, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblPersona, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbbPersonas, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 158);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(490, 186);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblID
@@ -126,7 +131,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(53, 3);
+            this.txtID.Location = new System.Drawing.Point(55, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(130, 20);
@@ -135,21 +140,21 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(53, 29);
+            this.txtNombre.Location = new System.Drawing.Point(55, 29);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(130, 20);
             this.txtNombre.TabIndex = 0;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(53, 55);
+            this.txtEmail.Location = new System.Drawing.Point(55, 55);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(130, 20);
             this.txtEmail.TabIndex = 2;
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(53, 81);
+            this.txtClave.Location = new System.Drawing.Point(55, 81);
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(130, 20);
@@ -158,7 +163,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(189, 26);
+            this.lblApellido.Location = new System.Drawing.Point(191, 26);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 9;
@@ -167,7 +172,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(189, 52);
+            this.lblUsuario.Location = new System.Drawing.Point(191, 52);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 10;
@@ -176,7 +181,7 @@
             // lblConfirmarClave
             // 
             this.lblConfirmarClave.AutoSize = true;
-            this.lblConfirmarClave.Location = new System.Drawing.Point(189, 78);
+            this.lblConfirmarClave.Location = new System.Drawing.Point(191, 78);
             this.lblConfirmarClave.Name = "lblConfirmarClave";
             this.lblConfirmarClave.Size = new System.Drawing.Size(81, 13);
             this.lblConfirmarClave.TabIndex = 11;
@@ -184,21 +189,21 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(276, 29);
+            this.txtApellido.Location = new System.Drawing.Point(278, 29);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(135, 20);
             this.txtApellido.TabIndex = 1;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(276, 55);
+            this.txtUsuario.Location = new System.Drawing.Point(278, 55);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(135, 20);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtConfirmarClave
             // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(276, 81);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(278, 81);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(135, 20);
@@ -207,7 +212,7 @@
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(53, 107);
+            this.chkHabilitado.Location = new System.Drawing.Point(55, 107);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 6;
@@ -217,7 +222,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(189, 130);
+            this.btnAceptar.Location = new System.Drawing.Point(191, 157);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 7;
@@ -227,7 +232,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(276, 130);
+            this.btnCancelar.Location = new System.Drawing.Point(278, 157);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -237,18 +242,37 @@
             // 
             // chkCambiaClave
             // 
-            this.chkCambiaClave.Location = new System.Drawing.Point(276, 107);
+            this.chkCambiaClave.Location = new System.Drawing.Point(278, 107);
             this.chkCambiaClave.Name = "chkCambiaClave";
             this.chkCambiaClave.Size = new System.Drawing.Size(105, 17);
             this.chkCambiaClave.TabIndex = 12;
             this.chkCambiaClave.Text = "Cambia Clave";
             this.chkCambiaClave.UseVisualStyleBackColor = true;
             // 
+            // lblPersona
+            // 
+            this.lblPersona.AutoSize = true;
+            this.lblPersona.Location = new System.Drawing.Point(3, 127);
+            this.lblPersona.Name = "lblPersona";
+            this.lblPersona.Size = new System.Drawing.Size(46, 13);
+            this.lblPersona.TabIndex = 13;
+            this.lblPersona.Text = "Persona";
+            // 
+            // cbbPersonas
+            // 
+            this.cbbPersonas.DisplayMember = "apellido";
+            this.cbbPersonas.FormattingEnabled = true;
+            this.cbbPersonas.Location = new System.Drawing.Point(55, 130);
+            this.cbbPersonas.Name = "cbbPersonas";
+            this.cbbPersonas.Size = new System.Drawing.Size(121, 21);
+            this.cbbPersonas.TabIndex = 14;
+            this.cbbPersonas.ValueMember = "ID";
+            // 
             // UsuarioDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 158);
+            this.ClientSize = new System.Drawing.Size(490, 186);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UsuarioDesktop";
@@ -283,5 +307,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.CheckBox chkCambiaClave;
+        private System.Windows.Forms.Label lblPersona;
+        private System.Windows.Forms.ComboBox cbbPersonas;
     }
 }
