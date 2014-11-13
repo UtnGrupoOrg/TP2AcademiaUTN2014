@@ -48,8 +48,7 @@
                 <asp:Label ID="lblPlan" runat="server" Text="Plan: "></asp:Label>
         
                     <asp:TextBox ID="txtPlan" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPlan" ErrorMessage="El plan no puede estar vacio."></asp:RequiredFieldValidator>
-                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="error" ControlToValidate="txtPlan" ErrorMessage="El plan no puede estar vacio."></asp:RequiredFieldValidator>
                 <asp:Label ID="lblEspecialidad" runat="server" Text="Especialidad del Plan: "></asp:Label>
                 <asp:DropDownList ID="ddlEspecialidad" runat="server" DataSourceID="odsEspecialidad" DataTextField="Descripcion" DataValueField="ID">
                 </asp:DropDownList>

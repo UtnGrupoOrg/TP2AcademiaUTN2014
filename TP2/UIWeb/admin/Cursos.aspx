@@ -46,10 +46,20 @@
                 
                 <asp:Label ID="lblCupo" runat="server" Text="Cupo: "></asp:Label>
                 <asp:TextBox ID="txtCupo" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCupo" Display="Dynamic" ErrorMessage="No puede estar vacio."></asp:RequiredFieldValidator>
-                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtCupo" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator CssClass="error" ID="valHorasTotales" runat="server"
+                                               ControlToValidate="txtCupo"
+                                               Display="dynamic"
+                                               ErrorMessage="Ingrese numero de cupo valido"
+                                               ValidationExpression="/^[-+]?\d+$/" />  
                 <asp:Label ID="lblAnio" runat="server" Text="Año Curso: "></asp:Label>
                 <asp:TextBox ID="txtAnioCurso" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtAnioCurso" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator CssClass="error" ID="RegularExpressionValidator1" runat="server"
+                                               ControlToValidate="txtAnioCurso"
+                                               Display="dynamic"
+                                               ErrorMessage="Ingrese año valido"
+                                               ValidationExpression="/^[-+]?\d+$/" />  
                 <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="2050" MinimumValue="1960" ControlToValidate="txtAnioCurso"></asp:RangeValidator>
                 <asp:Label ID="lblMateria" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="ddlMaterias" runat="server" DataSourceID="odsMaterias" DataTextField="Descripcion" DataValueField="ID">

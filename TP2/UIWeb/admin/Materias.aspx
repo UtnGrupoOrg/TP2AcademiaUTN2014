@@ -44,17 +44,27 @@
             <asp:Panel ID="formPanel" runat="server" CssClass="centered">
                 <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtDescripcion" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
                 <asp:Label ID="Label3" runat="server" Text="Plan"></asp:Label>
                 <asp:DropDownList ID="ddlPlan" runat="server" DataSourceID="odsPlan" DataTextField="Descripcion">
                 </asp:DropDownList>
                 <asp:ObjectDataSource ID="odsPlan" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
-                <br />
                 <asp:Label ID="Label2" runat="server" Text="Horas Semanales"></asp:Label>
                 <asp:TextBox ID="txtHorasSemanales" runat="server"></asp:TextBox>
-                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtHorasSemanales" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator CssClass="error" ID="valHorasSemanales" runat="server"
+                                               ControlToValidate="txtHorasSemanales"
+                                               Display="dynamic"
+                                               ErrorMessage="Ingrese numero de horas validas"
+                                               ValidationExpression="/^[-+]?\d+$/" /> 
                 <asp:Label ID="Label4" runat="server" Text="Horas Totales"></asp:Label>
                 <asp:TextBox ID="txtHorasTotales" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="dynamic" CssClass="error" ControlToValidate="txtHorasTotales" ErrorMessage="Se debe completar el campo"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator CssClass="error" ID="valHorasTotales" runat="server"
+                                               ControlToValidate="txtHorasTotales"
+                                               Display="dynamic"
+                                               ErrorMessage="Ingrese numero de horas validas"
+                                               ValidationExpression="/^[-+]?\d+$/" />  
                 <asp:Panel ID="formActionsPanel" runat="server" >
                     <asp:LinkButton ID="lbtnAceptar" runat="server" CssClass="button formbutton" OnClick="lbtnAceptar_Click1">Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" runat="server" CssClass="button formbutton" OnClick="lbtnCancelar_Click1">Cancelar</asp:LinkButton>
