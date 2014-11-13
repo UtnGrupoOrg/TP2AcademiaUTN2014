@@ -53,10 +53,10 @@
                                                ControlToValidate="txtClave"
                                                Display="dynamic"
                                                ErrorMessage="La clave tiene que ser de por lo menos 8 caracteres"
-                                               ValidationExpression=".{8}.*" />
-        
-        
-                    <asp:Panel ID="formActionsPanel" runat="server">
+                                               ValidationExpression=".{8}.*" />  
+                <asp:Label ID="lblPersona" runat="server" Text="Persona: "></asp:Label>    
+                <asp:TextBox ID="txtPersona" runat="server"></asp:TextBox>         
+                <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" CssClass="button formbutton" runat="server" CausesValidation="false" Text="Button" OnClick="lbtnCancelar_Click">Cancelar</asp:LinkButton>
                 </asp:Panel>

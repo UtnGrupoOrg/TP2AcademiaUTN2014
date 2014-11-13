@@ -301,6 +301,24 @@ namespace UIWeb {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator valPassword;
         
         /// <summary>
+        /// lblPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPersona;
+        
+        /// <summary>
+        /// txtPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPersona;
+        
+        /// <summary>
         /// formActionsPanel control.
         /// </summary>
         /// <remarks>
