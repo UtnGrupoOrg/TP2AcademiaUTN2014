@@ -48,6 +48,15 @@ namespace UIWeb
             this.SelectedId = (int)this.gridView.SelectedValue;
         }
 
+        protected void gridPersonas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState["personaID"] = (int)this.gridPersonas.SelectedValue;
+            this.gridPersonasPanel.Visible = false;
+            this.formPanel.Visible = true;
+            this.reloadForm();           
+            this.EnableForm(true);
+        }
+
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
@@ -173,8 +182,16 @@ namespace UIWeb
             this.LoadGrid();
             this.formPanel.Visible = false;
         }
-
         protected void gridView_RowCreated1(object sender, GridViewRowEventArgs e)
+        {
+            SeleccionTabla(gridView, e);
+        }
+        protected void gridPersonas_RowCreated1(object sender, GridViewRowEventArgs e)
+        {
+            SeleccionTabla(gridView, e);
+        }
+
+        protected void SeleccionTabla(GridView grid, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
                 e.Row.Cells[0].Style["display"] = "none";
@@ -182,7 +199,7 @@ namespace UIWeb
             {
                 e.Row.Cells[0].Style["display"] = "none";
                 e.Row.ToolTip = "Click to select row";
-                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);                           
+                e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(grid, "Select$" + e.Row.RowIndex);
             }
         }
 
@@ -197,6 +214,39 @@ namespace UIWeb
             {
                 args.IsValid = false;
             }
+        }
+
+        protected void lbtnAgregarPersona_Click(object sender, EventArgs e)
+        {
+            this.saveForm();
+            this.LoadPersonas();
+        }
+
+        protected void LoadPersonas()
+        {
+            this.gridPanel.Visible = false;
+            this.gridActionsPanel.Visible = false;
+            this.formPanel.Visible = false;
+            this.gridPersonas.Visible = true;
+            this.gridPersonas.DataSource = new PersonaLogic().GetAll();
+            this.gridPersonas.DataBind();
+        }
+
+        protected void saveForm()
+        {
+            ViewState["nombre"] = this.txtNombre.Text;
+            ViewState["apellido"] = this.txtApellido.Text;
+            ViewState["nombre_usuario"] = this.txtNombreUsuario.Text;
+            ViewState["email"] = this.txtEmail.Text;            
+        }
+        protected void reloadForm()
+        {
+            this.txtNombre.Text = ViewState["nombre"] as string;
+            this.txtApellido.Text = ViewState["apellido"]  as string;
+            this.txtNombreUsuario.Text = ViewState["nombre_usuario"]  as string;
+            this.txtEmail.Text = ViewState["email"]  as string;
+            Persona persona = new PersonaLogic().GetOne((int)(ViewState["personaID"] as int?));
+            this.txtPersona.Text = persona.Nombre + " " + persona.Apellido;
         }
 
     }

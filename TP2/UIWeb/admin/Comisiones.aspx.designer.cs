@@ -22,6 +22,15 @@ namespace UIWeb.admin {
         protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
+        /// upLoading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress upLoading;
+        
+        /// <summary>
         /// UpdatePanel control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,42 @@ namespace UIWeb.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
+        /// ErrorBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ErrorBox;
+        
+        /// <summary>
+        /// ErrorText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorText;
+        
+        /// <summary>
+        /// MessageBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MessageBox;
+        
+        /// <summary>
+        /// MessageText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MessageText;
         
         /// <summary>
         /// gridConteniner control.

@@ -38,7 +38,15 @@ namespace UIWeb.admin
         {
             this.gridPanel.Visible = true;
             this.gridActionsPanel.Visible = true;
-            this.gridView.DataSource = this.Logic.GetAll();
+            try
+            {
+                this.gridView.DataSource = this.Logic.GetAll();
+            }
+            catch (Exception e)
+            {
+
+                SetError(e.Message);
+            }
             this.gridView.DataBind();
         }
 
@@ -63,10 +71,10 @@ namespace UIWeb.admin
             {
                 this.Logic.Save(especialidad);
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -166,6 +174,17 @@ namespace UIWeb.admin
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
             }
+        }
+
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
 
     }

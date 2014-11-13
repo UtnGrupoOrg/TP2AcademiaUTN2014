@@ -3,9 +3,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="PageContent" runat="server">
     <script src="../Resources/scripts.js"></script> 
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+    <div id="headtit">  
+        <h1 > Materias </h1> 
+        <asp:UpdateProgress ID="upLoading" runat="server" >
+                <ProgressTemplate>
+                    <asp:Image ID="Image1" CssClass="loading" runat="server" ImageUrl="~/Resources/loading2.GIF"/>
+                </ProgressTemplate>
+            </asp:UpdateProgress>  
+     </div>   
      <asp:UpdatePanel ID="UpdatePanel" runat="server">
-        <ContentTemplate>
-            <h1> Materias </h1>
+        <ContentTemplate> 
+            <asp:Panel visible="false" ID="ErrorBox" CssClass="Box" runat="server">
+                <asp:Label ID="ErrorText" runat="server" ></asp:Label>
+                <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+            </asp:Panel>
+            <asp:Panel visible="false" ID="MessageBox" CssClass="Box" runat="server">
+                <asp:Label ID="MessageText" runat="server" ></asp:Label>
+                <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+            </asp:Panel>           
             <asp:Panel ID="gridContainer" runat="server"  CssClass="centered">
                 <asp:Panel ID="gridPanel" runat="server" >
                     <asp:GridView ID="grdMaterias" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataKeyNames="id_materia" OnRowCreated="grdMaterias_RowCreated" OnSelectedIndexChanged="grdMaterias_SelectedIndexChanged">

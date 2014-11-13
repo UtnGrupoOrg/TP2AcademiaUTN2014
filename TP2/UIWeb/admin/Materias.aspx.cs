@@ -39,7 +39,15 @@ namespace UIWeb.admin
             this.gridContainer.Visible = true;
             this.formPanel.Visible = false;
             this.formActionsPanel.Visible = false;
-            this.grdMaterias.DataSource = this.Logic.GetAllWithPlanDescription();
+            try
+            {
+                this.grdMaterias.DataSource = this.Logic.GetAllWithPlanDescription();
+            }
+            catch (Exception e)
+            {
+
+                SetError(e.Message);
+            }
             this.grdMaterias.DataBind();
         }
 
@@ -63,7 +71,15 @@ namespace UIWeb.admin
         }
         private void SaveEntity(Materia materia)
         {
-            this.Logic.Save(materia);
+            try
+            {
+                this.Logic.Save(materia);
+            }
+            catch (Exception e)
+            {
+
+                SetError(e.Message);
+            }
         }
         private void EnableForm(bool enable)
         {
@@ -174,6 +190,16 @@ namespace UIWeb.admin
                 this.LoadGrid();
                 this.formPanel.Visible = false;
             }
+        }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
 
     }

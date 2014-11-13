@@ -3,11 +3,26 @@
 
 
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentUsuarios" runat="server"> 
-    <div>
-        <h1>Cursos</h1>
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <script src="../Resources/scripts.js"></script> 
+        <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+        <div id="headtit">  
+            <h1 > Cursos </h1> 
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server" >
+                    <ProgressTemplate>
+                        <asp:Image ID="Image1" CssClass="loading" runat="server" ImageUrl="~/Resources/loading2.GIF"/>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>  
+        </div>  
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+                <asp:Panel visible="false" ID="ErrorBox" CssClass="Box" runat="server">
+                    <asp:Label ID="ErrorText" runat="server" ></asp:Label>
+                    <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                </asp:Panel>
+                <asp:Panel visible="false" ID="MessageBox" CssClass="Box" runat="server">
+                    <asp:Label ID="MessageText" runat="server" ></asp:Label>
+                    <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                </asp:Panel>
                 <asp:Panel ID="panelGv"  CssClass="centered" runat="server">
                     <asp:GridView ID="gvCursos" runat="server" AutoGenerateColumns="False" EnablePersistedSelection="True" AutoGenerateSelectButton="True" DataKeyNames="id_curso" OnSelectedIndexChanged="gvCursos_SelectedIndexChanged" OnRowCreated="gvCursos_RowCreated">
                         <Columns>
@@ -55,10 +70,4 @@
                 
             </ContentTemplate>
         </asp:UpdatePanel>
-        <asp:UpdateProgress ID="upLoading" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-            <ProgressTemplate>
-                <asp:Image ID="Image1" runat="server" CssClass="centered"  ImageUrl="~/Resources/loading.GIF" Height="30px"/>
-            </ProgressTemplate>
-        </asp:UpdateProgress>
-    </div>
 </asp:Content>
