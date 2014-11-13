@@ -65,6 +65,7 @@
     <Content Include="admin\Materias.aspx" />
     <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
+    <Content Include="admin\ReportePersonasxEspecialidad.aspx" />
     <Content Include="alumno\EstadoAcademico.aspx" />
     <Content Include="alumno\Inscripcion.aspx" />
     <Content Include="App_Themes\default\default.css" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="admin\Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ReportePersonasxEspecialidad.aspx.cs">
+      <DependentUpon>ReportePersonasxEspecialidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ReportePersonasxEspecialidad.aspx.designer.cs">
+      <DependentUpon>ReportePersonasxEspecialidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="alumno\EstadoAcademico.aspx.cs">
       <DependentUpon>EstadoAcademico.aspx</DependentUpon>
@@ -235,6 +243,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reporting\Reportes\ReportePersonas.rdlc" />
+    <EmbeddedResource Include="Reporting\Reportes\ReportePersonasxEspecialidad.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
