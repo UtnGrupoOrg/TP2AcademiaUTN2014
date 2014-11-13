@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -64,9 +65,11 @@
     <Content Include="admin\Materias.aspx" />
     <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
+    <Content Include="admin\ReportePersonasxEspecialidad.aspx" />
     <Content Include="alumno\EstadoAcademico.aspx" />
     <Content Include="alumno\Inscripcion.aspx" />
     <Content Include="App_Themes\default\default.css" />
+    <Content Include="admin\ReportePersonas.aspx" />
     <Content Include="Resources\close-button.png" />
     <Content Include="Resources\loading2.GIF" />
     <Content Include="Cuenta.aspx" />
@@ -124,6 +127,13 @@
     <Compile Include="admin\Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\ReportePersonasxEspecialidad.aspx.cs">
+      <DependentUpon>ReportePersonasxEspecialidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ReportePersonasxEspecialidad.aspx.designer.cs">
+      <DependentUpon>ReportePersonasxEspecialidad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="alumno\EstadoAcademico.aspx.cs">
       <DependentUpon>EstadoAcademico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +180,18 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="admin\ReportePersonas.aspx.cs">
+      <DependentUpon>ReportePersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ReportePersonas.aspx.designer.cs">
+      <DependentUpon>ReportePersonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\DataSet\dsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +209,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
+    <Content Include="Reporting\DataSet\dsReportes.xsc">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </Content>
+    <None Include="Reporting\DataSet\dsReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportes.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reporting\DataSet\dsReportes.xss">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -207,6 +240,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reporting\Reportes\ReportePersonas.rdlc" />
+    <EmbeddedResource Include="Reporting\Reportes\ReportePersonasxEspecialidad.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

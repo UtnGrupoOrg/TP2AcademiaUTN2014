@@ -28,4 +28,8 @@
     <Users>23</Users>
     <Roles>Docente</Roles>
   </UsersInRoles>
+  <UsersInRoles>
+    <Users>18</Users>
+    <Roles>Alumno</Roles>
+  </UsersInRoles>
 </NewDataSet>

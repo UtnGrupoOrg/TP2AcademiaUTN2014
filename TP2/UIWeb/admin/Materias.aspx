@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Materias" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UIWeb.admin.Materiass" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="PageContent" runat="server">
+    <script src="../Resources/scripts.js"></script> 
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
      <asp:UpdatePanel ID="UpdatePanel" runat="server">
         <ContentTemplate>
