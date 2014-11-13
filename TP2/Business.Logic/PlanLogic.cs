@@ -35,7 +35,11 @@ namespace Business.Logic
 
         public void Save(Plan plan)
         {
-            this.PlanData.Save(plan);
+            if (Validar(plan))
+            {
+                 this.PlanData.Save(plan);
+            }
+           
         }
 
         public void Delete(int ID)
@@ -46,6 +50,18 @@ namespace Business.Logic
         public DataTable GetAllWithEspecialidadDescription()
         {
             return this.PlanData.GetAllWithEspecialidadDescription();
+        }
+
+        public  bool Validar(Plan plan)
+        {
+            if (plan.State==Entities.Plan.States.New||plan.State==Entities.Plan.States.Modified)
+            {
+                if (String.IsNullOrEmpty(plan.Descripcion))
+                {
+                    throw new Exception("Hay datos vacios o incorrectos");
+                }
+            }
+            return true;
         }
     }
 }

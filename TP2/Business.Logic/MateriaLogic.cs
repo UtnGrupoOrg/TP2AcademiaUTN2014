@@ -41,7 +41,23 @@ namespace Business.Logic
 
         public void Save(Materia materia) 
         {
-            this.MateriaData.Save(materia);
+            if (Validar(materia))
+            {
+                this.MateriaData.Save(materia);
+            }
+            
+        }
+
+        private bool Validar(Materia materia)
+        {
+            if (materia.State == Entities.Materia.States.New || materia.State == Materia.States.Modified)
+            {
+                if (string.IsNullOrEmpty(materia.Descripcion)||materia.HSSemanales<0||materia.HSSemanales>168||materia.HSTotales<0)
+                {
+                    throw new Exception("Hay campos vacios o erróneos");   
+                }
+            }
+            return true; 
         }
 
         public void Delete(int ID)

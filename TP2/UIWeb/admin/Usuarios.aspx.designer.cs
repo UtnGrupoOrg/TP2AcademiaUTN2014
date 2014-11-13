@@ -391,6 +391,15 @@ namespace UIWeb {
         protected global::System.Web.UI.WebControls.LinkButton lbtnAgregarPersona;
         
         /// <summary>
+        /// cvPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvPersona;
+        
+        /// <summary>
         /// formActionsPanel control.
         /// </summary>
         /// <remarks>

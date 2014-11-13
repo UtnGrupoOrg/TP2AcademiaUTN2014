@@ -34,12 +34,30 @@ namespace Business.Logic
 
         public void Save(Especialidad especialidad)
         {
-            EspecialidadData.Save(especialidad);
+
+            if (validar(especialidad))
+            {
+                EspecialidadData.Save(especialidad);
+            }
+            
         }
 
         public void Delete(int ID)
+        {            
+           EspecialidadData.Delete(ID);
+        }
+
+        private bool validar(Especialidad especialidad)
         {
-            EspecialidadData.Delete(ID);
+            
+                if (especialidad.State == Entities.Especialidad.States.New|| especialidad.State==Entities.Especialidad.States.Modified)
+                {
+                    if (string.IsNullOrEmpty(especialidad.Descripcion))
+                    {
+                        throw new Exception("Hay valores vacios");
+                    }
+                }   
+                return true;
         }
     }
 }

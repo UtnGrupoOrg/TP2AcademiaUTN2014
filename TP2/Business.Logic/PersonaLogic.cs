@@ -5,6 +5,7 @@ using System.Text;
 using Data.Database;
 using Business.Entities;
 using System.Data;
+using System.Net.Mail;
 
 namespace Business.Logic
 {
@@ -37,8 +38,35 @@ namespace Business.Logic
         }
 
         public void Save(Persona persona)
-        {            
-            PersonaData.Save(persona);
+        {
+            if (Validar(persona))
+            {
+                 PersonaData.Save(persona);
+            }
+           
+        }
+
+        private bool Validar(Persona persona)
+        {
+            if (persona.State==Persona.States.Modified||persona.State==Persona.States.New)
+            {
+                if (string.IsNullOrEmpty(persona.Nombre)||string.IsNullOrEmpty(persona.Apellido)||persona.FechaNacimiento>DateTime.Now.Date||string.IsNullOrEmpty(persona.Legajo)||persona.TipoPersona!=Persona.TiposPersonas.Docente||persona.TipoPersona!=Persona.TiposPersonas.Alumno||persona.TipoPersona!=Persona.TiposPersonas.Administrativo||string.IsNullOrEmpty(persona.Telefono))
+                {
+                    throw new Exception("Hay campos vacios o erróneos");
+                }
+                else
+                {
+                    try
+                    {
+                        new MailAddress(persona.Email);
+                    }
+                    catch (FormatException)
+                    {
+                        throw new Exception("Formato de mail erróneo");
+                    }
+                }
+            }
+            return true;
         }
 
         public void Delete(int ID)

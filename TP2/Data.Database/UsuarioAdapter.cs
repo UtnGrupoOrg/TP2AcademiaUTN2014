@@ -187,7 +187,7 @@ namespace Data.Database
             usuario.Apellido = (string)dataReader["apellido"];
             usuario.Email = (string)dataReader["email"];
             usuario.CambiaClave = (bool)dataReader["cambia_clave"];
-            usuario.IdPersona = dataReader["id_persona"] == DBNull.Value ? null : (int?)Convert.ToInt32(dataReader["id_persona"]);
+            usuario.IdPersona = (int)dataReader["id_persona"];
         }
         /// <summary>
         /// Agrega los datos del usuario al comando, excepto el ID.

@@ -480,5 +480,6 @@ namespace UIWeb.admin
         {
             SeleccionTabla(gridComisiones, e);
         }
+
     }
 }

@@ -26,7 +26,7 @@ namespace UIWeb
             }
         }
 
-        private Usuario Entity { get;set;}
+        private Usuario Entity { get;set;}        
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,6 +65,9 @@ namespace UIWeb
             this.txtEmail.Text = this.Entity.Email;
             this.ckxHabilitado.Checked = this.Entity.Habilitado;
             this.txtNombreUsuario.Text = this.Entity.NombreUsuario;
+            Persona persona = new PersonaLogic().GetOne(Entity.IdPersona);
+            this.txtPersona.Text = persona.Nombre + " " + persona.Apellido;
+            ViewState["personaID"] = Entity.IdPersona;
         }
         
         private void LoadEntity(Usuario usuario)
@@ -74,7 +77,8 @@ namespace UIWeb
             usuario.NombreUsuario = this.txtNombreUsuario.Text;
             usuario.Email = this.txtEmail.Text;
             usuario.Clave = this.txtClave.Text;
-            usuario.Habilitado = this.ckxHabilitado.Checked;
+            usuario.Habilitado = this.ckxHabilitado.Checked;            
+            usuario.IdPersona = (int)ViewState["personaID"];
         }
         private void SaveEntity(Usuario usuario)
         {
@@ -82,10 +86,10 @@ namespace UIWeb
             {
                 this.Logic.Save(usuario);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
-                throw;
+
+                this.SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -188,7 +192,7 @@ namespace UIWeb
         }
         protected void gridPersonas_RowCreated1(object sender, GridViewRowEventArgs e)
         {
-            SeleccionTabla(gridView, e);
+            SeleccionTabla(gridPersonas, e);
         }
 
         protected void SeleccionTabla(GridView grid, GridViewRowEventArgs e)
@@ -213,6 +217,17 @@ namespace UIWeb
             catch (FormatException)
             {
                 args.IsValid = false;
+            }
+        }
+        protected void validatePersona(object source, ServerValidateEventArgs args)
+        {
+            if (ViewState["personaID"] == null)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
             }
         }
 
@@ -244,11 +259,20 @@ namespace UIWeb
             this.txtNombre.Text = ViewState["nombre"] as string;
             this.txtApellido.Text = ViewState["apellido"]  as string;
             this.txtNombreUsuario.Text = ViewState["nombre_usuario"]  as string;
-            this.txtEmail.Text = ViewState["email"]  as string;
+            this.txtEmail.Text = ViewState["email"]  as string;            
             Persona persona = new PersonaLogic().GetOne((int)(ViewState["personaID"] as int?));
             this.txtPersona.Text = persona.Nombre + " " + persona.Apellido;
         }
-
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
+        }
     }
 
 }

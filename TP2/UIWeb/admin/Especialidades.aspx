@@ -44,7 +44,7 @@
             <asp:Panel CssClass="centered" ID="formPanel" runat="server" Visible="false">
                 <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label>
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" CssClass="error" Display="Dynamic" ErrorMessage="RequiredFieldValidator">Debes completar este campo</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvDescripcion" CssClass="error" runat="server" ControlToValidate="txtDescripcion" Display="Dynamic" ErrorMessage="RequiredFieldValidator">Debes completar este campo</asp:RequiredFieldValidator>
                     <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" CssClass="button formbutton" runat="server" CausesValidation="false" Text="Button" OnClick="lbtnCancelar_Click">Cancelar</asp:LinkButton>

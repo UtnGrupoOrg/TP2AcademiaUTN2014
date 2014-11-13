@@ -38,17 +38,15 @@ namespace UIWeb.alumno
         private void LoadGrid()
         {
             grdEstadoAcadamico.SelectedIndex = -1;
-            if (Logic.GetStudenState(alumno.ID) == null)
+            if (Logic.GetStudenState(alumno.ID).Rows.Count == 0)
             {
-                this.grdEstadoAcadamico.Visible = false;
-                Response.Write("no hay inscripciones");
+                this.SetMessage("No hay ningun estado disponible");
             }
             else
             {
-                grdEstadoAcadamico.DataSource = this.Logic.GetStudenState(alumno.ID);
-                grdEstadoAcadamico.DataBind();
+                grdEstadoAcadamico.DataSource = this.Logic.GetStudenState(alumno.ID);                
             }
-            
+            grdEstadoAcadamico.DataBind();
         }
 
         protected void lbtnAtras_Click(object sender, EventArgs e)

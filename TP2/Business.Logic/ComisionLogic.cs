@@ -6,6 +6,7 @@ using Data.Database;
 using Business.Entities;
 using System.Data;
 
+
 namespace Business.Logic
 {
     public class ComisionLogic :BusinessLogic
@@ -41,7 +42,11 @@ namespace Business.Logic
 
         public void Save(Comision comision)
         {
-            this.ComisionData.Save(comision);
+            if (validar(comision))
+            {
+                this.ComisionData.Save(comision);
+            }
+            
         }
 
         public void Update(Comision comi)
@@ -57,6 +62,18 @@ namespace Business.Logic
         public DataTable getAllWithMateriaAndYear(int id_materia, int anio)
         {
             return this.ComisionData.getAllWithMateriaAndYear(id_materia, anio);
+        }
+
+        public bool validar(Comision comision)
+        {
+            if (comision.State==Entities.Comision.States.New||comision.State==Entities.Comision.States.Modified)
+            {
+                if (string.IsNullOrEmpty(comision.Descripcion)|| Enumerable.Range(1960,2050).Contains(comision.AnioEspecialidad))
+                {
+                    throw new Exception("Hay datos vacios o erróneos");
+                }
+            }
+            return true;
         }
     }
 }

@@ -49,16 +49,13 @@
                 <asp:DropDownList ID="ddlAnioCalendario" runat="server">
                 </asp:DropDownList>
                 <asp:ObjectDataSource ID="Fechas" runat="server"></asp:ObjectDataSource>
-                <br />
                 <asp:Label ID="lblPlan" runat="server" Text="Plan"></asp:Label>
                 <asp:DropDownList ID="ddlPlanes" runat="server" DataSourceID="odsPlanes" DataTextField="Descripcion">
                 </asp:DropDownList>
                 <asp:ObjectDataSource ID="odsPlanes" runat="server" SelectMethod="GetAll" TypeName="Business.Logic.PlanLogic"></asp:ObjectDataSource>
-                <br />
                 <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
-                <br />
                 <asp:TextBox ID="txtDescripcion" runat="server" Height="61px" Width="161px" TextMode="MultiLine" ToolTip="Descripcion de la comision"></asp:TextBox>
-                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="error" runat="server" ControlToValidate="txtDescripcion" Display="Dynamic" ErrorMessage="No puede estar vacio"></asp:RequiredFieldValidator>
         
                     <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
