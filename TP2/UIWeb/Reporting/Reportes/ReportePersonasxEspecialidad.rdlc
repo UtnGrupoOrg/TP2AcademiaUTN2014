@@ -11,12 +11,12 @@
                   <GroupExpression>=Fields!desc_especialidad.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!desc_especialidad.Value</Label>
               <SortExpressions>
                 <SortExpression>
                   <Value>=Fields!desc_especialidad.Value</Value>
                 </SortExpression>
               </SortExpressions>
+              <Label>=Fields!desc_especialidad.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartCategoryHierarchy>
@@ -216,7 +216,15 @@
                 </ChartAxisScaleBreak>
               </ChartAxis>
             </ChartValueAxes>
+            <ChartThreeDProperties>
+              <Enabled>true</Enabled>
+              <Rotation>16</Rotation>
+              <DepthRatio>87</DepthRatio>
+            </ChartThreeDProperties>
             <Style>
+              <Border>
+                <Color>LightBlue</Color>
+              </Border>
               <BackgroundGradientType>None</BackgroundGradientType>
             </Style>
           </ChartArea>
