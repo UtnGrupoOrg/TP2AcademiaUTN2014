@@ -121,6 +121,7 @@ namespace UIWeb
             this.txtNombre.Text = inscripcionWithPersonaData.Rows[0]["nombre"].ToString();
             this.txtApellido.Text = inscripcionWithPersonaData.Rows[0]["apellido"].ToString();
             this.txtLegajo.Text = inscripcionWithPersonaData.Rows[0]["legajo"].ToString();
+            this.txtNota.Text = inscripcionWithPersonaData.Rows[0]["nota"].ToString();
             string condicion=null;
             if (inscripcionWithPersonaData.Rows[0]["condicion"].ToString() == "")
             {
@@ -141,10 +142,11 @@ namespace UIWeb
             inscripcion.IDAlumno = Int32.Parse(inscripcionWithPersonaData.Rows[0]["id_alumno"].ToString());
             inscripcion.Condicion = ddlCondiciones.SelectedValue;
             int? nota;
-            if (inscripcionWithPersonaData.Rows[0]["nota"] == DBNull.Value){
+            if (string.IsNullOrEmpty(this.txtNota.Text))
+            {
                 nota = null;
             }else{
-                nota = (int?)Int32.Parse(inscripcionWithPersonaData.Rows[0]["nota"].ToString());
+                nota = (int?)Int32.Parse(this.txtNota.Text);
             }
             inscripcion.Nota = nota;
         }
@@ -217,6 +219,23 @@ namespace UIWeb
         {
             this.MessageBox.Visible = true;
             this.MessageText.Text = message;
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int numero;
+            bool esNumero = int.TryParse(this.txtNota.Text,out numero);
+            if (esNumero)
+            {
+                int num = int.Parse(this.txtNota.Text);
+                if (num >= 0 && num <= 10)
+                {
+                    args.IsValid = true;
+                }
+                else args.IsValid = false;
+            }
+            else args.IsValid = false;
+            
         }
 
 

@@ -66,7 +66,7 @@
                 </asp:DropDownList>
                 <asp:Label ID="lblNota" runat="server" Text="Nota: "></asp:Label>
                 <asp:TextBox ID="txtNota" runat="server"></asp:TextBox>
-                <asp:RangeValidator ID="rgNota" runat="server" CssClass="error" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="10" MinimumValue="0" ControlToValidate="txtNota"></asp:RangeValidator>
+                <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Debe estar entre 0 y 10" ControlToValidate="txtNota" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                     <asp:Panel ID="formActionsPanel" runat="server">
                     <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Aceptar</asp:LinkButton>
                     <asp:LinkButton ID="lbtnCancelar" CssClass="button formbutton" runat="server" CausesValidation="false" Text="Button" OnClick="lbtnCancelar_Click">Cancelar</asp:LinkButton>
