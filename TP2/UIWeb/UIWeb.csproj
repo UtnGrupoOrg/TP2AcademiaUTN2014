@@ -68,6 +68,7 @@
     <Content Include="admin\ReportePersonasxEspecialidad.aspx" />
     <Content Include="alumno\EstadoAcademico.aspx" />
     <Content Include="alumno\Inscripcion.aspx" />
+    <Content Include="alumno\ReporteEstadoAcademico.aspx" />
     <Content Include="App_Themes\default\default.css" />
     <Content Include="admin\ReportePersonas.aspx" />
     <Content Include="Resources\close-button.png" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="alumno\Inscripcion.aspx.designer.cs">
       <DependentUpon>Inscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="alumno\ReporteEstadoAcademico.aspx.cs">
+      <DependentUpon>ReporteEstadoAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alumno\ReporteEstadoAcademico.aspx.designer.cs">
+      <DependentUpon>ReporteEstadoAcademico.aspx</DependentUpon>
     </Compile>
     <Compile Include="baseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -242,6 +250,7 @@
     <Folder Include="App_Code\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\Reportes\ReporteEstadoAcademico.rdlc" />
     <EmbeddedResource Include="Reporting\Reportes\ReportePersonas.rdlc" />
     <EmbeddedResource Include="Reporting\Reportes\ReportePersonasxEspecialidad.rdlc" />
   </ItemGroup>
