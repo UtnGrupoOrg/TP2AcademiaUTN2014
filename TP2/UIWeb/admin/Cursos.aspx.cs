@@ -28,7 +28,15 @@ namespace UIWeb.admin
             formPanel.Visible = false;
             gvCursos.Visible = true;
             formActionsPanel.Visible = true;
-            this.gvCursos.DataSource = new CursoLogic().GetAllWithDescription();
+            try
+            {
+                this.gvCursos.DataSource = new CursoLogic().GetAllWithDescription();
+            }
+            catch (Exception e)
+            {
+
+                SetError(e.Message);
+            }
             this.panelGv.Visible = true;
             this.gvCursos.DataBind();
             this.gridActionsPanel.Visible = true;
@@ -175,7 +183,15 @@ namespace UIWeb.admin
                     default:
                         break;
                 }
-                new CursoLogic().Save(this.Curso);
+                try
+                {
+                    new CursoLogic().Save(this.Curso);
+                }
+                catch (Exception ex)
+                {
+
+                    SetError(ex.Message);
+                }
                 this.LoadGrid();
                 formPanel.Visible = false;
             }
@@ -185,6 +201,16 @@ namespace UIWeb.admin
         {
             this.LoadGrid();
             
+        }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
     }
 }

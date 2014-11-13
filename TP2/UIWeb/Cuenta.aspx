@@ -2,12 +2,28 @@
 
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentUsuarios" runat="server">        
 
-    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <h1> Cuenta </h1>
+    <script src="../Resources/scripts.js"></script> 
+    <asp:ScriptManager EnableHistory="true" ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <div id="headtit">  
+        <h1 > Cuenta </h1> 
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server" >
+                <ProgressTemplate>
+                    <asp:Image ID="Image1" CssClass="loading" runat="server" ImageUrl="~/Resources/loading2.GIF"/>
+                </ProgressTemplate>
+            </asp:UpdateProgress>  
+     </div>  
          
             <asp:Panel CssClass="centered" ID="formPanel" runat="server" Visible="false">
                 <asp:UpdatePanel ID="UpdatePanel" runat="server">
-                    <ContentTemplate>   
+                    <ContentTemplate>
+                        <asp:Panel visible="false" ID="ErrorBox" CssClass="Box" runat="server">
+                            <asp:Label ID="ErrorText" runat="server" ></asp:Label>
+                            <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                        </asp:Panel>
+                        <asp:Panel visible="false" ID="MessageBox" CssClass="Box" runat="server">
+                            <asp:Label ID="MessageText" runat="server" ></asp:Label>
+                            <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                        </asp:Panel>       
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre: "></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombre" CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtNombre" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>

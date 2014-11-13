@@ -131,7 +131,7 @@ header{
     height: 60px;     
     padding-bottom: 5px;       
     padding-top: 5px;   
-    width: 1250px;
+    width: 1450px;
     margin: 0px auto;
 }
 #headerPanel div{  
@@ -201,13 +201,13 @@ header{
     background-color: #FF7E7E;
     border: 1px solid #FF6060;
 }
-.rowselected{
-    background-color: #00C9FF ;
-    color:white;
+#bodyForm .rowselected{
+    background-color: #00C9FF !important;
+    color:white !important;
 }
-.rowselected:hover td{
-    background-color: rgba(10, 185, 233, 1);
-    color:white;
+#bodyForm .rowselected:hover td{
+    background-color: rgba(10, 185, 233, 1) !important;
+    color:white !important;
 }
 
 #PageContent_formPanel{
@@ -231,7 +231,6 @@ header{
     width: 25.5% !important;
     padding: 3px;
 }
-
 
 .error{  
     background-color: red;
@@ -271,6 +270,12 @@ display:block !Important;
 }
 #PageContent_MessageBox{     
      background-color: rgba(48, 218, 68, 1); 
+}
+#PageContent_lblPersona{    
+    padding-bottom:5px !important;
+}
+#PageContent_txtPersona{
+    width: 60% !important;    
 }
 .Box{     
     width: 50%;

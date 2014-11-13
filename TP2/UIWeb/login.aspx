@@ -9,7 +9,9 @@
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <h1 id="loginTitle"> Academia </h1>
+    <div id="headtit"> 
+        <h1 id="loginTitle"> Academia </h1>
+    </div>
     <asp:UpdatePanel ID="UpdatePanelLogin" runat="server">
         <ContentTemplate>
             <asp:Panel ID="loginPanel" runat="server">

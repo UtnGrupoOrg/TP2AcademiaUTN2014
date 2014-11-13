@@ -13,13 +13,31 @@ namespace UIWeb {
     public partial class Cursos {
         
         /// <summary>
-        /// ScriptManager control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// tit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tit;
+        
+        /// <summary>
+        /// upLoading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress upLoading;
         
         /// <summary>
         /// UpdatePanel control.
@@ -31,13 +49,40 @@ namespace UIWeb {
         protected global::System.Web.UI.UpdatePanel UpdatePanel;
         
         /// <summary>
-        /// tit control.
+        /// ErrorBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tit;
+        protected global::System.Web.UI.WebControls.Panel ErrorBox;
+        
+        /// <summary>
+        /// ErrorText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorText;
+        
+        /// <summary>
+        /// MessageBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MessageBox;
+        
+        /// <summary>
+        /// MessageText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MessageText;
         
         /// <summary>
         /// gridConteniner control.

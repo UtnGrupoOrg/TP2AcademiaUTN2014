@@ -42,7 +42,15 @@ namespace UIWeb.admin
             this.gridView.Visible = true;
             this.formPanel.Visible = false;
             this.formActionsPanel.Visible = false;
-            this.gridView.DataSource = this.Logic.GetAllWithPlanDescription();
+            try
+            {
+                this.gridView.DataSource = this.Logic.GetAllWithPlanDescription();
+            }
+            catch (Exception e)
+            {
+
+                SetError(e.Message);
+            }
             this.gridView.DataBind();
         }
 
@@ -191,7 +199,15 @@ namespace UIWeb.admin
             {
                 this.LoadGrid();
             }
-            Planes= (new PlanLogic()).GetAll(); 
+            try
+            {
+                Planes = (new PlanLogic()).GetAll();
+            }
+            catch (Exception ex)
+            {
+
+                SetError(ex.Message);
+            }
             Fechas = new List<int>();
             Fechas.AddRange(Enumerable.Range(START_YEAR, DateTime.Now.Year - START_YEAR + 1));
             this.ddlAnioCalendario.DataSource = Fechas;
@@ -199,6 +215,16 @@ namespace UIWeb.admin
             {
                 this.ddlAnioCalendario.Items.Add(fecha.ToString());
             }
+        }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
 
     }

@@ -2,8 +2,9 @@
 
 <asp:Content ContentPlaceHolderID="PageContent" ID="ContentHome" runat="server">      
 
-    
-    <h1 runat="server" id="titulo">  </h1>
+    <div id="headtit"> 
+        <h1 runat="server" id="titulo"/>
+    </div>
     
     
 </asp:Content>

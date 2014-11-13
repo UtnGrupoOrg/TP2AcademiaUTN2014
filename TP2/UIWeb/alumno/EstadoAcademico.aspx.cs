@@ -55,5 +55,15 @@ namespace UIWeb.alumno
         {
             Response.Redirect("~/Default.aspx");
         }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
+        }
     }
 }
