@@ -64,6 +64,7 @@
     <Content Include="admin\Materias.aspx" />
     <Content Include="admin\Personas.aspx" />
     <Content Include="admin\Planes.aspx" />
+    <Content Include="alumno\EstadoAcademico.aspx" />
     <Content Include="alumno\Inscripcion.aspx" />
     <Content Include="App_Themes\default\default.css" />
     <Content Include="Resources\close-button.png" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="admin\Planes.aspx.designer.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="alumno\EstadoAcademico.aspx.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alumno\EstadoAcademico.aspx.designer.cs">
+      <DependentUpon>EstadoAcademico.aspx</DependentUpon>
     </Compile>
     <Compile Include="alumno\Inscripcion.aspx.cs">
       <DependentUpon>Inscripcion.aspx</DependentUpon>

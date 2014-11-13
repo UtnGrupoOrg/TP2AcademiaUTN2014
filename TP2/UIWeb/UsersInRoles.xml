@@ -24,4 +24,8 @@
     <Users>18</Users>
     <Roles>Administrativo</Roles>
   </UsersInRoles>
+  <UsersInRoles>
+    <Users>23</Users>
+    <Roles>Docente</Roles>
+  </UsersInRoles>
 </NewDataSet>
