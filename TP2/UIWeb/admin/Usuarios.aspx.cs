@@ -9,6 +9,7 @@ using Business.Logic;
 using System.Net.Mail;
 using System.Drawing;
 
+
 namespace UIWeb
 {
     public partial class Usuarios : UIWeb.@baseABM
@@ -33,6 +34,7 @@ namespace UIWeb
             if (!Page.IsPostBack)
             {
                 this.LoadGrid();
+
             }
         }
         private void LoadGrid()
@@ -126,6 +128,8 @@ namespace UIWeb
         {
             if (this.IsEntitySelected)
             {
+                this.rfvClave.Visible = false;
+                this.rfvRepetirClave.Visible = false;
                 this.gridPanel.Visible = false;
                 this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
