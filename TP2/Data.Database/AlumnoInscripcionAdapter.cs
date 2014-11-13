@@ -196,6 +196,27 @@ namespace Data.Database
 
         }
 
+        public DataTable GetStudentState (int idAlumno)
+        {
+            DataTable studentState=new DataTable("StudentState");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetState = new SqlCommand("SELECT aluins.id_alumno, mat.desc_materia as materia,aluins.condicion,aluins.nota as nota,cur.anio_calendario FROM alumnos_inscripciones aluins LEFT JOIN cursos cur ON aluins.id_curso= cur.id_curso LEFT JOIN materias mat ON cur.id_materia=mat.id_materia WHERE id_alumno=@idAlumno", SqlConn);
+                cmdGetState.Parameters.Add("@idAlumno", SqlDbType.Int).Value = idAlumno;
+                SqlDataReader drStudentState = cmdGetState.ExecuteReader();
+                studentState.Load(drStudentState);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Error al recuperar datos de alumnos   " ,Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return studentState;
+        }
 
         public DataTable GetOneWithPersona(int id)
         {

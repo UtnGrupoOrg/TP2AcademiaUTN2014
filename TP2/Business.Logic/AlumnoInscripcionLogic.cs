@@ -54,5 +54,10 @@ namespace Business.Logic
         {
             return this.InscripcionData.GetOneWithPersona(id);
         }
+
+        public DataTable GetStudenState(int id)
+        {
+            return this.InscripcionData.GetStudentState(id);
+        }
     }
 }
