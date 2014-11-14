@@ -21,7 +21,6 @@ namespace Business.Entities
             get { return _Cupo; }
             set { _Cupo = value; }
         }
-        private string _Descripcion;
 
         private int _IDComision;
 

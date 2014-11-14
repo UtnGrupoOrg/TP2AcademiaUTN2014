@@ -98,6 +98,10 @@ namespace Business.Logic
             {
                 throw new Exception("La clave tiene menos de " + MIN_PASS_CARACTERES.ToString() + " caracteres");
             }
+            if (usuario.IdPersona == 0)
+            {
+                throw new Exception("Se debe agregar una persona al usuario ");
+            }
             try
             {
                 new MailAddress(usuario.Email);

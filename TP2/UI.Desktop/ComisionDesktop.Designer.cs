@@ -164,6 +164,7 @@
             // 
             // cbxAnio
             // 
+            this.cbxAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAnio.FormattingEnabled = true;
             this.cbxAnio.Location = new System.Drawing.Point(103, 29);
             this.cbxAnio.Name = "cbxAnio";

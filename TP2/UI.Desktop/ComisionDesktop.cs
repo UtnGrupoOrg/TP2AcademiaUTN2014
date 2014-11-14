@@ -24,7 +24,7 @@ namespace UI.Desktop
             this.ComisionActual = new Comision();
             Planes = new PlanLogic().GetAll();
             this.cbxPlanes.DataSource = Planes;
-            Fechas = new List<int>();
+            Fechas = new List<int>();            
             Fechas.AddRange(Enumerable.Range(START_YEAR, DateTime.Now.Year - START_YEAR + 1));
             this.cbxAnio.DataSource = Fechas;
         }
@@ -139,17 +139,18 @@ namespace UI.Desktop
             if (Modo == ModoForm.Baja)
             {
                 this.GuardarCambios();
+                this.Close();
             }
             else if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 if (this.Validar())
                 {
                     this.RecuperarDatos();
-                    this.GuardarCambios(); 
+                    this.GuardarCambios();
+                    this.Close();
                 }
 
-            } 
-            this.Close();
+            }             
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -140,6 +140,9 @@ namespace UI.Desktop
             {
                 Notificar("Los campos de contrasenias nos son iguales", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }else if(this.cbbPersonas.SelectedIndex== -1){
+                Notificar("Debe seleccionar una persona", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             else
             {
