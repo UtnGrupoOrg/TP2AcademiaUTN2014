@@ -41,6 +41,7 @@ namespace UIWeb.admin
             this.gridActionsPanel.Visible = true;
             this.lblMensaje.Visible = false;
             this.gridView.DataSource = this.Logic.GetAllWithEspecialidadDescription();
+            gridView.SelectedIndex = -1;
             this.gridView.DataBind();
         }
 
@@ -67,10 +68,10 @@ namespace UIWeb.admin
             {
                 this.Logic.Save(entity);
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                this.SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -91,6 +92,7 @@ namespace UIWeb.admin
                 this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
+                this.lbtnAceptar.Text = "Guardar";
                 this.LoadForm(this.SelectedId);
                 this.EnableForm(true);
             }
@@ -117,6 +119,7 @@ namespace UIWeb.admin
             this.gridActionsPanel.Visible = false;
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             this.ClearForm();
             this.EnableForm(true);
         }
@@ -185,6 +188,16 @@ namespace UIWeb.admin
                 e.Row.ToolTip = "Click to select row";
                 e.Row.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.gridView, "Select$" + e.Row.RowIndex);
             }
+        }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
     }
 }

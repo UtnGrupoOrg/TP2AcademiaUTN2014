@@ -38,6 +38,7 @@ namespace UIWeb.admin
                 SetError(e.Message);
             }
             this.panelGv.Visible = true;
+            gvCursos.SelectedIndex = -1;
             this.gvCursos.DataBind();
             this.gridActionsPanel.Visible = true;
             lblMensaje.Visible = false;          
@@ -48,6 +49,7 @@ namespace UIWeb.admin
         protected void lbNuevo_Click(object sender, EventArgs e)
         {
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             loadPanelAbm();
         }
 
@@ -58,9 +60,9 @@ namespace UIWeb.admin
             if (SelectedId!=0)
             {
                 this.FormMode = FormModes.Modificacion;
+                this.lbtnAceptar.Text = "Guardar";
                 loadPanelAbm();
-            }
-            else { lblMensaje.Visible = true; }
+            }            
            
         }
 

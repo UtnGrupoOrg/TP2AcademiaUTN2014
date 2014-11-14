@@ -80,7 +80,6 @@
                 <asp:Label ID="lblLegajo" runat="server" Text="Legajo: "></asp:Label>
                 <asp:TextBox ID="txtLegajo" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvLegajo" CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtLegajo" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>                     
-                <asp:RegularExpressionValidator CssClass="error" ID="valLegajo" runat="server" ControlToValidate="txtLegajo" Display="dynamic" ErrorMessage="Debe ingresar sólo numeros" ValidationExpression="\d+" />
                 <asp:Label ID="lblTelefono" runat="server" Text="Telefono: "></asp:Label>
                 <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>  
                 <asp:RequiredFieldValidator ID="rfvTelefono" CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtTelefono" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>

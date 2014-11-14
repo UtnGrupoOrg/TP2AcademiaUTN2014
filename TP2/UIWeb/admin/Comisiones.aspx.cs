@@ -30,13 +30,6 @@ namespace UIWeb.admin
 
         private Comision Entity { get;set;}
        
-       /* protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack)
-            {
-                this.LoadGrid();
-            }
-        }*/
         private void LoadGrid()
         {
             this.gridView.Visible = true;
@@ -51,6 +44,7 @@ namespace UIWeb.admin
 
                 SetError(e.Message);
             }
+            gridView.SelectedIndex = -1;
             this.gridView.DataBind();
         }
 
@@ -68,14 +62,21 @@ namespace UIWeb.admin
         private void LoadEntity(Comision comision)
         {
             comision.Descripcion = this.txtDescripcion.Text;
-         /*   comision.IdPlan = ((Plan)ddlPlanes.SelectedItem).ID;*/
             string busca = ddlPlanes.SelectedValue;
             comision.IdPlan = (Planes.Find(x => x.Descripcion == busca)).ID;
             comision.AnioEspecialidad = Int32.Parse(ddlAnioCalendario.SelectedValue);
         }
         private void SaveEntity(Comision comision)
         {
-            this.Logic.Save(comision);
+            try
+            {
+                this.Logic.Save(comision);
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
         }
         private void EnableForm(bool enable)
         {
@@ -111,13 +112,9 @@ namespace UIWeb.admin
             this.formPanel.Visible = true;
             this.formActionsPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             this.ClearForm();
             this.EnableForm(true);
-        }
-
-        private void prepararForm()
-        {
-          /* this.ddlAnioCalendario.DataSource = Fechas;*/
         }
 
         protected void lbtnEditar_Click(object sender, EventArgs e)
@@ -129,6 +126,7 @@ namespace UIWeb.admin
                 this.formPanel.Visible = true;
                 this.formActionsPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
+                this.lbtnAceptar.Text = "Guardar";
                 this.LoadForm(this.SelectedId);
                 this.EnableForm(true);
             }

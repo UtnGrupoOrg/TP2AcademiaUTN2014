@@ -172,6 +172,7 @@ namespace UIWeb.admin
                 this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
+                this.lbtnAceptar.Text = "Guardar";
                 this.LoadForm(this.SelectedId);
                 this.EnableForm(true);
             }
@@ -196,6 +197,7 @@ namespace UIWeb.admin
             this.gridActionsPanel.Visible = false;
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             this.ClearForm();
             this.EnableForm(true);
         }
@@ -229,18 +231,18 @@ namespace UIWeb.admin
                         }
                 }
                 this.SaveEntity(this.Entity);
-                this.formActionsPanel.Visible = true;
-                this.LoadGrid();
                 this.formPanel.Visible = false;
+                this.gridActionsPanel.Visible = true;
+                this.LoadGrid();              
 
 
             }
         }
         protected void lbtnCancelar_Click(object sender, EventArgs e)
         {
-            this.formActionsPanel.Visible = true;
-            this.LoadGrid();
+            this.gridActionsPanel.Visible = true;
             this.formPanel.Visible = false;
+            this.LoadGrid();            
         }
 
         protected void gridView_RowCreated1(object sender, GridViewRowEventArgs e)

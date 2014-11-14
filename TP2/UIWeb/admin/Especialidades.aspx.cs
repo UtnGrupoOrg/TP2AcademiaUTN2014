@@ -38,6 +38,7 @@ namespace UIWeb.admin
         {
             this.gridPanel.Visible = true;
             this.gridActionsPanel.Visible = true;
+            gridView.SelectedIndex = -1;
             try
             {
                 this.gridView.DataSource = this.Logic.GetAll();
@@ -96,6 +97,7 @@ namespace UIWeb.admin
                 this.gridActionsPanel.Visible = false;
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
+                this.lbtnAceptar.Text = "Guardar";
                 this.LoadForm(this.SelectedId);
                 this.EnableForm(true);
             }
@@ -120,6 +122,7 @@ namespace UIWeb.admin
             this.gridActionsPanel.Visible = false;
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             this.ClearForm();
             this.EnableForm(true);
         }

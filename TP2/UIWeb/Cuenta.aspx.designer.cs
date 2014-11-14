@@ -31,15 +31,6 @@ namespace UIWeb {
         protected global::System.Web.UI.UpdateProgress UpdateProgress1;
         
         /// <summary>
-        /// formPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formPanel;
-        
-        /// <summary>
         /// UpdatePanel control.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace UIWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageText;
+        
+        /// <summary>
+        /// formPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
         /// lblNombre control.

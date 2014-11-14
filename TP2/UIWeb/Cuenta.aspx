@@ -12,18 +12,18 @@
                 </ProgressTemplate>
             </asp:UpdateProgress>  
      </div>  
-         
-            <asp:Panel CssClass="centered" ID="formPanel" runat="server" Visible="false">
-                <asp:UpdatePanel ID="UpdatePanel" runat="server">
-                    <ContentTemplate>
-                        <asp:Panel visible="false" ID="ErrorBox" CssClass="Box" runat="server">
-                            <asp:Label ID="ErrorText" runat="server" ></asp:Label>
-                            <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
-                        </asp:Panel>
-                        <asp:Panel visible="false" ID="MessageBox" CssClass="Box" runat="server">
-                            <asp:Label ID="MessageText" runat="server" ></asp:Label>
-                            <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
-                        </asp:Panel>       
+         <asp:UpdatePanel ID="UpdatePanel" runat="server">
+                <ContentTemplate>
+                    <asp:Panel visible="false" ID="ErrorBox" CssClass="Box" runat="server">
+                        <asp:Label ID="ErrorText" runat="server" ></asp:Label>
+                        <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                    </asp:Panel>
+                    <asp:Panel visible="false" ID="MessageBox" CssClass="Box" runat="server">
+                        <asp:Label ID="MessageText" runat="server" ></asp:Label>
+                        <img runat="server" src="../Resources/close-button.png" class="Close" onclick="CloseError_Click()"/>       
+                    </asp:Panel>      
+                    <asp:Panel CssClass="centered" ID="formPanel" runat="server" Visible="false">               
+                         
                         <asp:Label ID="lblNombre" runat="server" Text="Nombre: "></asp:Label>
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombre" CssClass="error" Text="Debes completar este campo" Display="dynamic" ControlToValidate="txtNombre" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
@@ -59,16 +59,13 @@
                                                        Display="dynamic"
                                                        ErrorMessage="La clave tiene que ser de por lo menos 8 caracteres"
                                                        ValidationExpression=".{8}.*" />            
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="lbtnAceptar" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                    
                 <asp:Panel ID="formActionsPanel" runat="server">
                      <asp:LinkButton ID="lbtnAceptar" CssClass="button formbutton" runat="server" Text="Button" CausesValidation="true" OnClick="lbtnAceptar_Click" >Guardar</asp:LinkButton> 
                 </asp:Panel>
             </asp:Panel>
-
+        </ContentTemplate>
+    </asp:UpdatePanel>
     
         
     

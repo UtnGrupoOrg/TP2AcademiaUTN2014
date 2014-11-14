@@ -59,7 +59,7 @@
                 <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                 <asp:Label ID="lblApellido" runat="server" Text="Apellido: "></asp:Label>
                 <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>               
-                <asp:Label ID="lblCondición" runat="server" Text="Condción: "></asp:Label>
+                <asp:Label ID="lblCondición" runat="server" Text="Condición: "></asp:Label>
                 <asp:DropDownList ID="ddlCondiciones" runat="server">
                     <asp:ListItem Selected="True" Value="regular">Regular</asp:ListItem>
                     <asp:ListItem Value="libre">Libre</asp:ListItem>

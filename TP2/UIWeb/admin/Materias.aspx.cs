@@ -48,6 +48,7 @@ namespace UIWeb.admin
 
                 SetError(e.Message);
             }
+            grdMaterias.SelectedIndex = -1;
             this.grdMaterias.DataBind();
         }
 
@@ -107,6 +108,7 @@ namespace UIWeb.admin
                 this.formActionsPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedId);
+                this.lbtnAceptar.Text = "Guardar";
                 this.EnableForm(true);
             }
         }
@@ -131,6 +133,7 @@ namespace UIWeb.admin
             this.formPanel.Visible = true;
             this.formActionsPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+            this.lbtnAceptar.Text = "Nuevo";
             this.ClearForm();
             this.EnableForm(true);
         }

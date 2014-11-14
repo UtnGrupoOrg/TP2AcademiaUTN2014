@@ -55,38 +55,54 @@ namespace UIWeb
 
         private void LoadForm(int id)
         {
-            this.Usuario = this.UsuarioLogic.GetOne(id);
-            this.txtNombre.Text = this.Usuario.Nombre;
-            this.txtApellido.Text = this.Usuario.Apellido;
-            this.txtEmail.Text = this.Usuario.Email;
-            this.Persona = this.PersonaLogic.GetOne((int)this.Usuario.IdPersona);
-            this.txtDireccion.Text = this.Persona.Direccion;
-            this.txtTelefono.Text = this.Persona.Telefono;
-            this.txtLegajo.Text = this.Persona.Legajo;
-            this.txtAnio.Text = this.Persona.FechaNacimiento.Year.ToString();
-            this.txtMes.Text = this.Persona.FechaNacimiento.Month.ToString();
-            this.txtDia.Text = this.Persona.FechaNacimiento.Day.ToString();
+            try
+            {
+                this.Usuario = this.UsuarioLogic.GetOne(id);
+                this.txtNombre.Text = this.Usuario.Nombre;
+                this.txtApellido.Text = this.Usuario.Apellido;
+                this.txtEmail.Text = this.Usuario.Email;
+                this.Persona = this.PersonaLogic.GetOne((int)this.Usuario.IdPersona);
+                this.txtDireccion.Text = this.Persona.Direccion;
+                this.txtTelefono.Text = this.Persona.Telefono;
+                this.txtLegajo.Text = this.Persona.Legajo;
+                this.txtAnio.Text = this.Persona.FechaNacimiento.Year.ToString();
+                this.txtMes.Text = this.Persona.FechaNacimiento.Month.ToString();
+                this.txtDia.Text = this.Persona.FechaNacimiento.Day.ToString();
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
 
         }
 
         private void LoadEntity()
         {
-            this.Usuario = UsuarioLogic.GetOne(UserID);
-            this.Persona = PersonaLogic.GetOne((int)Usuario.IdPersona);
-            this.Usuario.State = BusinessEntity.States.Modified;
-            this.Persona.State = BusinessEntity.States.Modified;
-            this.Usuario.Nombre = this.txtNombre.Text;
-            this.Usuario.Apellido = this.txtApellido.Text;
-            this.Usuario.Email = this.txtEmail.Text;
-            this.Usuario.Clave = this.txtClave.Text;
-            this.Usuario.Email = this.txtEmail.Text;
-            this.Persona.Nombre = this.txtNombre.Text;
-            this.Persona.Apellido = this.txtApellido.Text;
-            this.Persona.Email = this.txtEmail.Text;
-            this.Persona.Direccion = this.txtDireccion.Text;
-            this.Persona.Telefono = this.txtTelefono.Text;
-            this.Persona.Legajo = this.txtLegajo.Text;
-            this.Persona.FechaNacimiento = (DateTime)this.getDate();
+            try
+            {
+                this.Usuario = UsuarioLogic.GetOne(UserID);
+                this.Persona = PersonaLogic.GetOne((int)Usuario.IdPersona);
+                this.Usuario.State = BusinessEntity.States.Modified;
+                this.Persona.State = BusinessEntity.States.Modified;
+                this.Usuario.Nombre = this.txtNombre.Text;
+                this.Usuario.Apellido = this.txtApellido.Text;
+                this.Usuario.Email = this.txtEmail.Text;
+                this.Usuario.Clave = this.txtClave.Text;
+                this.Usuario.Email = this.txtEmail.Text;
+                this.Persona.Nombre = this.txtNombre.Text;
+                this.Persona.Apellido = this.txtApellido.Text;
+                this.Persona.Email = this.txtEmail.Text;
+                this.Persona.Direccion = this.txtDireccion.Text;
+                this.Persona.Telefono = this.txtTelefono.Text;
+                this.Persona.Legajo = this.txtLegajo.Text;
+                this.Persona.FechaNacimiento = (DateTime)this.getDate();
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
         }
         private void SaveEntity()
         {
@@ -95,10 +111,10 @@ namespace UIWeb
                 this.UsuarioLogic.Save(this.Usuario);
                 this.PersonaLogic.Save(this.Persona);
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                this.SetError(e.Message);
             }
         }
         private void EnableForm(bool enable)
@@ -121,7 +137,8 @@ namespace UIWeb
             if (Page.IsValid)
             {              
                 this.LoadEntity();
-                this.SaveEntity();            
+                this.SaveEntity();
+                this.SetMessage("Datos actualizados");
             }
         }
 
@@ -169,6 +186,16 @@ namespace UIWeb
                 return null;
             }
 
+        }
+        protected void SetError(string error)
+        {
+            this.ErrorBox.Visible = true;
+            this.ErrorText.Text = error;
+        }
+        protected void SetMessage(string message)
+        {
+            this.MessageBox.Visible = true;
+            this.MessageText.Text = message;
         }
 
     }
