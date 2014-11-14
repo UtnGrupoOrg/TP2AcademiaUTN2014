@@ -26,7 +26,7 @@
                     <asp:GridView ID="grdEstadoAcadamico" runat="server" AutoGenerateColumns="False" DataKeyNames="id_alumno" Width="201px">
                         <Columns>
                             <asp:BoundField DataField="materia" HeaderText="Materia" />
-                            <asp:BoundField DataField="condicion" HeaderText="Condicion" NullDisplayText="No Inscripto" />
+                            <asp:BoundField DataField="condicion" HeaderText="Condicion" NullDisplayText="Cursando" />
                             <asp:BoundField DataField="nota" HeaderText="Nota" NullDisplayText="No posee" />
                             <asp:BoundField DataField="anio_calendario" HeaderText="Año" />
                         </Columns>
