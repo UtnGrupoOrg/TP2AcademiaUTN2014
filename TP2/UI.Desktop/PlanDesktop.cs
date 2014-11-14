@@ -158,22 +158,33 @@ namespace UI.Desktop
             }
 
             Materia materiaCambiada = materiaDesktop.MateriaActual;
-            this.MateriasConCambios.Add(materiaCambiada);
-            if (materiaCambiada.State == BusinessEntity.States.New)
+            if (materiaCambiada != null)
             {
-                Materias.Add(materiaCambiada);
-            }
-            else if (materiaCambiada.State == BusinessEntity.States.Deleted)
-            {
-                Materias.Remove(materiaCambiada);
+                this.MateriasConCambios.Add(materiaCambiada);
+                if (materiaCambiada.State == BusinessEntity.States.New)
+                {
+                    Materias.Add(materiaCambiada);
+                }
+                else if (materiaCambiada.State == BusinessEntity.States.Deleted)
+                {
+                    Materias.Remove(materiaCambiada);
+                }
             }
             UpdateLbMaterias(Materias);
         }
 
         private void bntAgregar_Click(object sender, EventArgs e)
         {
-            MateriaDesktop materiaDesktop = new MateriaDesktop(ApplicationForm.ModoForm.Alta, PlanActual);
-            CambiarLista(materiaDesktop);
+            if (PlanActual != null)
+            {
+                MateriaDesktop materiaDesktop = new MateriaDesktop(ApplicationForm.ModoForm.Alta, PlanActual);
+                CambiarLista(materiaDesktop);
+            }
+            else
+            {
+                Notificar("Debe crear el plan primero para agregar materias", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnQuitar_Click_1(object sender, EventArgs e)

@@ -35,8 +35,7 @@ namespace UI.Desktop
             this.Modo = modo;
             Planes = new List<Plan>();
             Planes.Add(plan);
-            this.cbxPlan.DataSource = Planes;
-            this.cbxPlan.SelectedItem = plan;
+            this.cbxPlan.DataSource = Planes;            
             this.cbxPlan.Enabled = false;
         }
         public MateriaDesktop(int ID,ModoForm modo)
@@ -110,7 +109,8 @@ namespace UI.Desktop
             {
                 this.MateriaActual.Descripcion = this.txtDescripcion.Text;
                 this.MateriaActual.HSSemanales = Int32.Parse(this.txtHorasSemanales.Text);
-                this.MateriaActual.HSTotales = Int32.Parse(this.txtHorasTotales.Text);
+                this.MateriaActual.HSTotales = Int32.Parse(this.txtHorasTotales.Text);      
+          
                 this.MateriaActual.IdPlan = ((Plan)cbxPlan.SelectedItem).ID;
             }
         }
