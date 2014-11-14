@@ -52,7 +52,7 @@ namespace Business.Logic
         {
             if (materia.State == Entities.Materia.States.New || materia.State == Materia.States.Modified)
             {
-                if (string.IsNullOrEmpty(materia.Descripcion)||materia.HSSemanales<0||materia.HSSemanales>168||materia.HSTotales<0)
+                if (string.IsNullOrEmpty(materia.Descripcion)||materia.HSSemanales<0||materia.HSTotales<0)
                 {
                     throw new Exception("Hay campos vacios o erróneos");   
                 }

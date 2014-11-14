@@ -105,8 +105,12 @@ namespace UI.Desktop
             }
             else
             {
-                foreach(Materia ma in MateriasConCambios){
-                    new MateriaLogic().Save(ma);
+                if (MateriasConCambios !=null)
+                {
+                    foreach (Materia ma in MateriasConCambios)
+                    {
+                        new MateriaLogic().Save(ma);
+                    }
                 }
                 new PlanLogic().Save(this.PlanActual);
             }            
@@ -175,7 +179,7 @@ namespace UI.Desktop
         private void btnQuitar_Click_1(object sender, EventArgs e)
         {
             Materia matSeleccionada = (Materia)lbMaterias.SelectedItem;
-            MateriaDesktop materiaDesktop = new MateriaDesktop(matSeleccionada.ID, ApplicationForm.ModoForm.Baja, PlanActual);
+            MateriaDesktop materiaDesktop = new MateriaDesktop(matSeleccionada, ApplicationForm.ModoForm.Baja, PlanActual);
             CambiarLista(materiaDesktop);
         }
     }

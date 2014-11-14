@@ -46,7 +46,7 @@ namespace UI.Desktop
             {
                 this.prepararParaBaja();
             }
-            this.MapearDatos();
+            
         }
 
         private void prepararParaBaja()
@@ -81,8 +81,8 @@ namespace UI.Desktop
         public override void MapearDatos()
         {
             Especialidad esp = new EspecialidadLogic().GetOne(this.EspecialidadActual.ID);
-            this.txtIDEspecialidad.Text = this.EspecialidadActual.ID.ToString();
-            this.txtNombreEspecialidad.Text = this.EspecialidadActual.Descripcion;
+            this.txtIDEspecialidad.Text = esp.ID.ToString();
+            this.txtNombreEspecialidad.Text = esp.Descripcion;
             
         }
 
@@ -111,6 +111,7 @@ namespace UI.Desktop
             if (Modo == ModoForm.Baja)
             {
                 this.GuardarCambios();
+                this.Close();
             }
             else if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
@@ -118,10 +119,11 @@ namespace UI.Desktop
                 {
                     this.RecuperarDatos();
                     this.GuardarCambios();
+                    this.Close();
                 }
 
             }
-            this.Close();
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

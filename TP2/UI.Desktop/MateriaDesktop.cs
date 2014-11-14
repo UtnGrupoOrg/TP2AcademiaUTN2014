@@ -36,6 +36,7 @@ namespace UI.Desktop
             Planes = new List<Plan>();
             Planes.Add(plan);
             this.cbxPlan.DataSource = Planes;
+            this.cbxPlan.SelectedItem = plan;
             this.cbxPlan.Enabled = false;
         }
         public MateriaDesktop(int ID,ModoForm modo)
@@ -48,6 +49,12 @@ namespace UI.Desktop
             : this(modo,plan)
         {
             MateriaActual = new MateriaLogic().GetOne(ID);
+            this.RecuperarDatos();
+        }
+        public MateriaDesktop(Materia materia, ModoForm modo, Plan plan)
+            : this(modo, plan)
+        {
+            MateriaActual = materia;
             this.RecuperarDatos();
         }
 

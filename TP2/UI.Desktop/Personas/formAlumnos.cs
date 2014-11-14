@@ -16,7 +16,7 @@ namespace UI.Desktop
         public formAlumnos() 
         {
             this.InitializeComponent();            
-            this.Text = "Temp";            
+            this.Text = "Alumnos";            
         }        
 
         protected override void Listar()
