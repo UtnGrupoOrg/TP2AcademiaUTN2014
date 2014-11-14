@@ -52,7 +52,14 @@ namespace UIWeb
         {
             gridComisiones.SelectedIndex = -1;
             this.EnableGridComisiones(true);
-            this.gridComisiones.DataSource = new ComisionLogic().getAllWithMateriaAndYear(id_materia, DateTime.Today.Year);
+            try
+            {
+                this.gridComisiones.DataSource = new ComisionLogic().getAllWithMateriaAndYear(id_materia, DateTime.Today.Year);
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
             this.gridComisiones.DataBind();            
         }
 
@@ -95,7 +102,14 @@ namespace UIWeb
         
         protected void lbtnSiguiente_Click(object sender, EventArgs e)
         {
-            ViewState["materia"] = new MateriaLogic().GetOne(this.SelectedId).Descripcion;
+            try
+            {
+                ViewState["materia"] = new MateriaLogic().GetOne(this.SelectedId).Descripcion;
+            }
+            catch (Exception ex)
+            {
+                this.SetError(ex.Message);
+            }
             LoadComisiones(this.SelectedId);            
         }
 

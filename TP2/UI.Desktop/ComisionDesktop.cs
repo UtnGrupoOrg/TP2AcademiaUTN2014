@@ -22,7 +22,15 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.ComisionActual = new Comision();
-            Planes = new PlanLogic().GetAll();
+            try
+            {
+                Planes = new PlanLogic().GetAll();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Comision", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.cbxPlanes.DataSource = Planes;
             Fechas = new List<int>();            
             Fechas.AddRange(Enumerable.Range(START_YEAR, DateTime.Now.Year - START_YEAR + 1));
@@ -97,11 +105,19 @@ namespace UI.Desktop
 
         public override void MapearDatos()
         {
-            Comision comi = new ComisionLogic().GetOne(this.ComisionActual.ID);
-            this.txtIdComision.Text = this.ComisionActual.ID.ToString();
-            this.txtDescripcion.Text = comi.Descripcion;
-            this.cbxAnio.SelectedItem = Fechas.Find(x => x == comi.AnioEspecialidad);
-            this.cbxPlanes.SelectedItem = Planes.Find(x => x.ID == comi.IdPlan);
+            try
+            {
+                Comision comi = new ComisionLogic().GetOne(this.ComisionActual.ID);
+                this.txtIdComision.Text = this.ComisionActual.ID.ToString();
+                this.txtDescripcion.Text = comi.Descripcion;
+                this.cbxAnio.SelectedItem = Fechas.Find(x => x == comi.AnioEspecialidad);
+                this.cbxPlanes.SelectedItem = Planes.Find(x => x.ID == comi.IdPlan);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Comision", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -130,7 +146,15 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            new ComisionLogic().Save(ComisionActual);
+            try
+            {
+                new ComisionLogic().Save(ComisionActual);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Comision", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

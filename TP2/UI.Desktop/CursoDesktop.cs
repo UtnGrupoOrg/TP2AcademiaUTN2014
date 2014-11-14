@@ -21,9 +21,25 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
-            materias = new MateriaLogic().GetAll();
-            this.cbxMaterias.DataSource = materias;
-            comisiones = new ComisionLogic().GetAll();
+            try
+            {
+                materias = new MateriaLogic().GetAll();
+                this.cbxMaterias.DataSource = materias;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Curso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                comisiones = new ComisionLogic().GetAll();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Curso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.cbxComision.DataSource = comisiones;
             this.GuardaCambios = true;
         }
@@ -38,8 +54,16 @@ namespace UI.Desktop
         {
             this.Modo = modo;
             CursoLogic curso = new CursoLogic();
-            cursoActual= curso.GetOne(ID);
-            this.MapearDeDatos(); 
+            try
+            {
+                cursoActual = curso.GetOne(ID);
+                this.MapearDeDatos();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Curso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void MapearDeDatos()
@@ -101,7 +125,15 @@ namespace UI.Desktop
 
             if (this.GuardaCambios)
             {
-                new CursoLogic().Save(this.cursoActual);
+                try
+                {
+                    new CursoLogic().Save(this.cursoActual);
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message, "Curso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

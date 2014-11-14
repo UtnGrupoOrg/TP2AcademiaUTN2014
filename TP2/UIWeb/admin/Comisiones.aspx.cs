@@ -50,13 +50,20 @@ namespace UIWeb.admin
 
         private void LoadForm(int id)
         {
-            Comision com = new ComisionLogic().GetOne(SelectedId);
-            this.Entity = this.Logic.GetOne(id);
-            this.txtDescripcion.Text = this.Entity.Descripcion;
-            Plan plan = (Planes.Find(x => x.ID == com.IdPlan));
-            ddlPlanes.SelectedIndex = ddlPlanes.Items.IndexOf(ddlPlanes.Items.FindByValue(plan.Descripcion));  
-            ddlAnioCalendario.SelectedIndex = ddlAnioCalendario.Items.IndexOf(ddlAnioCalendario.Items.FindByValue(com.AnioEspecialidad.ToString()));
-            this.ddlPlanes.DataBind();
+            try
+            {
+                Comision com = new ComisionLogic().GetOne(SelectedId);
+                this.Entity = this.Logic.GetOne(id);
+                this.txtDescripcion.Text = this.Entity.Descripcion;
+                Plan plan = (Planes.Find(x => x.ID == com.IdPlan));
+                ddlPlanes.SelectedIndex = ddlPlanes.Items.IndexOf(ddlPlanes.Items.FindByValue(plan.Descripcion));
+                ddlAnioCalendario.SelectedIndex = ddlAnioCalendario.Items.IndexOf(ddlAnioCalendario.Items.FindByValue(com.AnioEspecialidad.ToString()));
+                this.ddlPlanes.DataBind();
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
         }
         
         private void LoadEntity(Comision comision)

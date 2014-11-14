@@ -54,12 +54,19 @@ namespace UIWeb.admin
 
         private void LoadForm(int id)
         {
-            Materia mat = new MateriaLogic().GetOne(SelectedId);
-            this.Entity = this.Logic.GetOne(id);
-            this.txtDescripcion.Text = this.Entity.Descripcion;
-            this.txtHorasSemanales.Text = this.Entity.HSSemanales.ToString();
-            this.txtHorasTotales.Text = this.Entity.HSTotales.ToString();
-            ddlPlan.SelectedIndex = ddlPlan.Items.IndexOf(ddlPlan.Items.FindByValue(mat.IdPlan.ToString()));
+            try
+            {
+                Materia mat = new MateriaLogic().GetOne(SelectedId);
+                this.Entity = this.Logic.GetOne(id);
+                this.txtDescripcion.Text = this.Entity.Descripcion;
+                this.txtHorasSemanales.Text = this.Entity.HSSemanales.ToString();
+                this.txtHorasTotales.Text = this.Entity.HSTotales.ToString();
+                ddlPlan.SelectedIndex = ddlPlan.Items.IndexOf(ddlPlan.Items.FindByValue(mat.IdPlan.ToString()));
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
             this.ddlPlan.DataBind();
         }
         

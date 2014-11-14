@@ -26,8 +26,16 @@ namespace UI.Desktop
             :this()
         {
             this.Modo = modo;
-            Planes = new PlanLogic().GetAll();
-            this.cbxPlan.DataSource = Planes;
+            try
+            {
+                Planes = new PlanLogic().GetAll();
+                this.cbxPlan.DataSource = Planes;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Materia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public MateriaDesktop(ModoForm modo,Plan plan)
             : this()
@@ -41,14 +49,30 @@ namespace UI.Desktop
         public MateriaDesktop(int ID,ModoForm modo)
             : this(modo)
         {
-            MateriaActual = new MateriaLogic().GetOne(ID);
-            this.RecuperarDatos();
+            try
+            {
+                MateriaActual = new MateriaLogic().GetOne(ID);
+                this.RecuperarDatos();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public MateriaDesktop(int ID, ModoForm modo,Plan plan)
             : this(modo,plan)
         {
-            MateriaActual = new MateriaLogic().GetOne(ID);
-            this.RecuperarDatos();
+            try
+            {
+                MateriaActual = new MateriaLogic().GetOne(ID);
+                this.RecuperarDatos();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public MateriaDesktop(Materia materia, ModoForm modo, Plan plan)
             : this(modo, plan)

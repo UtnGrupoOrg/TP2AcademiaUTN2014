@@ -40,7 +40,15 @@ namespace UIWeb.admin
             this.gridPanel.Visible = true;
             this.gridActionsPanel.Visible = true;
             this.lblMensaje.Visible = false;
-            this.gridView.DataSource = this.Logic.GetAllWithEspecialidadDescription();
+            try
+            {
+                this.gridView.DataSource = this.Logic.GetAllWithEspecialidadDescription();
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
             gridView.SelectedIndex = -1;
             this.gridView.DataBind();
         }
@@ -52,7 +60,15 @@ namespace UIWeb.admin
 
         private void LoadForm(int id)
         {
-            this.Entity = this.Logic.GetOne(id);
+            try
+            {
+                this.Entity = this.Logic.GetOne(id);
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
             this.txtPlan.Text = this.Entity.Descripcion;
             this.ddlEspecialidad.SelectedIndex = this.ddlEspecialidad.Items.IndexOf(ddlEspecialidad.Items.FindByValue(Entity.IDEspecialidad.ToString()));
         }

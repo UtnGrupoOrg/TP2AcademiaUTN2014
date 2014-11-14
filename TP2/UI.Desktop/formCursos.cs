@@ -22,7 +22,15 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            this.dgvCursos.DataSource = new CursoLogic().GetAllWithDescription();
+            try
+            {
+                this.dgvCursos.DataSource = new CursoLogic().GetAllWithDescription();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Cursos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void formCursos_Load(object sender, EventArgs e)

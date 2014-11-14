@@ -30,8 +30,16 @@ namespace UI.Desktop
         public UsuarioDesktop(int ID,ModoForm modo)
             : this(modo)
         {
-            UsuarioActual = new UsuarioLogic().GetOne(ID);
-            this.RecuperarDatos();
+            try
+            {
+                UsuarioActual = new UsuarioLogic().GetOne(ID);
+                this.RecuperarDatos();
+            }
+            catch (Exception e)
+            {
+                
+                Notificar(e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         public override void RecuperarDatos()

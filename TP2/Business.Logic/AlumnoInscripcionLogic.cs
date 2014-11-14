@@ -37,10 +37,10 @@ namespace Business.Logic
             return InscripcionData.GetOne(ID);
         }
 
-        public void Save(AlumnoInscripcion inscripciona)
+        public void Save(AlumnoInscripcion inscripcion)
         {
-            InscripcionData.Save(inscripciona);
-            // TODO validar que el alumno no este inscripto a ese curso
+            // Validar que no se pueda agregar una inscripcion que ya tenga la misma persona y mismo curso
+            InscripcionData.Save(inscripcion);            
         }
 
         public void Delete(int ID)

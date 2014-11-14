@@ -64,7 +64,15 @@ namespace Business.Logic
         public Usuario identificarUsuario(string usu, string pass)
         {            
             List<Usuario> listUsuarios;
-            listUsuarios = this.GetAllWithClave();
+            try
+            {
+                listUsuarios = this.GetAllWithClave();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
             Usuario usuario = listUsuarios.Find(u => u.NombreUsuario == usu);                
             if (usuario != null)
             {

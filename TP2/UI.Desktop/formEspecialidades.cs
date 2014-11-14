@@ -26,7 +26,15 @@ namespace UI.Desktop
 
         private void Listar()
         {
-            this.dgvEspecialidades.DataSource = new EspecialidadLogic().GetAll();
+            try
+            {
+                this.dgvEspecialidades.DataSource = new EspecialidadLogic().GetAll();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Especialidades", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

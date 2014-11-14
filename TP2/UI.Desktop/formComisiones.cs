@@ -27,7 +27,15 @@ namespace UI.Desktop
 
         private void Listar()
         {
-            this.dgvComisiones.DataSource = (new ComisionLogic()).GetAllWithPlanDescription();
+            try
+            {
+                this.dgvComisiones.DataSource = (new ComisionLogic()).GetAllWithPlanDescription();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Comisiones", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
 

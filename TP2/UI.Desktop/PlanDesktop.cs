@@ -28,16 +28,32 @@ namespace UI.Desktop
             : this()
         {
             this.Modo = modo;
-            Especialidades = new EspecialidadLogic().GetAll();
-            this.cbbEspecialidades.DataSource = Especialidades;            
+            try
+            {
+                Especialidades = new EspecialidadLogic().GetAll();
+                this.cbbEspecialidades.DataSource = Especialidades;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Especialidades", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }          
         }        
         public PlanDesktop(int ID, ModoForm modo)
             : this(modo)
         {
-            PlanActual = new PlanLogic().GetOne(ID);
-            this.RecuperarDatos();
-            Materias = new MateriaLogic().GetAllByPlan(this.PlanActual);
-            this.UpdateLbMaterias(Materias);
+            try
+            {
+                PlanActual = new PlanLogic().GetOne(ID);
+                this.RecuperarDatos();
+                Materias = new MateriaLogic().GetAllByPlan(this.PlanActual);
+                this.UpdateLbMaterias(Materias);
+            }
+            catch (Exception e)
+            {
+                
+                Notificar(e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public override void RecuperarDatos()
@@ -95,25 +111,41 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             this.MapearDatos();
-            if (this.Modo == ModoForm.Baja)
+            try
             {
-                DialogResult result = MessageBox.Show("Realmente desea eliminar el plan: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (this.Modo == ModoForm.Baja)
                 {
+                    DialogResult result = MessageBox.Show("Realmente desea eliminar el plan: " + this.txtDescripcion.Text, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        new PlanLogic().Save(this.PlanActual);
+                    }
+                }
+                else
+                {
+                    if (MateriasConCambios != null)
+                    {
+                        foreach (Materia ma in MateriasConCambios)
+                        {
+                            try
+                            {
+                                new MateriaLogic().Save(ma);
+                            }
+                            catch (Exception e)
+                            {
+
+                                MessageBox.Show(e.Message, "Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
                     new PlanLogic().Save(this.PlanActual);
                 }
             }
-            else
+            catch (Exception e)
             {
-                if (MateriasConCambios !=null)
-                {
-                    foreach (Materia ma in MateriasConCambios)
-                    {
-                        new MateriaLogic().Save(ma);
-                    }
-                }
-                new PlanLogic().Save(this.PlanActual);
-            }            
+                
+                Notificar(e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }         
         }
         public override bool Validar()
         {

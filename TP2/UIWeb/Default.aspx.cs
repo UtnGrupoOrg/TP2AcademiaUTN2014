@@ -14,16 +14,24 @@ namespace UIWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario usu = (new UsuarioLogic().GetOne(Int32.Parse(HttpContext.Current.User.Identity.Name.ToString())));
-
-            Persona per = new PersonaLogic().GetOne(usu.IdPersona);
-            if (per.TipoPersona == Persona.TiposPersonas.Alumno)
+            try
             {
-                Session["idAlumno"] = per.ID;
+                Usuario usu = (new UsuarioLogic().GetOne(Int32.Parse(HttpContext.Current.User.Identity.Name.ToString())));
+
+                Persona per = new PersonaLogic().GetOne(usu.IdPersona);
+                if (per.TipoPersona == Persona.TiposPersonas.Alumno)
+                {
+                    Session["idAlumno"] = per.ID;
+                }
+
+
+                this.titulo.InnerText = "Bienvenido " + usu.NombreUsuario + " (" + per.TipoPersona + ")";
             }
+            catch (Exception ex)
+            {
 
-
-            this.titulo.InnerText = "Bienvenido " + usu.NombreUsuario + " (" + per.TipoPersona + ")";
+                Response.Write(ex.Message);
+            }
         }
     }
 }

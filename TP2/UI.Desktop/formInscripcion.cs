@@ -43,8 +43,16 @@ namespace UI.Desktop
                 cbxComisiones.DataSource = null;
             }
             else
-            {                
-                cbxComisiones.DataSource = new ComisionLogic().getAllWithMateriaAndYear(((Materia)cbxMaterias.SelectedItem).ID, DateTime.Today.Year);
+            {
+                try
+                {
+                    cbxComisiones.DataSource = new ComisionLogic().getAllWithMateriaAndYear(((Materia)cbxMaterias.SelectedItem).ID, DateTime.Today.Year);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Comision", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 cbxComisiones.DisplayMember = "desc_comision";
                 cbxComisiones.SelectedIndex = -1;
             }
@@ -86,7 +94,15 @@ namespace UI.Desktop
         private void GuardarCambios()
         {
             this.MapearDatos();
-            new AlumnoInscripcionLogic().Save(inscripcionActual);
+            try
+            {
+                new AlumnoInscripcionLogic().Save(inscripcionActual);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Inscripcion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void MapearDatos()

@@ -42,7 +42,15 @@ namespace UIWeb
             this.gridPanel.Visible = true;
             this.gridActionsPanel.Visible = true;
             gridView.SelectedIndex = -1;
-            this.gridView.DataSource = this.Logic.GetAll();
+            try
+            {
+                this.gridView.DataSource = this.Logic.GetAll();
+            }
+            catch (Exception e)
+            {
+
+                this.SetError(e.Message);
+            }
             this.gridView.DataBind();
         }
 

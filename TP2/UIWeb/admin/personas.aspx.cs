@@ -83,7 +83,14 @@ namespace UIWeb.admin
             {               
                 this.EnableGrid(true);
                 gridView.SelectedIndex = -1;
-                this.gridView.DataSource = Logic.GetAllWithPlanDescription((Persona.TiposPersonas)Tipo);
+                try
+                {
+                    this.gridView.DataSource = Logic.GetAllWithPlanDescription((Persona.TiposPersonas)Tipo);
+                }
+                catch (Exception e)
+                {
+                    this.SetError(e.Message);
+                }
                 this.gridView.DataBind();
             }
         }
@@ -341,7 +348,14 @@ namespace UIWeb.admin
 
         protected void lbtnSiguiente_Click(object sender, EventArgs e)
         {
-            ViewState["materia"] = new MateriaLogic().GetOne(this.SelectedId).Descripcion;
+            try
+            {
+                ViewState["materia"] = new MateriaLogic().GetOne(this.SelectedId).Descripcion;
+            }
+            catch (Exception ex)
+            {
+                this.SetError(ex.Message);
+            }
             LoadComisiones(this.SelectedId);
         }
 

@@ -58,8 +58,15 @@ namespace UIWeb.admin
 
         private void LoadForm(int id)
         {
-            this.Entity = this.Logic.GetOne(id);
-            this.txtDescripcion.Text = this.Entity.Descripcion;
+            try
+            {
+                this.Entity = this.Logic.GetOne(id);
+                this.txtDescripcion.Text = this.Entity.Descripcion;
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
         }
 
         private void LoadEntity(Especialidad especialidad)

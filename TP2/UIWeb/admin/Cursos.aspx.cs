@@ -111,11 +111,18 @@ namespace UIWeb.admin
         /// </summary>
         private void loadForm()
         {
-            Curso = new CursoLogic().GetOne(SelectedId);
-            txtCupo.Text = Curso.Cupo.ToString();
-            txtAnioCurso.Text = Curso.AnioCalendario.ToString();
-            ddlComisiones.SelectedIndex = ddlComisiones.Items.IndexOf(ddlComisiones.Items.FindByValue(Curso.IDComision.ToString()));
-            ddlMaterias.SelectedIndex = ddlMaterias.Items.IndexOf(ddlMaterias.Items.FindByValue(Curso.IDMateria.ToString()));
+            try
+            {
+                Curso = new CursoLogic().GetOne(SelectedId);
+                txtCupo.Text = Curso.Cupo.ToString();
+                txtAnioCurso.Text = Curso.AnioCalendario.ToString();
+                ddlComisiones.SelectedIndex = ddlComisiones.Items.IndexOf(ddlComisiones.Items.FindByValue(Curso.IDComision.ToString()));
+                ddlMaterias.SelectedIndex = ddlMaterias.Items.IndexOf(ddlMaterias.Items.FindByValue(Curso.IDMateria.ToString()));
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
         }
         /// <summary>
         /// Habilita la edicion de los campos del abm

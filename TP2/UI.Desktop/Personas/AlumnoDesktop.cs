@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
@@ -18,9 +22,18 @@ namespace UI.Desktop
         public AlumnoDesktop(ModoForm modo)
             : this()
         {
-            this.Modo = modo;  
-            Planes = new PlanLogic().GetAll();
-            this.cbxPlan.DataSource = Planes;
+            this.Modo = modo;
+            try
+            {
+                Planes = new PlanLogic().GetAll();
+                this.cbxPlan.DataSource = Planes;
+            }
+            catch (Exception e)
+            {
+
+               MessageBox.Show(e.Message,"Alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         public AlumnoDesktop(int ID,ModoForm modo)
             : this(modo)

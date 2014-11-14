@@ -117,29 +117,43 @@ namespace UIWeb
         }
         private void LoadForm(int id)
         {
-            inscripcionWithPersonaData = this.Logic.GetOneWithPersona(id);
-            this.txtNombre.Text = inscripcionWithPersonaData.Rows[0]["nombre"].ToString();
-            this.txtApellido.Text = inscripcionWithPersonaData.Rows[0]["apellido"].ToString();
-            this.txtLegajo.Text = inscripcionWithPersonaData.Rows[0]["legajo"].ToString();
-            this.txtNota.Text = inscripcionWithPersonaData.Rows[0]["nota"].ToString();
-            string condicion=null;
-            if (inscripcionWithPersonaData.Rows[0]["condicion"].ToString() == "")
+            try
             {
-                condicion = null;
-            }
-            else
-            {
-                condicion = inscripcionWithPersonaData.Rows[0]["condicion"].ToString();
-            }
+                inscripcionWithPersonaData = this.Logic.GetOneWithPersona(id);
+                this.txtNombre.Text = inscripcionWithPersonaData.Rows[0]["nombre"].ToString();
+                this.txtApellido.Text = inscripcionWithPersonaData.Rows[0]["apellido"].ToString();
+                this.txtLegajo.Text = inscripcionWithPersonaData.Rows[0]["legajo"].ToString();
+                this.txtNota.Text = inscripcionWithPersonaData.Rows[0]["nota"].ToString();
+                string condicion = null;
+                if (inscripcionWithPersonaData.Rows[0]["condicion"].ToString() == "")
+                {
+                    condicion = null;
+                }
+                else
+                {
+                    condicion = inscripcionWithPersonaData.Rows[0]["condicion"].ToString();
+                }
 
-            this.ddlCondiciones.SelectedValue = condicion;
+                this.ddlCondiciones.SelectedValue = condicion;
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
         }
 
         private void LoadEntity(AlumnoInscripcion inscripcion)
         {
-            inscripcionWithPersonaData = this.Logic.GetOneWithPersona(inscripcion.ID);
-            inscripcion.IDCurso = Int32.Parse(inscripcionWithPersonaData.Rows[0]["id_curso"].ToString());
-            inscripcion.IDAlumno = Int32.Parse(inscripcionWithPersonaData.Rows[0]["id_alumno"].ToString());
+            try
+            {
+                inscripcionWithPersonaData = this.Logic.GetOneWithPersona(inscripcion.ID);
+                inscripcion.IDCurso = Int32.Parse(inscripcionWithPersonaData.Rows[0]["id_curso"].ToString());
+                inscripcion.IDAlumno = Int32.Parse(inscripcionWithPersonaData.Rows[0]["id_alumno"].ToString());
+            }
+            catch (Exception e)
+            {
+                this.SetError(e.Message);
+            }
             inscripcion.Condicion = ddlCondiciones.SelectedValue;
             int? nota;
             if (string.IsNullOrEmpty(this.txtNota.Text))

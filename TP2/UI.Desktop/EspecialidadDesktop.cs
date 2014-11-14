@@ -80,9 +80,17 @@ namespace UI.Desktop
 
         public override void MapearDatos()
         {
-            Especialidad esp = new EspecialidadLogic().GetOne(this.EspecialidadActual.ID);
-            this.txtIDEspecialidad.Text = esp.ID.ToString();
-            this.txtNombreEspecialidad.Text = esp.Descripcion;
+            try
+            {
+                Especialidad esp = new EspecialidadLogic().GetOne(this.EspecialidadActual.ID);
+                this.txtIDEspecialidad.Text = esp.ID.ToString();
+                this.txtNombreEspecialidad.Text = esp.Descripcion;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Alumno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
 
@@ -103,7 +111,15 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            new EspecialidadLogic().Save(this.EspecialidadActual);
+            try
+            {
+                new EspecialidadLogic().Save(this.EspecialidadActual);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "Especialidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
