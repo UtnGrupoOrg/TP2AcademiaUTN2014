@@ -84,9 +84,9 @@ namespace UIWeb.admin
             {
                 case FormModes.Alta: this.resetForm(); this.enableForm();
                     break;
-                case FormModes.Baja: this.loadForm(); this.lockForm();
+                case FormModes.Baja: this.loadForm(); this.lockForm(); this.lbtnAceptar.Text = "Eliminar";
                     break;
-                case FormModes.Modificacion: this.loadForm(); this.enableForm();
+                case FormModes.Modificacion: this.loadForm(); this.enableForm(); this.lbtnAceptar.Text = "Aceptar";
                     break;
                 default:
                     break;

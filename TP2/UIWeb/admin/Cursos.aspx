@@ -60,7 +60,7 @@
                                                Display="dynamic"
                                                ErrorMessage="Ingrese año valido"
                                                ValidationExpression="\d+" />  
-                <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" ErrorMessage="Debe ingresar un año." MaximumValue="2050" MinimumValue="1960" ControlToValidate="txtAnioCurso"></asp:RangeValidator>
+                <asp:RangeValidator ID="RangeValidator2" runat="server" Display="Dynamic" CssClass="error" ErrorMessage="Debe ingresar un año valido." MaximumValue="2050" MinimumValue="1960" ControlToValidate="txtAnioCurso"></asp:RangeValidator>
                 <asp:Label ID="lblMateria" runat="server" Text="Materia: "></asp:Label>
                 <asp:DropDownList ID="ddlMaterias" runat="server" DataSourceID="odsMaterias" DataTextField="Descripcion" DataValueField="ID">
                 </asp:DropDownList>

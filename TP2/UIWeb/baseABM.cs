@@ -17,7 +17,7 @@ namespace UIWeb
         }
         public FormModes FormMode
         {
-            get { return (FormModes)this.ViewState["FormMode"]; }
+            get {return (FormModes)this.ViewState["FormMode"]; }
             set { this.ViewState["FormMode"] = value; }
         }
         protected int SelectedId

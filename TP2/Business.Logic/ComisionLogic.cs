@@ -68,7 +68,7 @@ namespace Business.Logic
         {
             if (comision.State==Entities.Comision.States.New||comision.State==Entities.Comision.States.Modified)
             {
-                if (string.IsNullOrEmpty(comision.Descripcion)|| Enumerable.Range(1960,2050).Contains(comision.AnioEspecialidad))
+                if (string.IsNullOrEmpty(comision.Descripcion)|| !Enumerable.Range(1960,2050).Contains(comision.AnioEspecialidad))
                 {
                     throw new Exception("Hay datos vacios o erróneos");
                 }

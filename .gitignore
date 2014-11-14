@@ -222,3 +222,4 @@ TP2/UI.Desktop/app.config
 TP2/UIWeb/Web.config
 TP2/UI.Desktop/app.config
 TP2/Data.Database/Adapter.cs
+TP2/UIWeb/UsersInRoles.xml
